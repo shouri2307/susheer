@@ -92,8 +92,26 @@
       '📎|Paper Clips Bulk|99', '🖇️|Stapler Heavy Duty|399', '📊|Whiteboard 4x3 ft|1799', '🔌|Extension Board 6 Socket|799']],
     ['garden', 'Garden & Outdoor', '🌿', '#badc58', [
       '🌱|Seeds Mixed Vegetable|149', '🪴|Planter Pots (Set of 5)|699', '💦|Garden Hose 30 m|1299', '✂️|Pruning Shears|499',
-      '🌻|Sunflower Bulbs|199', '🛖|Outdoor Swing Chair|7999', '🔥|BBQ Grill Portable|3499', '☂️|Patio Umbrella|2999']]
+      '🌻|Sunflower Bulbs|199', '🛖|Outdoor Swing Chair|7999', '🔥|BBQ Grill Portable|3499', '☂️|Patio Umbrella|2999']],
+    ['helicopters', 'Helicopters', '🚁', '#e84118', [
+      '🚁|Light Helicopter 4-Seater|45000000', '🚁|Luxury Executive Helicopter|180000000', '🚁|Rescue Helicopter Twin-Engine|320000000', '🚁|Police Patrol Helicopter|250000000',
+      '🚁|Cargo Heavy-Lift Helicopter|520000000', '🚁|Remote Control Helicopter Toy|2999', '🎧|Pilot Headset Noise-Cancelling|45000', '🏗️|Rooftop Helipad Kit|8500000']],
+    ['cars', 'Cars', '🚗', '#0097e6', [
+      '🚗|Hatchback Car|650000', '🚙|Compact SUV|1250000', '🚙|SUV 7-Seater|2400000', '🚘|Sedan Luxury|3200000',
+      '⚡|Electric Car|1800000', '🏎️|Sports Car|9500000', '🚐|Limousine Stretch|18000000', '🛻|Pickup Truck|1900000',
+      '🛺|Auto Rickshaw|350000', '🚌|Mini Bus 16-Seater|2800000', '🚛|Cargo Truck|3500000', '🚜|Tractor|900000']],
+    ['planes', 'Planes & Aircraft', '✈️', '#00a8ff', [
+      '✈️|Private Jet|900000000', '🛩️|Single-Engine Propeller Plane|25000000', '🛩️|Seaplane|60000000', '✈️|Passenger Airliner|8000000000',
+      '🪂|Paraglider|85000', '🎈|Hot Air Balloon|2500000', '🛩️|Glider Aircraft|1500000', '🛸|Camera Drone 4K|35000',
+      '✈️|Luxury Aircraft Cabin Edition|1500000000', '🪁|Remote Control Plane Toy|3499']],
+    ['bikes', 'Bikes & Scooters', '🏍️', '#e1b12c', [
+      '🏍️|Motorcycle 150cc|120000', '🏍️|Cruiser Bike 350cc|260000', '🛵|Scooter 110cc|85000', '🛵|Electric Scooter|110000',
+      '🏍️|Superbike 1000cc|1800000', '🚲|Mountain Bicycle|18999', '🚲|Kids Bicycle|4999', '🛴|Electric Kick Scooter|32999']],
+    ['boats', 'Boats & Yachts', '🛥️', '#487eb0', [
+      '🛥️|Speedboat|3500000', '🛥️|Luxury Yacht|450000000', '🛶|Kayak|18000', '⛵|Sailboat|2200000',
+      '🚤|Jet Ski|1200000', '🛟|Life Jacket|1499', '🚢|Houseboat|9000000', '🏊|Inflatable Pool Boat|3999']]
   ];
+
 
   // seeded PRNG so catalog is stable between page loads
   let seed = 20250;
@@ -106,6 +124,14 @@
     price: 50000, mrp: 99999, rating: 4.9, reviews: 100000, img: 'assets/susheer-product.jpg', flash: true, bogo: true,
     desc: 'The one. The only. Susheer himself — now at a flash sale price of ₹50,000 only. Buy now and get 1 FREE! Comes with a signature hoodie, premium swagger and unlimited mall-walking energy. (Parody item — no humans are actually for sale.)',
     tags: ['Flash Sale', 'Buy 1 Get 1 Free', 'Limited Stock']
+  });
+
+  // Product 1 — the only item in the Jaggu department
+  products.push({
+    id: 1, name: 'Langadeesh Garu', short: 'Langadeesh Garu', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
+    price: 10000000, mrp: 25000000, rating: 5.0, reviews: 99999, img: 'assets/langadeesh.jpg', hot: true,
+    desc: 'The one and only Langadeesh Garu — the rarest item in the entire Susheer Shopping Mall. Only ONE piece exists, so every sale is a miracle. Price: ₹1 Crore, non-negotiable. (Parody item — no humans are actually for sale.)',
+    tags: ['🔥 HOT', 'Only 1 in the mall', 'Selling out fast']
   });
 
   CATS.forEach(([cid, label, icon, color, items]) => {
@@ -126,8 +152,12 @@
     });
   });
 
+  // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
+  const IMG = window.SM_IMG || {};
+  products.forEach(p => { if (!p.img && IMG[p.id]) p.photo = IMG[p.id]; });
+
   window.SM_DATA = {
-    CATS: CATS.map(c => ({ id: c[0], label: c[1], icon: c[2], color: c[3] })),
+    CATS: [{ id: 'jaggu', label: 'Jaggu', icon: '🔥', color: '#ff3d00' }].concat(CATS.map(c => ({ id: c[0], label: c[1], icon: c[2], color: c[3] }))),
     products,
     FLASH_PRICE: 50000
   };

@@ -250,3 +250,45 @@ img{max-width:100%;display:block}
   .btns{grid-template-columns:1fr}.line{grid-template-columns:70px 1fr}.line .vis{width:70px}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== v2: real photos, hot tag, jaggu popup, thank-you zoom ===== */
+.vis.hasimg{background:#fff}
+.vis img.stock{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px;background:#fff;transition:.3s}
+.card:hover .vis img.stock{transform:scale(1.07)}
+.vis.hasimg .emo{opacity:.25}
+.hottag{position:absolute;z-index:3;top:10px;right:10px;background:linear-gradient(90deg,#ff7a00,#ff0a54);color:#fff;font-weight:900;font-size:11px;letter-spacing:.06em;padding:4px 10px;border-radius:99px;box-shadow:0 4px 14px rgba(255,10,84,.6);animation:pulseb .9s ease-in-out infinite alternate}
+@keyframes pulseb{to{transform:scale(1.12)}}
+.card.hot{border-color:#ff7a00;box-shadow:0 0 34px rgba(255,122,0,.35)}
+.sold{font-size:11.5px;color:#ffb36b;font-weight:600;margin-top:2px}
+.hot-box{background:linear-gradient(120deg,rgba(255,122,0,.22),rgba(255,10,84,.18));border:1px dashed #ff7a00;border-radius:var(--r);padding:14px 16px;margin:14px 0;font-weight:600}
+.pdp-media .vis.hasimg{border-radius:24px}
+.vis.big img.stock{padding:24px}
+
+/* Jagadeesh popup (right side) */
+.jagpop{position:fixed;right:0;top:150px;z-index:145;width:240px;border-radius:20px 0 0 20px;overflow:hidden;background:#14102b;border:2px solid #ff7a00;border-right:0;box-shadow:0 20px 60px rgba(255,122,0,.45);transform:translateX(110%);transition:transform .7s cubic-bezier(.2,1.2,.4,1)}
+.jagpop.show{transform:none}
+.jagpop img{width:100%;height:230px;object-fit:cover;object-position:top}
+.jp-t{padding:10px 12px;display:flex;flex-direction:column;gap:4px;font-size:13px}
+.jp-tag{align-self:flex-start;background:var(--red);font-size:10px;font-weight:900;letter-spacing:.1em;padding:2px 8px;border-radius:99px;animation:pulseb .8s infinite alternate}
+.jp-t small{color:var(--gold);font-size:12px}
+.jagpop .x{position:absolute;top:6px;right:6px;z-index:2;width:24px;height:24px;border-radius:50%;background:#000;color:#fff;font-size:15px;line-height:1}
+
+/* thank-you boss zoom */
+.thanks{position:fixed;inset:0;z-index:400;display:grid;place-content:center;justify-items:center;gap:18px;background:rgba(5,5,12,.82);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .25s}
+.thanks.show{opacity:1}
+.t-face{position:relative;width:min(78vw,380px);aspect-ratio:1/1;border-radius:50%;overflow:hidden;border:5px solid var(--pink);box-shadow:0 0 80px rgba(255,61,129,.7);background:#000}
+.t-zoom{position:absolute;left:50%;top:50%;width:0;height:0}
+.t-zoom img{position:absolute;left:0;top:0;width:min(78vw,380px);max-width:none;transform-origin:49.3% 33.8%;transform:translate(-49.3%,-33.8%) scale(1)}
+.thanks.show .t-zoom img{animation:zoomlips 1s cubic-bezier(.5,0,.2,1) forwards}
+@keyframes zoomlips{to{transform:translate(-49.3%,-33.8%) scale(6.2)}}
+.t-heart{position:absolute;left:50%;top:50%;font-size:0;transform:translate(-50%,-50%);filter:drop-shadow(0 6px 14px rgba(255,0,80,.8))}
+.thanks.show .t-heart{animation:heartpop 1.3s .85s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes heartpop{0%{font-size:0;opacity:0}30%{font-size:150px;opacity:1}100%{font-size:90px;opacity:.95;transform:translate(-50%,-125%)}}
+.t-txt{font:900 clamp(28px,6vw,48px)/1 Inter,sans-serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;transform:translateY(20px)}
+.thanks.show .t-txt{animation:txtin .5s 1s ease forwards}
+@keyframes txtin{to{opacity:1;transform:none}}
+.fh{position:absolute;bottom:-40px;opacity:0;pointer-events:none}
+.thanks.show .fh{animation:fup 2s ease-out forwards}
+@keyframes fup{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(-70vh) rotate(25deg)}}
+@media(max-width:560px){.jagpop{width:150px;top:120px}.jagpop img{height:130px}.jp-t{font-size:11px}}
+@media(max-width:700px){.flashbar{position:relative;font-size:12px;padding:7px 10px;gap:6px}}

@@ -21,6 +21,7 @@
       <h1>${p.name}</h1>
       <div class="rate" style="margin-top:10px;font-size:14px"><span class="star">${p.rating} ★</span><span class="rv">${p.reviews.toLocaleString('en-IN')} ratings</span></div>
       <div class="big-price">${inr(p.price)} <s>${inr(p.mrp)}</s> <span class="off">${off}% off</span></div>
+      ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>Only 1 left in the mall!</b></div>` : ''}
       ${p.flash ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · <b>BUY NOW, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="offers">
@@ -37,6 +38,7 @@
       <p class="desc">${p.desc}</p>
     </div>`;
 
+  setInterval(() => { const v = $('.js-view'); if (v) v.textContent = 30 + Math.floor(Math.random() * 60); }, 1500);
   $('#qm').onclick = () => { qty = Math.max(1, qty - 1); $('#q').textContent = qty; };
   $('#qp').onclick = () => { qty = Math.min(10, qty + 1); $('#q').textContent = qty; };
   $('#add').onclick = () => { SM.cart.add(p.id, qty); SM.toast('Added to cart: ' + p.short + (p.bogo ? ' (+1 FREE 🎁)' : '')); };

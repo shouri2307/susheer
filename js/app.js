@@ -14,7 +14,7 @@
   SM.cart = {
     get: load,
     count() { return Object.values(load()).reduce((a, b) => a + b, 0); },
-    add(id, q = 1) { const c = load(); c[id] = Math.min(10, (c[id] || 0) + q); save(c); SM.refreshCart(); },
+    add(id, q = 1) { const c = load(); c[id] = Math.min(10, (c[id] || 0) + q); save(c); SM.refreshCart(); SM.thanks(); },
     set(id, q) { const c = load(); if (q <= 0) delete c[id]; else c[id] = Math.min(10, q); save(c); SM.refreshCart(); },
     clear() { save({}); SM.refreshCart(); }
   };
@@ -30,18 +30,24 @@
   };
 
   /* ---------- product card ---------- */
-  SM.visual = (p, cls = '') => p.img
-    ? `<div class="vis photo ${cls}"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`
-    : `<div class="vis ${cls}" style="--c:${p.color}"><span class="emo">${p.emoji}</span></div>`;
+  SM.visual = (p, cls = '') => {
+    if (p.img) return `<div class="vis photo ${cls}"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`;
+    const im = p.photo ? `<img class="stock" src="${p.photo}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
+    return `<div class="vis ${p.photo ? 'hasimg' : ''} ${cls}" style="--c:${p.color}"><span class="emo">${p.emoji}</span>${im}</div>`;
+  };
+  // live "sold" numbers (random, for the laughs)
+  SM.sold = (min = 900, max = 9000) => { const n = Math.floor(min + Math.random() * (max - min)); return `<span class="js-n" data-n="${n}">${n.toLocaleString('en-IN')}</span>`; };
+  setInterval(() => document.querySelectorAll('.js-n').forEach(el => { const n = +el.dataset.n + 1 + Math.floor(Math.random() * 9); el.dataset.n = n; el.textContent = n.toLocaleString('en-IN'); }), 1800);
   SM.card = p => {
     const off = Math.round((1 - p.price / p.mrp) * 100);
-    return `<article class="card ${p.flash ? 'flash' : ''}">
+    return `<article class="card ${p.flash ? 'flash' : ''} ${p.hot ? 'hot' : ''}">
       <a href="product.html?id=${p.id}" class="card-link">
-        ${p.bogo ? '<span class="ribbon">BUY 1 GET 1 FREE</span>' : ''}
+        ${p.bogo ? '<span class="ribbon">BUY 1 GET 1 FREE</span>' : ''}${p.hot ? '<span class="hottag">🔥 HOT</span>' : ''}
         ${SM.visual(p)}
         <h3>${p.name}</h3>
         <div class="rate"><span class="star">${p.rating} ★</span><span class="rv">(${p.reviews.toLocaleString('en-IN')})</span></div>
         <div class="price"><b>${inr(p.price)}</b><s>${inr(p.mrp)}</s><span class="off">${off}% off</span></div>
+        ${p.hot || p.flash ? `<div class="sold">🔥 ${SM.sold(p.hot ? 1200 : 3000, p.hot ? 4800 : 9000)} sold in last hour · selling fast!</div>` : ''}
       </a>
       <button class="add" data-add="${p.id}">Add to cart</button>
     </article>`;
@@ -76,16 +82,26 @@
     <footer class="foot">
       <div class="foot-in">
         <div><div class="flogo">Susheer Shopping Mall</div><p>Plz visit <b>Bowenpally Mall</b> for world rate experience.</p></div>
-        <div><b>Shop</b><a href="index.html?cat=grocery">Grocery</a><a href="index.html?cat=mobiles">Mobiles</a><a href="index.html?cat=womens">Fashion</a><a href="product.html?id=0">Flash Sale</a></div>
+        <div><b>Shop</b><a href="index.html?cat=helicopters">Helicopters</a><a href="index.html?cat=cars">Cars</a><a href="index.html?cat=planes">Planes</a><a href="index.html?cat=jaggu">Jaggu 🔥</a><a href="index.html?cat=grocery">Grocery</a><a href="index.html?cat=mobiles">Mobiles</a><a href="index.html?cat=womens">Fashion</a><a href="product.html?id=0">Flash Sale</a></div>
         <div><b>Mall</b><a href="about.html">About the Mall</a><a href="about.html#gallery">Gallery</a><a href="cart.html">Cart</a></div>
       </div>
-      <p class="fine">Susheer Shopping Mall is a parody project made for fun and is not affiliated with any real retailer. No real orders, payments or humans are sold. 😄</p>
+      <p class="fine">Susheer Shopping Mall is a parody project made for fun and is not affiliated with any real retailer. No real orders, payments or humans are sold. Product photos are from Wikimedia Commons (free licences). 😄</p>
     </footer>
     <aside class="salesman" id="salesman" aria-live="polite">
       <button class="x" aria-label="Dismiss salesman" id="salesX">×</button>
       <img src="assets/salesman-full.jpg" alt="Susheer salesman">
       <div class="bub"><span class="who">Susheer Salesman says:</span><p id="salesTxt"></p>
         <div class="srow"><a id="salesGo" href="#" class="sgo">View offer</a><button id="salesAdd" class="sadd">Add 🛒</button></div></div>
+    </aside>
+    <div class="thanks" id="thanks" aria-hidden="true">
+      <div class="t-face"><div class="t-zoom"><img src="assets/salesman-full.jpg" alt=""></div><span class="t-heart">❤️</span></div>
+      <div class="t-txt">Thank you boss! 😘</div>
+    </div>
+    <aside class="jagpop" id="jagpop">
+      <button class="x" aria-label="Close" id="jagX">×</button>
+      <a href="index.html?cat=jaggu"><img src="assets/jagadeesh-flash.jpg" alt="Local Jagadeesh flash sale">
+        <div class="jp-t"><span class="jp-tag">⚡ LOCAL FLASH SALE</span><b>Local Jagadeesh's selling out EXTREMELY fast!</b>
+        <small><span id="jagLeft">7</span> left · DM <u>Langadeesh</u> for contact details</small></div></a>
     </aside>
     <aside class="mallpop" id="mallpop">
       <button class="x" aria-label="Close" id="mallX">×</button>
@@ -146,6 +162,32 @@
   $('#mallX').onclick = () => mp.classList.remove('show');
   mp.addEventListener('click', e => { if (!e.target.closest('.x')) location.href = 'about.html'; });
   mpTimer = setTimeout(showMall, 9000);
+
+  /* ---------- salesman thank-you zoom (face -> lips + heart) ---------- */
+  const th = $('#thanks'); let thT;
+  SM.thanks = () => {
+    if (th.classList.contains('show')) return;
+    th.querySelectorAll('.fh').forEach(h => h.remove());
+    for (let i = 0; i < 14; i++) {
+      const h = document.createElement('span'); h.className = 'fh'; h.textContent = pick(['❤️', '💖', '💗', '😘']);
+      h.style.cssText = `left:${10 + Math.random() * 80}%;animation-delay:${0.9 + Math.random() * 1.2}s;font-size:${22 + Math.random() * 30}px`;
+      th.appendChild(h);
+    }
+    th.classList.add('show'); clearTimeout(thT);
+    thT = setTimeout(() => th.classList.remove('show'), 3200);
+  };
+
+  /* ---------- Local Jagadeesh flash-sale side popup ---------- */
+  const jp = $('#jagpop'); let left = 7;
+  const showJag = () => {
+    if (!document.hidden) {
+      left = 2 + Math.floor(Math.random() * 9); $('#jagLeft').textContent = left;
+      jp.classList.add('show'); setTimeout(() => jp.classList.remove('show'), 7500);
+    }
+    setTimeout(showJag, 13000 + Math.random() * 14000);
+  };
+  $('#jagX').onclick = () => jp.classList.remove('show');
+  setTimeout(showJag, 6500);
 
   SM.malls = malls;
 })();
