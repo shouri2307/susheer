@@ -38,7 +38,7 @@
       <ul>${bp.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}</ul>
       <div class="price"><b style="font-size:26px">${SM.inr(bp.price)}</b><s>${SM.inr(bp.mrp)}</s></div>
       <a class="btn pri" href="product.html?id=${bp.id}">See why he is the best →</a>
-      ${(() => { const r = P.find(x => x.short === 'Smiley Shouri'); return r ? `<div class="runner">🥈 Runner-up for Best Product: <a href="product.html?id=${r.id}">Smiley Shouri</a> — the benchmark of product standards, just a notch below.</div>` : ''; })()}</div></div>`;
+      ${(() => { const r = P.find(x => x.short === 'Soulful Shouri'); return r ? `<div class="runner">🥈 Runner-up for Best Product: <a href="product.html?id=${r.id}">Soulful Shouri</a> — the benchmark of product standards, just a notch below.</div>` : ''; })()}</div></div>`;
 
   // deals rail
   const shuffled = P.filter(p => !p.flash).sort(() => Math.random() - .5).slice(0, 14);

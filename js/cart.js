@@ -56,13 +56,17 @@
     el.innerHTML = `<div class="paycard"><button class="xx" id="payX" aria-label="Close">×</button>
       <div class="pay-h"><b>Susheer Pay</b><small>Secure* checkout</small></div>
       <div class="pay-amt">${inr(total)}</div>
-      <p class="pay-sub">Scan this QR code with any scanner app to pay</p>
+      <p class="pay-sub">Point your phone camera at this QR — the Useless Pay Money-Teleporter™ is warming up 💸</p>
       <div class="qrbox" id="qrbox"><span class="qrload">Generating QR…</span></div>
-      <div class="pay-timer">QR expires in <b id="payT">04:59</b></div>
+      <div class="pay-fun" id="payFun">Waiting for your phone to wake up…</div>
+      <a class="paylink" href="scan.html" target="_blank" rel="noopener">💻 On a laptop? Click here to open the payment page</a>
+      <div class="pay-timer">QR expires in <b id="payT">04:59</b> (or when Mr. KK wakes up)</div>
       <button class="btn buy block" id="payDone">I have paid ✔</button>
       <p class="pay-fine">*Parody gateway. No money is taken. Scanning the QR may cause laughter.</p></div>`;
     document.body.appendChild(el);
     loadQR(() => { const box = document.getElementById('qrbox'); if (!box) return; box.innerHTML = ''; new QRCode(box, { text: location.origin + '/scan.html', width: 190, height: 190, colorDark: '#14102b', colorLight: '#ffffff' }); });
+    const fun = ['Waiting for your phone to wake up…', 'Mr. KK is still napping, please be patient…', 'Counting your rupees (all of them)…', 'Asking Jagadeesh for permission…', 'Warming up the Money-Teleporter™…', 'Politely ignoring your bank balance…']; let fi = 0;
+    const ft = setInterval(() => { const x = document.getElementById('payFun'); if (!x) return clearInterval(ft); fi = (fi + 1) % fun.length; x.textContent = fun[fi]; }, 1800);
     let left = 299; const t = setInterval(() => { const x = document.getElementById('payT'); if (!x) return clearInterval(t); left = left > 0 ? left - 1 : 299; x.textContent = String(Math.floor(left / 60)).padStart(2, '0') + ':' + String(left % 60).padStart(2, '0'); }, 1000);
   }
   document.addEventListener('click', e => {

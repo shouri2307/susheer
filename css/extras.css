@@ -307,3 +307,37 @@ body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gr
 
 .bigemo{display:grid;place-items:center;aspect-ratio:3/4;font-size:140px;border-radius:20px;background:radial-gradient(circle at 50% 30%,#2a2160,#0b0d1a);border:1px solid var(--line)}
 .vis.photo.fit .emo{z-index:0}
+
+/* ---- v10: slower, face-visible kiss ---- */
+.thanks{--ox:45%;--oy:47%;--z:1.75}
+.t-zoom img{transform-origin:var(--ox) var(--oy)}
+.thanks.show .t-zoom img{animation:kissface 5.4s cubic-bezier(.45,.05,.25,1) forwards}
+@keyframes kissface{
+  0%{transform:translate(calc(-1 * var(--ox)),calc(-1 * var(--oy))) scale(1)}
+  38%{transform:translate(calc(-1 * var(--ox)),calc(-1 * var(--oy))) scale(var(--z))}
+  58%{transform:translate(calc(-1 * var(--ox)),calc(-1 * var(--oy))) scale(var(--z))}
+  74%{transform:translate(calc(-1 * var(--ox)),calc(-1 * var(--oy) - 1%)) scale(calc(var(--z) + .22)) rotate(-2deg)}
+  100%{transform:translate(calc(-1 * var(--ox)),calc(-1 * var(--oy) - 1%)) scale(calc(var(--z) + .22)) rotate(-2deg)}
+}
+.t-lips{position:absolute;left:53%;top:66%;font-size:0;opacity:0;transform:translate(-50%,-50%);z-index:3;filter:drop-shadow(0 4px 12px rgba(255,0,80,.7))}
+.thanks.show .t-lips{animation:lipsfly 1.2s 2.4s ease-out forwards}
+@keyframes lipsfly{0%{font-size:0;opacity:0}35%{font-size:80px;opacity:1}100%{font-size:240px;opacity:0;transform:translate(-50%,-62%) rotate(-12deg)}}
+.thanks.show .t-heart{animation:heartpop 1.3s 3.0s cubic-bezier(.2,1.6,.4,1) forwards}
+.thanks.show .t-txt{animation:txtin .5s 3s ease forwards}
+.thanks.show .fh{animation:fup 2.2s ease-out forwards}
+
+/* ---- v10: payment helper text, Ganda page ---- */
+.pay-fun{font-size:13px;font-weight:700;color:#7c5cff;margin-bottom:6px;min-height:18px}
+.paylink{display:block;margin:4px 0 10px;font-size:13px;font-weight:700;color:#d6003f}
+.paylink:hover{text-decoration:underline}
+#quietBtn{font-size:16px;padding:6px 10px!important}
+.ganda-frame{position:relative;width:100%;max-width:440px;margin:auto;border-radius:28px;overflow:hidden;border:3px solid var(--violet);box-shadow:0 30px 90px rgba(124,92,255,.5),0 0 60px rgba(46,229,157,.25)}
+.ganda-frame img{width:100%;display:block;animation:bob 3s ease-in-out infinite}
+.ganda-props{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:26px 0 30px}
+/* kiss: floats up and away, never covers the face; heart sits in the corner */
+.t-lips{left:52%;top:64%}
+.thanks.show .t-lips{animation:lipsfly2 1.5s 2.4s ease-out forwards}
+@keyframes lipsfly2{0%{font-size:0;opacity:0;transform:translate(-50%,-50%)}25%{font-size:58px;opacity:1}100%{font-size:96px;opacity:0;transform:translate(40%,-210%) rotate(-16deg)}}
+.t-heart{left:84%;top:18%}
+.thanks.show .t-heart{animation:heartpop2 1.2s 3.1s cubic-bezier(.2,1.6,.4,1) forwards}
+@keyframes heartpop2{0%{font-size:0;opacity:0;transform:translate(-50%,-50%)}45%{font-size:92px;opacity:1;transform:translate(-50%,-50%)}100%{font-size:78px;opacity:.95;transform:translate(-50%,-56%)}}

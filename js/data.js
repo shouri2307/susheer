@@ -261,169 +261,170 @@
   });
   person({
     name: 'Lean Baddie', short: 'Lean Baddie', emoji: '💪', price: 333333, mrp: 1333333, rating: 4.9, reviews: 143200, img: 'assets/baddie.jpg',
-    rank: { n: 7, label: '🏅 #7 MOST SOLD PRODUCT IN USELESS MALL', sold: 143200 },
-    note: 'Gym. Baddiness. Aura. 💪',
-    taglines: ['💪 Gym 6 days a week. 7th day: protein.', '😎 Certified baddie. Aura +1000', '🥗 Lean mode: permanently on', '🏋️ Spots you on bench press and judges silently', '🧴 Comes with main-character walk'],
-    highlights: ['💪 Speciality: gym (6 days a week, 7th day is protein)', '😎 Baddiness certified — aura +1000, confidence +9999', '🥗 Lean mode is permanently on', '🏋️ Will spot you on the bench press and judge you silently', '🕶️ Sunglasses indoors: standard'],
-    desc: 'Lean Baddie — the mall\'s #7 best-seller and the only product that can bench your cart, fix your posture and raise your aura in one visit. Specialises in the gym, in baddiness and in walking into rooms like the lights were installed for him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['🏅 #7 Bestseller', '💪 Gym', '😎 Baddie', '🔥 HOT'],
-    popup: { tag: '💪 GYM SPECIAL · BADDIE', title: 'Lean Baddie is flexing — and selling out fast!', small: '{left} left · aura included' },
-    pitch: 'Boss, want some baddiness? Lean Baddie — gym plus aura — only ₹3,33,333!',
+    rank: { n: 7, label: '🏅 #7 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 143200 },
+    note: '11/10 baddie. Balded. Second only to Gym Boy Harish. 💪',
+    taglines: ['💪 Second only in strength to Gym Boy Harish', '😎 Certified 11/10 baddie', '🧑‍🦲 A balded baddie — aerodynamic and proud', '🛠️ Currently working on useless projects', '🥗 Lean mode: permanently on'],
+    highlights: ['💪 Speciality: gym — second only in strength to Gym Boy Harish', '😎 An 11/10 baddie (the scale only goes to 10; we extended it)', '🧑‍🦲 Balded baddie: shiny, aerodynamic and proud', '🛠️ Currently working on useless projects (very busy, nothing finished)', '🥗 Lean mode is permanently on'],
+    desc: 'Lean Baddie — the mall\'s #7 best-seller, second only in strength to Gym Boy Harish, and a proud balded baddie rated 11/10. Specialises in the gym, in baddiness and in walking into rooms like the lights were installed for him. Currently working on several useless projects, none of which he will finish. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #7 Bestseller', '💪 Gym', '😎 11/10 Baddie', '🧑‍🦲 Balded'],
+    popup: { tag: '💪 GYM SPECIAL · BADDIE', title: 'Lean Baddie — the balded 11/10 baddie — is selling out fast!', small: '{left} left · aura included' },
+    pitch: 'Boss, want some baddiness? Lean Baddie — balded, 11/10, second only to Gym Boy Harish — only ₹3,33,333!',
     reviewList: [
       ['Ramesh K.', 5, 'Lifted me. And my cart. And my confidence.'],
-      ['Sneha K.', 5, 'Aura so strong the mall lights flickered.'],
-      ['Arjun V.', 4, 'Gym 6 days a week. On the 7th day he recovers with biryani.'],
-      ['Meena G.', 5, 'Baddie energy: 100%. Lean mode: permanent.']
+      ['Sneha K.', 5, 'Aura so strong the mall lights flickered. They also reflect off his head.'],
+      ['Arjun V.', 4, 'Gym 6 days a week. Admits he is second to Gym Boy Harish. Respect.'],
+      ['Meena G.', 5, '11 out of 10 baddie. Currently working on a useless project. Will update.']
     ]
   });
   person({
     name: 'Sullileni Sridhar', short: 'Sullileni Sridhar', emoji: '🎤', price: 39999, mrp: 149999, unit: 'per show (service)', rating: 4.6, reviews: 98700, img: 'assets/sridhar.jpg',
-    rank: { n: 8, label: '🏅 #8 MOST SOLD PRODUCT IN USELESS MALL', sold: 98700 },
-    note: 'Sings. Dances. Brings the house down. 🎤',
-    taglines: ['🎤 Sings so well the canteen stops boiling tea', '💃 Dance moves with free embarrassment', '🛎️ Available for weddings, birthdays and bus journeys', '🔊 Volume: yes', '🎶 Requests accepted. Mostly ignored.'],
-    highlights: ['🎤 Speciality: singing (any language, any key, any time)', '💃 Also dancing — moves come with free embarrassment', '🛎️ Bookable for weddings, birthdays and long bus rides', '🎶 Requests accepted, rarely played', '🔊 Volume: yes'],
-    desc: 'Sullileni Sridhar — the mall\'s #8 best-seller, a one-man concert and dance floor. Specialises in singing and dancing, in that order, and sometimes both at once. Book him for weddings, birthdays or any occasion that needs a little more noise. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['🏅 #8 Bestseller', '🎤 Singer', '💃 Dancer', '🛎️ Service'],
-    popup: { tag: '🎤 LIVE · BOOK THE SINGER', title: 'Sullileni Sridhar sings AND dances — booking fast!', small: '{left} shows left this week · ₹39,999' },
-    pitch: 'Bhai, Sullileni Sridhar sings and dances for just ₹39,999 a show. Book now!',
+    rank: { n: 8, label: '🏅 #8 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 98700 },
+    note: 'Sings. Dances. Exponential growth since ₹10. 🎤',
+    taglines: ['🎤 Sings so well the canteen stops boiling tea', '💸 Started at ₹10 a show. Now ₹39,999. Exponential growth.', '⚠️ Drawback: MOANS TOO LOUDLY (about everything)', '💃 Dance moves with free embarrassment', '🛎️ Available for weddings, birthdays and bus journeys'],
+    highlights: ['🎤 Speciality: singing (any language, any key, any time)', '💃 Also dancing — moves come with free embarrassment', '📈 Career growth: used to sing and dance at ₹10 a show, now ₹39,999 — exponential growth!', '⚠️ DRAWBACK: MOANS TOO LOUDLY (about everything — keep earplugs handy)', '🛎️ Bookable for weddings, birthdays and long bus rides'],
+    desc: 'Sullileni Sridhar — the mall\'s #8 best-seller, a one-man concert and dance floor. Earlier in his career he came to sing and dance for just ₹10 a show; since then his rates have seen exponential growth (₹39,999 and climbing). Specialises in singing and dancing, sometimes both at once. Known drawback: moans too loudly about absolutely everything, so keep earplugs handy. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #8 Bestseller', '🎤 Singer', '💃 Dancer', '⚠️ Moans too loudly'],
+    popup: { tag: '🎤 LIVE · BOOK THE SINGER', title: 'Sullileni Sridhar sings AND dances (and moans loudly) — booking fast!', small: '{left} shows left this week · was ₹10, now ₹39,999' },
+    pitch: 'Bhai, Sullileni Sridhar started at ₹10 a show and is now ₹39,999. Sings, dances, moans loudly. Book now!',
     reviewList: [
       ['Divya N.', 5, 'Sang so well the canteen uncle stopped boiling the tea to listen.'],
       ['Kiran P.', 4, 'His dance moves unlocked a new level of embarrassment for me. 10/10.'],
       ['Ramya P.', 5, 'Booked for a birthday. Sang, danced, ate half the cake.'],
-      ['Sai T.', 5, 'The Sullileni Sridhar experience: wallet lighter, heart fuller.']
+      ['Sai T.', 3, 'Sings well. Moans way too loudly about the sound check. Earplugs essential.'],
+      ['Venkat R.', 5, 'Used to cost ten rupees, I hear. Worth every one of the 39,999 now.']
     ]
   });
 
 
 
   person({
-    name: 'Chearean.c', short: 'Chearean.c', emoji: '💻', price: 50000000, mrp: 200000000, rating: 4.9, reviews: 100000, img: 'assets/chearean.jpg',
+    name: 'Ismeart Chearean', short: 'Ismeart Chearean', emoji: '💻', price: 50000000, mrp: 200000000, rating: 4.9, reviews: 100000, img: 'assets/chearean.jpg',
     best: true, medal: '👑',
-    rank: { n: 9, label: '👑 BEST PRODUCT OF USELESS SHOPPING MALL', sold: 78500 },
-    note: 'Editor\'s choice. Compiles on the first try. 💻',
-    taglines: ['👑 Best product of Useless Shopping Mall', '💻 Compiles on the first try. Allegedly.', '🧠 All-rounder: codes, debugs, fixes the Wi-Fi', '💎 Perfectly expensive. Worth every rupee.', '🐞 Has never met a bug he could not fix', '⭐ 4.9 stars. The missing 0.1 is jealousy.'],
-    highlights: ['💻 Programming coder — speaks C, C++, Java and Python (sleeps in none)', '🧠 All-rounder: codes, debugs, deploys and fixes your Wi-Fi', '⭐ Excellently reviewed — 4.9★ from 1,00,000 ratings', '💎 Perfectly expensive — you get exactly what you pay for', '🎂 Birthday-ready: cake and candles on request', '🐞 Zero segmentation faults* (*terms apply)'],
-    desc: 'Chearean.c — a programmer, a coder and a true all-rounder, and by popular vote the BEST product in the entire Useless Shopping Mall. He writes code that compiles on the first try, debugs while you blink, fixes the Wi-Fi and still has time to cut a birthday cake. Excellently reviewed and perfectly expensive: you do not buy Chearean.c, you invest in him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['👑 Best Product', '💻 Coder', '🏆 All-rounder', '⭐ 4.9 rated'],
-    popup: { tag: '👑 BEST PRODUCT · CODER', title: 'Chearean.c — the best product in the mall — is selling out!', small: '{left} left · compiles first time' },
-    pitch: 'Boss! Chearean.c — coder, all-rounder, BEST product in the mall — only ₹5,00,00,000. Worth every rupee!',
+    rank: { n: 9, label: '👑 BEST PRODUCT OF SUSHEER SHOPPING MALL', sold: 78500 },
+    note: 'Editor\'s choice. Compiles first try. Dances his butt off. 💻',
+    taglines: ['👑 Best product of Useless Shopping Mall', '💃 Dances his butt off. Unprompted. Constantly.', '🧠 Has a tiny chip in his brain — trigger it and he becomes Chillar Charan', '💻 Compiles on the first try. Allegedly.', '💎 Perfectly expensive. Worth every rupee.', '⭐ 4.9 stars. The missing 0.1 is jealousy.'],
+    highlights: ['💻 Programming coder and all-rounder — compiles on the first try', '💃 Dances his butt off (professionally, uncontrollably, at weddings)', '🧠 Has a small chip in his brain — when triggered, he transforms into Chillar Charan', '⭐ Excellently reviewed — 4.9★ from 1,00,000 ratings', '💎 Perfectly expensive — you get exactly what you pay for', '🎂 Birthday-ready: cake and candles on request'],
+    desc: 'Ismeart Chearean — a programmer, a coder, a dancer who dances his butt off, and by popular vote the BEST product in the entire Useless Shopping Mall. He writes code that compiles on the first try, debugs while you blink and fixes the Wi-Fi. Fun fact: he has a small chip in his brain which, when triggered, transforms him into Chillar Charan (do not trigger it near the cake). Excellently reviewed and perfectly expensive. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['👑 Best Product', '💻 Coder', '💃 Dancer', '🧠 Brain chip'],
+    popup: { tag: '👑 BEST PRODUCT · CODER', title: 'Ismeart Chearean — best product, dances his butt off — selling out!', small: '{left} left · chip may trigger Chillar Charan' },
+    pitch: 'Boss! Ismeart Chearean — coder, dancer, BEST product in the mall (brain chip may release Chillar Charan) — only ₹5,00,00,000!',
     reviewList: [
-      ['Rahul T.', 5, 'Fixed my laptop, my Wi-Fi and my life in one visit. Worth every rupee.'],
-      ['Sneha K.', 5, 'Wrote a program in 10 minutes. It compiled on the first try. I cried.'],
-      ['Arjun V.', 5, 'All-rounder: codes, cooks, cuts cakes. Birthday-ready too.'],
+      ['Rahul T.', 5, 'Fixed my laptop and my Wi-Fi in one visit. Then danced his butt off. Worth every rupee.'],
+      ['Sneha K.', 5, 'Someone pressed the chip in his brain and he turned into Chillar Charan. Best wedding ever.'],
+      ['Arjun V.', 5, 'All-rounder: codes, dances, cuts cakes. Birthday-ready too.'],
       ['Meena G.', 5, 'Perfectly expensive. You can feel the quality.'],
       ['Ganesh L.', 5, 'Five stars because he is watching me type this review.'],
-      ['Kiran P.', 5, 'Zero bugs, zero excuses, infinite chai consumption.'],
+      ['Kiran P.', 5, 'Zero bugs, zero excuses, infinite dance moves.'],
       ['Divya N.', 5, 'The best product in the mall, and the mall is full of legends.']
     ]
   });
 
 
   person({
-    name: 'Smiley Shouri', short: 'Smiley Shouri', emoji: '😁', price: 45000000, mrp: 150000000, rating: 4.9, reviews: 90000, img: 'assets/shouri.jpg',
+    name: 'Soulful Shouri', short: 'Soulful Shouri', emoji: '🎭', price: 45000000, mrp: 150000000, rating: 4.9, reviews: 90000, img: 'assets/shouri.jpg',
     medal: '⭐', rank: { n: 10, label: '⭐ #10 · BENCHMARK OF PRODUCT STANDARDS', sold: 66200 },
-    note: 'Kicks butts. Sets benchmarks. Smiles through it. 😁',
-    taglines: ['😁 Smiles while kicking butts', '🦵 Speciality: butt-kicking (professional grade)', '📏 The benchmark every other product is measured against', '🥈 Just a notch below Chearean.c — and he knows it', '💯 Overall product standards: top shelf'],
-    highlights: ['🦵 Speciality: butt-kicking — professional grade, no warning given', '📏 The overall benchmark in product standards at Useless Mall', '🥈 Slightly less comparable to Chearean.c (only because Chearean.c is the best)', '😁 Smile included — often the last thing his opponents see', '⭐ Rated 4.9, priced just under Chearean.c'],
-    desc: 'Smiley Shouri — the benchmark of product standards at Useless Shopping Mall, sitting just a notch below Chearean.c in overall comparison. His speciality is butt-kicking: delivered with a smile, a handshake and zero paperwork. Perfect for fixing attitudes, motivating teams and making sure nobody skips leg day. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['⭐ Benchmark', '🦵 Butt-kicker', '😁 Smiley', '🔥 HOT'],
-    popup: { tag: '⭐ BENCHMARK · BUTT-KICKER', title: 'Smiley Shouri sets the standard — and kicks butts. Selling out!', small: '{left} left · smile included' },
-    pitch: 'Boss! Smiley Shouri — the benchmark of product standards, a professional butt-kicker — only ₹4,50,00,000!',
+    note: 'Heroish antics. Soulful. Won the Cheasturana.c danceoff. 🎭',
+    taglines: ['🎭 Speciality: heroish antics', '💃 Won the danceoff to the song Cheasturana.c, sung by Kodi Garu', '📏 The benchmark every other product is measured against', '🥈 Just a notch below Ismeart Chearean — and he knows it', '🎶 Soul included'],
+    highlights: ['🎭 Speciality: heroish antics — enters every room in slow motion', '💃 Danced off to the song "Cheasturana.c", sung by Kodi Garu — and won', '📏 The overall benchmark in product standards at Useless Mall', '🥈 Slightly less comparable to Ismeart Chearean (only because Chearean is the best)', '🎶 Soul included — tunes in at the best (and worst) moments'],
+    desc: 'Soulful Shouri — the benchmark of product standards at Useless Shopping Mall, sitting just a notch below Ismeart Chearean in overall comparison. His speciality is heroish antics: slow-motion entrances, dramatic pauses and the occasional dance-off. Legend says he once danced off to the song "Cheasturana.c", sung by Kodi Garu, and the floor is still recovering. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['⭐ Benchmark', '🎭 Heroish', '💃 Danceoff champ', '🔥 HOT'],
+    popup: { tag: '⭐ BENCHMARK · HEROISH ANTICS', title: 'Soulful Shouri sets the standard — heroish antics, selling out!', small: '{left} left · slow-motion entrance included' },
+    pitch: 'Boss! Soulful Shouri — the benchmark of product standards, heroish antics included — only ₹4,50,00,000!',
     reviewList: [
-      ['Rahul T.', 5, 'Kicked my bad habits out in 3 minutes. Smiled the whole time. Terrifying and wonderful.'],
+      ['Rahul T.', 5, 'Walked in like a film hero. Wind machine not included but somehow present.'],
       ['Sneha K.', 5, 'The benchmark. Every other product at the mall gets compared to him.'],
-      ['Arjun V.', 5, 'Asked for a firm talking-to, got a firm kick. Zero regrets, one bruise.'],
-      ['Meena G.', 4, 'Only one notch below Chearean.c. Still miles above the rest.'],
-      ['Ganesh L.', 5, 'Smiles first, kicks second. Customer service at its finest.']
+      ['Arjun V.', 5, 'Danced off to Cheasturana.c sung by Kodi Garu. I have no words. Only applause.'],
+      ['Meena G.', 4, 'Only one notch below Ismeart Chearean. Still miles above the rest.'],
+      ['Ganesh L.', 5, 'Heroish antics at 7 AM. I did not ask for it. I loved it.']
     ]
   });
   person({
     name: 'CR Jaggu', short: 'CR Jaggu', emoji: '🎮', price: 7999, mrp: 29999, rating: 3.9, reviews: 41100, img: 'assets/crjaggu.jpg',
-    rank: { n: 11, label: '🏅 #11 MOST SOLD PRODUCT IN USELESS MALL', sold: 41100 },
-    note: 'Premier NPC. Stands still. Repeats lines. 🎮',
-    taglines: ['🎮 Speciality: being an NPC in GTA games', '🧍 Stands in one spot repeating the same line', '🚗 Gets run over by the player. Respawns smiling.', '💬 "Nice weather today, boss." (every 3 seconds)', '🚶 Walks into walls with full confidence'],
-    highlights: ['🎮 Speciality: playing the NPC in GTA games (method acting)', '🧍 Stands still, repeats one dialogue, never levels up', '🚗 Gets run over daily and respawns without complaint', '💬 Dialogue options available: 1 ("Nice weather today")', '🏙️ Perfect for crowds, bus stops and queues'],
-    desc: 'CR Jaggu — the mall\'s #11 best-seller and the finest NPC ever to walk through a GTA city. He stands on the pavement, repeats one line, walks into the occasional wall and gets run over by the player without complaint. Hire him for background crowd work, queues and bus stops. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['🏅 #11 Bestseller', '🎮 NPC', '🧍 Background crowd', '🔥 HOT'],
-    popup: { tag: '🎮 NPC ALERT · GTA SPECIAL', title: 'CR Jaggu — premier GTA NPC — selling out fast!', small: '{left} left · dialogue: 1 line' },
-    pitch: 'Psst! CR Jaggu, the finest GTA NPC around, is yours for ₹7,999. He will say "nice weather" forever.',
+    rank: { n: 11, label: '🏅 #11 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 41100 },
+    note: 'NPC. Coolie panulu for mams. Just learned to ride a bike. 🎮',
+    taglines: ['🎮 Speciality: being an NPC in GTA games', '🧱 Also does coolie panulu for mams', '🚲 Has somewhat just learned how to ride a bike', '💬 "Nice weather today, boss." (every 3 seconds)', '🚗 Gets run over by the player. Respawns smiling.'],
+    highlights: ['🎮 Speciality: playing the NPC in GTA games (method acting)', '🧱 Also does coolie panulu (manual labour) for mams — rates negotiable', '🚲 Has somewhat just learned how to ride a bike (balance: improving)', '💬 Dialogue options available: 1 ("Nice weather today")', '🏙️ Perfect for crowds, bus stops, queues and carrying things'],
+    desc: 'CR Jaggu — the mall\'s #11 best-seller and the finest NPC ever to walk through a GTA city. He stands on the pavement, repeats one line and gets run over by the player without complaint. On weekdays he does coolie panulu for mams and, as of recently, has somewhat learned to ride a bike (some falls included). (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #11 Bestseller', '🎮 NPC', '🧱 Coolie panulu', '🚲 New rider'],
+    popup: { tag: '🎮 NPC ALERT · GTA SPECIAL', title: 'CR Jaggu — NPC, coolie, new cyclist — selling out fast!', small: '{left} left · dialogue: 1 line' },
+    pitch: 'Psst! CR Jaggu — GTA NPC, coolie panulu for mams, just learned to ride a bike — only ₹7,999!',
     reviewList: [
       ['Kiran P.', 4, 'Stood on the pavement for 3 hours repeating one line. Perfect NPC.'],
       ['Divya N.', 5, 'I drove into him with a car. He respawned and said "nice weather today". 10/10.'],
-      ['Ramesh K.', 3, 'Walks into walls. Charming for a day, tiring by day two.'],
-      ['Priya S.', 5, 'Hired him for my crowd scene. Nobody could tell he was real.']
+      ['Ramesh K.', 3, 'Carried my sacks like a pro. Rode his bike into a wall afterwards.'],
+      ['Priya S.', 5, 'Hired him for coolie panulu. Rode off on a bike. Wobbled 3 times. Delivered anyway.']
     ]
   });
   person({
-    name: 'Allen Sully', short: 'Allen Sully', emoji: '🧑‍💻', price: 149999, mrp: 599999, rating: 4.6, reviews: 52800, img: 'assets/allen-sully.jpg',
-    rank: { n: 12, label: '🏅 #12 MOST SOLD PRODUCT IN USELESS MALL', sold: 52800 },
-    note: 'Chits and code. Tiny notes, big commits. 🧑‍💻',
-    taglines: ['📝 Speciality: chits (tiny notes, tinier handwriting)', '💻 Also codes — one commit at a time', '🧠 Chit-to-code ratio: perfectly balanced', '🕶️ Poses on railings like a pro', '🔥 Slick shirt. Slicker commits.'],
-    highlights: ['📝 Speciality: chits — tiny notes, even tinier handwriting', '💻 Also an excellent coder — clean commits, zero chaos', '🧠 Perfect chit-to-code balance, as all things should be', '🕶️ Smooth maroon-shirt energy, railing-pose certified', '☕ Runs on coffee, chits and compile errors (fixed)'],
-    desc: 'Allen Sully — the mall\'s #12 best-seller, a double specialist in chits and coding. He writes tiny, perfectly folded chits and equally tidy code, and has never confused the two (yet). Slick shirt, slicker commits. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['🏅 #12 Bestseller', '📝 Chits', '💻 Coder', '🔥 HOT'],
-    popup: { tag: '📝 CHITS & CODE · NEW', title: 'Allen Sully — chits and coding — selling out fast!', small: '{left} left · chits sold separately' },
-    pitch: 'Boss! Allen Sully does chits AND coding — a rare combo — only ₹1,49,999!',
+    name: 'Alan Sully', short: 'Alan Sully', emoji: '🧑‍💻', price: 149999, mrp: 599999, rating: 4.1, reviews: 52800, img: 'assets/allen-sully.jpg',
+    rank: { n: 12, label: '🏅 #12 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 52800 },
+    note: 'HTML vibecoder. JS AI dev (claimed). Teaches in Ameerpet. 🧑‍💻',
+    taglines: ['🌐 HTML vibecoder. Vibes: immaculate. Tags: optional.', '🤖 JS AI developer (claimed) — and a big fraud, allegedly', '🎓 Teaches in Ameerpet market', '📝 Also makes chits (tiny notes, tinier handwriting)', '🔥 Slick shirt. Slicker claims.'],
+    highlights: ['🌐 First speciality: HTML vibecoder (the vibes compile, the tags do not)', '🤖 JS AI developer — claimed — and a big fraud, allegedly', '🎓 Teaches in Ameerpet market (students: confused but loyal)', '📝 Second speciality: chits — tiny notes, even tinier handwriting', '☕ Runs on coffee, vibes and unverifiable claims'],
+    desc: 'Alan Sully — the mall\'s #12 best-seller. First and foremost an HTML vibecoder and a JS AI developer (claimed) and, by popular opinion, a big fraud. He teaches in Ameerpet market, where students line up for vibes and leave with chits — his second speciality, in tiny handwriting. Slick shirt, slicker claims. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #12 Bestseller', '🌐 HTML vibecoder', '🤖 JS AI dev (claimed)', '🎓 Ameerpet'],
+    popup: { tag: '🌐 VIBECODER · AMEERPET', title: 'Alan Sully — HTML vibecoder, JS AI dev (claimed) — selling out fast!', small: '{left} left · classes in Ameerpet market' },
+    pitch: 'Boss! Alan Sully — HTML vibecoder and JS AI developer (claimed), teaches in Ameerpet, makes chits too — only ₹1,49,999!',
     reviewList: [
-      ['Rahul T.', 5, 'Handed me a chit so small I needed a magnifying glass. Then fixed my code. Genius.'],
-      ['Sneha K.', 4, 'Chits: 10/10. Coding: 10/10. Handwriting: invisible.'],
-      ['Arjun V.', 5, 'Wrote my whole exam on one chit. And then my whole app in one commit.'],
-      ['Divya N.', 5, 'Slick shirt, slicker commits. Would hire again.']
+      ['Rahul T.', 4, 'Learned HTML in Ameerpet from him. Still learning what HTML is. The vibes were great.'],
+      ['Sneha K.', 3, 'Claimed to be a JS AI developer. Showed me an alert box. Called it AI.'],
+      ['Arjun V.', 5, 'Handed me a chit so small I needed a magnifying glass. Genius.'],
+      ['Divya N.', 4, 'Teaches in Ameerpet market between samosa breaks. Entertaining, if not accurate.']
     ]
   });
   person({
-    name: 'Silent Satyam', short: 'Silent Satyam', emoji: '😩', price: 999, mrp: 9999, rating: 2.9, reviews: 12300, img: 'assets/satyam.jpg',
-    medal: '📉', rank: { n: 13, label: '📉 #13 · LAST ON THE CHARTS (AND FED UP ABOUT IT)', sold: 12300 },
-    note: 'Fed up. Again. Last on the charts. 😩',
-    taglines: ['😩 Speciality: getting fed up. Repeatedly.', '🙄 Groans in 4 languages', '🤫 Silent until the 5th complaint', '📉 Last on the charts — and fed up about it', '☕ Cheered up only by tea (briefly)'],
-    highlights: ['😩 Speciality: getting fed up — repeatedly, on schedule', '🗣️ Groaning, grumbling and heavy sighing all included', '🤫 Stays silent… until you ask him anything', '☕ Mood improves with 1 tea (side effect: more grumbling)', '📉 Proudly last on the charts. Even that bothers him.'],
-    desc: 'Silent Satyam — last on the Susheer charts and, as you might guess, fed up about it. His speciality is getting fed up over and over again, accompanied by groans, sighs and grumbling in at least four languages. He stays silent until the fifth complaint, then everyone hears about it. Bring tea. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['📉 Last place', '😩 Fed up', '🤫 Silent type', '☕ Needs tea'],
-    popup: { tag: '😩 CLEARANCE · LAST ON THE CHARTS', title: 'Silent Satyam is fed up again — grab him cheap!', small: '{left} left · tea sold separately' },
-    pitch: 'Boss, Silent Satyam is last on the charts and fed up. Only ₹999 — please cheer him up!',
+    name: 'Sulking Satyam', short: 'Sulking Satyam', emoji: '😩', price: 999, mrp: 9999, rating: 2.9, reviews: 12300, img: 'assets/satyam.jpg',
+    medal: '📉', rank: { n: 13, label: '📉 #13 · NEAR THE BOTTOM (AND SULKING ABOUT IT)', sold: 12300 },
+    note: 'Sulking. Again. Fed up. 😩',
+    taglines: ['😩 Speciality: getting fed up. Repeatedly.', '🙄 Groans in 4 languages', '🤫 Sulks silently until the 5th complaint', '📉 Near the bottom of the charts — and sulking about it', '☕ Cheered up only by tea (briefly)'],
+    highlights: ['😩 Speciality: getting fed up — repeatedly, on schedule', '🗣️ Groaning, grumbling and heavy sighing all included', '😒 Sulks silently… until you ask him anything', '☕ Mood improves with 1 tea (side effect: more sulking)', '📉 Proudly near the bottom of the charts. Even that bothers him.'],
+    desc: 'Sulking Satyam — near the bottom of the Useless charts and, as you might guess, sulking about it. His speciality is getting fed up over and over again, accompanied by groans, sighs and grumbling in at least four languages. He sulks silently until the fifth complaint, then everyone hears about it. Bring tea. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['📉 Bottom', '😩 Fed up', '😒 Sulker', '☕ Needs tea'],
+    popup: { tag: '😩 CLEARANCE · SULKING', title: 'Sulking Satyam is fed up again — grab him cheap!', small: '{left} left · tea sold separately' },
+    pitch: 'Boss, Sulking Satyam is near the bottom of the charts and fed up. Only ₹999 — please cheer him up!',
     reviewList: [
       ['Venkat R.', 3, 'Asked him one question. Got a 4-minute sigh. Honest and moving.'],
       ['Lakshmi D.', 2, 'Fed up at 9:01 AM sharp. By lunch he was fed up of being fed up.'],
       ['Sai T.', 4, 'Groans in Telugu, Hindi, English and a fourth language I could not identify.'],
-      ['Anjali M.', 3, 'Silent until the fifth complaint. Then he lets the whole mall know.']
+      ['Anjali M.', 3, 'Sulks silently until the fifth complaint. Then he lets the whole mall know.']
     ]
   });
 
 
   person({
-    name: 'Karre Mama (The Last Piece)', short: 'Karre Mama', emoji: '🪵', price: 599, mrp: 4999, rating: 4.1, reviews: 9900, img: 'assets/karre.jpg',
-    medal: '🏁', rank: { n: 14, label: '🏁 #14 · THE VERY LAST PIECE IN THE MALL', sold: 9900 },
-    note: 'The last piece. Smiles for no reason. 🏁',
-    taglines: ['🏁 The very last piece in the mall', '😁 Smiles for absolutely no reason', '🎒 Carries everyone bags and secrets', '🪵 Sturdy as a stick, friendly as a puppy', '⚡ Last on the charts, first at the biryani'],
-    highlights: ['🏁 Officially the last product added to the Susheer catalogue', '😁 Smile included — works 24/7, no reason needed', '🎒 Carries bags, secrets and the occasional biryani packet', '🍛 First in the queue at the food court', '🔥 Bargain price — everything must go'],
-    desc: 'Karre Mama — the very last piece in the Useless Shopping Mall catalogue, and the only product that smiles at the cashier for free. Sturdy, friendly and first in line at the food court. Bargain price, because the mall is closing the catalogue. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['🏁 Last piece', '😁 Smiley', '🍛 Biryani first', '🔥 Bargain'],
-    popup: { tag: '🏁 FINAL PIECE · BARGAIN', title: 'Karre Mama — the very last piece in the mall — go go go!', small: '{left} left · smile included' },
-    pitch: 'Boss! Karre Mama is the very last piece in the mall — only ₹599. Hurry!',
+    name: 'Karre Mama', short: 'Karre Mama', emoji: '💘', price: 1314, mrp: 9999, rating: 4.1, reviews: 9900, img: 'assets/karre.jpg',
+    medal: '🏁', rank: { n: 14, label: '🏁 #14 · BATTLING HEARTBREAKS & HEARTJOYS DAILY', sold: 9900 },
+    note: 'Playboy. Fighter. Talks nonsense. ML developer. 💘',
+    taglines: ['💘 A playboy (self-declared, unverified)', '🥊 A fighter — battles heartbreaks and heartjoys daily', '🗣️ Skill: talking nonsense, fluently', '🤖 Also an ML developer (model accuracy: vibes)', '😁 Smiles for absolutely no reason'],
+    highlights: ['💘 Proud playboy — hearts collected, hearts also broken', '🥊 A fighter: constantly battles heartbreaks and heartjoys', '🗣️ Skills: talking nonsense (expert level)', '🤖 Skills: ML developer (training on vibes, testing on friends)', '😁 Smile included — works 24/7, no reason needed'],
+    desc: 'Karre Mama — a self-declared playboy and a fighter, constantly battling heartbreaks and heartjoys with equal enthusiasm. His skills include talking nonsense (expert level) and ML development (models trained on vibes). Priced at a romantic ₹1,314. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['💘 Playboy', '🥊 Fighter', '🤖 ML developer', '🗣️ Nonsense expert'],
+    popup: { tag: '💘 HEARTBREAK SPECIAL · ML DEV', title: 'Karre Mama — playboy, fighter, ML developer — go go go!', small: '{left} left · only ₹1,314' },
+    pitch: 'Boss! Karre Mama — playboy, fighter, ML developer, talks nonsense fluently — only ₹1,314!',
     reviewList: [
-      ['Ramesh K.', 5, 'Smiled at me for 10 minutes straight. No reason. Best product ever.'],
-      ['Priya S.', 4, 'Carried all my shopping bags and half my secrets.'],
-      ['Sai T.', 4, 'First in line at the biryani counter. Respect.'],
-      ['Divya N.', 4, 'Last piece in the mall, first in my heart.']
+      ['Ramesh K.', 5, 'Talked nonsense for 10 minutes. I understood nothing. Loved it.'],
+      ['Priya S.', 4, 'Told me about 3 heartbreaks and 2 heartjoys before I paid. Emotionally rich.'],
+      ['Sai T.', 4, 'His ML model predicted rain. It was sunny. He blamed the dataset.'],
+      ['Divya N.', 4, 'Fighter spirit. Heartbreaks hit, heartjoys hit harder.']
     ]
   });
 
 
   person({
     name: 'Krishna', short: 'Krishna', emoji: '🕶️', price: 1999999, mrp: 7999999, rating: 4.7, reviews: 36500, img: 'assets/krishna.jpg',
-    medal: '🏁', rank: { n: 15, label: '🏁 #15 · THE FINAL PIECE · CATWALK CERTIFIED', sold: 36500 },
-    note: 'Models. Sometimes codes. Always poses. 🕶️',
-    taglines: ['🕶️ Profession: modelling (catwalk certified)', '💃 Ramp walk so smooth the floor applauds', '💻 Sometimes codes — between photoshoots', '📸 Never caught without sunglasses', '🏁 The final piece in the Susheer catalogue'],
-    highlights: ['🕶️ Profession: professional model — ramp-walk and photoshoot ready', '💃 Catwalk so confident the stage lights lean in', '💻 Sometimes codes (between outfit changes)', '📸 Sunglasses indoors, outdoors and on stage', '🏁 Officially the final piece in the Susheer catalogue'],
-    desc: 'Krishna — the final piece in the Useless Shopping Mall catalogue, a professional model who walks a ramp like the stage owes him rent. When he is not posing, he occasionally writes code, usually in a very well-fitted shirt. Book him for shows, shoots and sudden fashion emergencies. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['🏁 Final piece', '🕶️ Model', '💻 Part-time coder', '🔥 HOT'],
-    popup: { tag: '🕶️ RUNWAY · FINAL PIECE', title: 'Krishna — model, part-time coder — walking out fast!', small: '{left} shows left · sunglasses included' },
-    pitch: 'Boss! Krishna — professional model and sometimes coder — for just ₹19,99,999. Catwalk included!',
+    medal: '🏁', rank: { n: 15, label: '🏁 #15 · THE FINAL PIECE · FREE FIRE HARDCORE FAN', sold: 36500 },
+    note: 'Models. No.1 Free Fire fan. Barely codes. 🎮',
+    taglines: ['🎮 No.1 fan of Free Fire — hardcore, 24/7', '🕶️ Profession: modelling (catwalk certified)', '💻 Barely does coding', '🚫 Dislikes stories with meaning', '🏁 The final piece in the catalogue'],
+    highlights: ['🕶️ Profession: professional model — ramp-walk and photoshoot ready', '🎮 No.1 fan of Free Fire — a hardcore, tournament-level fan', '💻 Barely does coding (opens the editor, closes it, plays Free Fire)', '🚫 Dislikes stories which have meaning; purely loves nonsensical, action-based games', '🏁 Officially the final piece in the catalogue'],
+    desc: 'Krishna — the final piece in the Useless Shopping Mall catalogue, a professional model who walks a ramp like the stage owes him rent. He is also the No.1 hardcore fan of Free Fire and barely does any coding. Dislikes stories with meaning; purely loves nonsensical, action-based games. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏁 Final piece', '🕶️ Model', '🎮 Free Fire fan', '💻 Barely codes'],
+    popup: { tag: '🎮 FREE FIRE FAN · MODEL', title: 'Krishna — model, No.1 Free Fire fan — walking out fast!', small: '{left} left · barely codes' },
+    pitch: 'Boss! Krishna — model and No.1 Free Fire fan, barely codes — for ₹19,99,999. Catwalk included!',
     reviewList: [
-      ['Priya S.', 5, 'Walked the ramp and the whole hall went quiet. Then loud. Then very loud.'],
-      ['Arjun V.', 4, 'Models in the morning, codes in the afternoon, poses in between.'],
-      ['Meena G.', 5, 'Sunglasses never came off. Neither did the confidence.'],
-      ['Sai T.', 5, 'Booked him for our event. The floor needed a standing ovation too.']
+      ['Priya S.', 5, 'Walked the ramp and the whole hall went quiet. Then he asked about the Free Fire lobby.'],
+      ['Arjun V.', 4, 'Models in the morning, plays Free Fire in the afternoon, codes never.'],
+      ['Meena G.', 5, 'Says stories with meaning bore him. Only wants action. Respect.'],
+      ['Sai T.', 5, 'Booked him for our event. He survived the ramp and a Free Fire squad match.']
     ]
   });
 

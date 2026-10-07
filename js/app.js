@@ -7,6 +7,9 @@
   const pick = a => a[Math.floor(Math.random() * a.length)];
   const safe = (fn, d) => { try { return fn(); } catch (e) { return d; } };
   SM.inr = inr; SM.$ = $; SM.pick = pick;
+  SM.t0 = performance.now();
+  SM.calm = () => (performance.now() - SM.t0 > 180000 ? 4 : 1);   // after 3 minutes the popups slow down 4x
+  SM.isQuiet = () => safe(() => localStorage.getItem('susheer_quiet') === '1', false) || !!document.querySelector('.chat.open,.wheel-bg.open,.paybg');
 
   /* ---------- cart ---------- */
   const load = () => safe(() => JSON.parse(localStorage.getItem('susheer_cart') || '{}'), {});
@@ -76,7 +79,7 @@
     <header class="top">
       <a href="index.html" class="logo"><img src="assets/mall-main.jpg" alt=""><span><i>Useless</i><em>Shopping Mall</em></span></a>
       <form class="search" action="index.html" method="get"><input name="q" placeholder="Search Susheer apples, Susheer sofas, Susheer everything…" aria-label="Search" value="${safe(() => new URLSearchParams(location.search).get('q') || '', '').replace(/"/g, '')}"><button aria-label="Search">🔍</button></form>
-      <nav>${nav('index.html', 'Shop')}${nav('about.html', 'The Mall')}${nav('kk.html', 'Meet Mr. KK')}${nav('cart.html', 'Cart <span id="cartCount" class="badge zero">0</span>')}</nav>
+      <nav>${nav('index.html', 'Shop')}${nav('about.html', 'The Mall')}${nav('kk.html', 'Meet Mr. KK')}${nav('ganda.html', 'Meet Ganda')}${nav('cart.html', 'Cart <span id="cartCount" class="badge zero">0</span>')}</nav>
     </header>
     <div id="toasts"></div>`);
   document.body.insertAdjacentHTML('beforeend', `
@@ -84,7 +87,7 @@
       <div class="foot-in">
         <div><div class="flogo">Useless Shopping Mall</div><p>Plz visit <b>Maisammaguda Mall</b> for world rate experience.</p></div>
         <div><b>Shop</b><a href="index.html?cat=helicopters">Helicopters</a><a href="index.html?cat=cars">Cars</a><a href="index.html?cat=planes">Planes</a><a href="index.html?cat=jaggu">Jaggu 🔥</a><a href="index.html?cat=grocery">Grocery</a><a href="index.html?cat=mobiles">Mobiles</a><a href="index.html?cat=womens">Fashion</a><a href="product.html?id=0">Flash Sale</a></div>
-        <div><b>Mall</b><a href="about.html">About the Mall</a><a href="kk.html">Meet Mr. KK</a><a href="about.html#gallery">Gallery</a><a href="cart.html">Cart</a></div>
+        <div><b>Mall</b><a href="about.html">About the Mall</a><a href="kk.html">Meet Mr. KK</a><a href="ganda.html">Meet Ganda</a><a href="about.html#gallery">Gallery</a><a href="cart.html">Cart</a></div>
       </div>
       <p class="fine">Useless Shopping Mall is a parody project made for fun and is not affiliated with any real retailer. No real orders, payments or humans are sold. Product photos are from Wikimedia Commons (free licences). 😄</p>
     </footer>
@@ -95,7 +98,7 @@
         <div class="srow"><a id="salesGo" href="#" class="sgo">View offer</a><button id="salesAdd" class="sadd">Add 🛒</button></div></div>
     </aside>
     <div class="thanks" id="thanks" aria-hidden="true">
-      <div class="t-face"><div class="t-zoom"><img src="assets/thanks-guy.jpg" alt=""></div><span class="t-heart">❤️</span></div>
+      <div class="t-face"><div class="t-zoom"><img src="assets/kiss-face.jpg" alt=""></div><span class="t-lips">💋</span><span class="t-heart">❤️</span></div>
       <div class="t-txt" id="tTxt">Thank you boss!</div>
     </div>
     <aside class="jagpop" id="jagpop">
@@ -151,7 +154,7 @@
     }, i * 220);
   };
   const showSales = () => {
-    if (document.hidden || sales.matches(':hover')) return schedule();
+    if (document.hidden || SM.isQuiet() || sales.matches(':hover')) return schedule();
     const pool = P.filter(p => !p.flash);
     const r = Math.random();
     curP = r < 0.14 ? P[0] : r < 0.4 ? P[pick(D.POPUPS)] : pick(pool);
@@ -163,7 +166,7 @@
     salesTimer = setTimeout(hideSales, 8500);
   };
   const hideSales = () => { sales.classList.remove('show'); schedule(); };
-  const schedule = () => { clearTimeout(salesTimer); salesTimer = setTimeout(showSales, 6000 + Math.random() * 9000); };
+  const schedule = () => { clearTimeout(salesTimer); salesTimer = setTimeout(showSales, (6000 + Math.random() * 9000) * SM.calm()); };
   $('#salesX').onclick = () => { SM.kkMood('wow', 900); sales.classList.remove('show'); clearTimeout(salesTimer); schedule(); };
   $('#salesAdd').onclick = () => { if (curP) { if (SM.cart.add(curP.id) === false) return; SM.kkMood('kiss', 2600); SM.toast('Mr. KK added ' + curP.short + ' to your cart 😎'); } };
   $('#kkWrap').addEventListener('mouseenter', () => SM.kkMood('wink', 1600));
@@ -175,11 +178,11 @@
   const lines = ['for world rate experience', 'where helicopters are for sale 🚁', 'shop like never before 🛍️', 'the mall everyone is talking about', 'Susheer-approved shopping ✨', 'luxury aircraft & lovely apples'];
   const mp = $('#mallpop'); let mpTimer;
   const showMall = () => {
-    if (!document.hidden) {
+    if (!document.hidden && !SM.isQuiet()) {
       $('#mallImg').src = pick(malls); $('#mallLine').textContent = pick(lines);
       mp.classList.add('show'); setTimeout(() => mp.classList.remove('show'), 6500);
     }
-    mpTimer = setTimeout(showMall, 16000 + Math.random() * 14000);
+    mpTimer = setTimeout(showMall, (16000 + Math.random() * 14000) * SM.calm());
   };
   $('#mallX').onclick = () => mp.classList.remove('show');
   mp.addEventListener('click', e => { if (!e.target.closest('.x')) location.href = 'about.html'; });
@@ -192,25 +195,25 @@
     th.querySelectorAll('.fh').forEach(h => h.remove());
     for (let i = 0; i < 14; i++) {
       const h = document.createElement('span'); h.className = 'fh'; h.textContent = pick(['❤️', '💖', '💗', '😘']);
-      h.style.cssText = `left:${10 + Math.random() * 80}%;animation-delay:${0.9 + Math.random() * 1.2}s;font-size:${22 + Math.random() * 30}px`;
+      h.style.cssText = `left:${10 + Math.random() * 80}%;animation-delay:${2.6 + Math.random() * 1.8}s;font-size:${22 + Math.random() * 30}px`;
       th.appendChild(h);
     }
     $('#tTxt').textContent = pick(['Thank you boss!', 'Thank you, you legend!', 'Dhanyavaad boss!', 'Love you boss, thank you!']);
     th.classList.add('show'); clearTimeout(thT);
-    thT = setTimeout(() => th.classList.remove('show'), 3200);
+    thT = setTimeout(() => th.classList.remove('show'), 6200);
   };
 
   /* ---------- rotating side popup: a different Susheer top-seller each time ---------- */
   const jp = $('#jagpop'); let jpi = 0;
   const showJag = () => {
-    if (!document.hidden) {
+    if (!document.hidden && !SM.isQuiet()) {
       const p = P[D.POPUPS[jpi++ % D.POPUPS.length]], pop = p.popup;
       const left = 2 + Math.floor(Math.random() * 9);
       $('#jagImg').src = p.img; $('#jagImg').alt = p.name; $('#jagLink').href = 'product.html?id=' + p.id;
       $('#jagTag').textContent = pop.tag; $('#jagTitle').textContent = pop.title; $('#jagSmall').textContent = pop.small.replace('{left}', left);
       jp.classList.add('show'); setTimeout(() => jp.classList.remove('show'), 7500);
     }
-    setTimeout(showJag, 13000 + Math.random() * 14000);
+    setTimeout(showJag, (13000 + Math.random() * 14000) * SM.calm());
   };
   $('#jagX').onclick = () => jp.classList.remove('show');
   setTimeout(showJag, 6500);

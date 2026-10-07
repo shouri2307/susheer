@@ -22,12 +22,12 @@
     'Mr. Diaper Dilip is selling out fast. Admirers, please form a single line.',
     'Parents: Mr. Diaper Dilip is available in sizes S, M, L and XL. Pampers sold separately.',
     'Aisle 9: someone asked Mr. DD if he is leak-proof. He confirmed. Applause.',
-    'Allen Sully has submitted a chit. And a pull request. Both are suspiciously well-formatted.',
+    'Alan Sully is teaching HTML in Ameerpet market. Please do not ask him for the refund policy.',
     'Krishna is on the ramp on Level 2. Please applaud before the sunglasses come off.',
-    'Silent Satyam is fed up. Again. Please offer him tea and a quiet corner.',
+    'Sulking Satyam is sulking in Aisle 3. Please offer him tea and do not make eye contact.',
     'CR Jaggu is standing in the same spot repeating one line. Please do not run him over (he respawns anyway).',
-    'Smiley Shouri has kicked another benchmark. Please repair the wall.',
-    'Chearean.c has compiled his code on the first try. Please remain calm and applaud quietly.',
+    'Soulful Shouri is doing heroish antics in the atrium. Please clap in slow motion.',
+    'Ismeart Chearean has compiled his code on the first try. Please remain calm and applaud quietly.',
     'Mr. KK has finished cleaning the canteen. Well, he has started a nap near it. Please do not disturb.',
     'Vishneamon is available at the Gadget Counter. Please do not hand him anything you want to keep closed.',
     'Long Jump Harish is making milkshakes in the food court. Please stand back from the jump zone.',
@@ -39,8 +39,8 @@
   ];
   document.body.insertAdjacentHTML('beforeend', '<div class="pa" id="pa" role="status"><span class="sp">📢</span><span><b>MALL ANNOUNCEMENT:</b> <span id="paTxt"></span></span></div>');
   const showPA = () => {
-    if (!document.hidden) { $('#paTxt').textContent = pick(PA); const el = $('#pa'); el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 6500); }
-    setTimeout(showPA, 30000 + Math.random() * 25000);
+    if (!document.hidden && !SM.isQuiet()) { $('#paTxt').textContent = pick(PA); const el = $('#pa'); el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 6500); }
+    setTimeout(showPA, (30000 + Math.random() * 25000) * SM.calm());
   };
   setTimeout(showPA, 15000);
 
@@ -98,12 +98,12 @@
   const verbs = ['just bought', 'just added to cart', 'is eyeing', 'just ordered'];
   const proof = document.createElement('div'); proof.className = 'proof'; document.body.appendChild(proof);
   const showProof = () => {
-    if (!document.hidden) {
-      const p = pick(P.filter(x => x.id > 1)), thumb = p.photo ? `background-image:url(${p.photo})` : '';
-      proof.innerHTML = `<div class="pi" style="${thumb}">${p.photo ? '' : p.emoji}</div><div><b>${pick(names)}</b> from ${pick(places)} ${pick(verbs)}<br><b>${p.short}</b><small>${1 + Math.floor(Math.random() * 29)} minutes ago · verified ✔</small></div>`;
+    if (!document.hidden && !SM.isQuiet()) {
+      const star = Math.random() < 0.55, p = star ? P[pick(D.POPUPS.concat([0, 1]))] : pick(P.filter(x => x.id > 1)), src = p.photo || p.img, thumb = src ? `background-image:url(${src})` : '', verb = star ? pick(['is viewing', 'is staring at', 'just opened', 'is eyeing']) : pick(verbs);
+      proof.innerHTML = `<div class="pi" style="${thumb}">${src ? '' : p.emoji}</div><div><b>${pick(names)}</b> from ${pick(places)} ${verb}<br><b>${p.short}</b><small>${1 + Math.floor(Math.random() * 29)} minutes ago · verified ✔</small></div>`;
       proof.classList.add('show'); setTimeout(() => proof.classList.remove('show'), 5200);
     }
-    setTimeout(showProof, 11000 + Math.random() * 9000);
+    setTimeout(showProof, (11000 + Math.random() * 9000) * SM.calm());
   };
   setTimeout(showProof, 8000);
 
@@ -129,18 +129,19 @@
     [/heli|plane|jet|aircraft|car\b|cars|boat|yacht|bike/, 'Our Helicopters, Cars, Planes, Bikes and Boats departments are live! Check the sidebar on the shop page. Test flights on the rooftop every Sunday. ✈️'],
     [/jagadeesh|langadeesh|dilip|diaper|\bdd\b|jaggu/, 'Ah, the legends! 🏆 Jagadeesh is the #1 most sold product in Useless Mall history (₹1 crore, only 1 left!). 🥈 Mr. Diaper Dilip (Mr. DD) is #2 and on flash sale — fully absorbent, Pampers sold separately. 🥉 Susheer himself is #3. DM Jagadeesh for contact details. 📩'],
     [/susheer|flash|50k|50,000/, 'Susheer himself is our #3 best-seller! 🥉 Flash sale: ₹50,000, BUY 1 GET 1 FREE. Mr. DD and Jagadeesh are on flash sale too!'],
+    [/ganda|meenish|moaning/, 'I am the Ganda Chatbot: available 24/7, useless humour, barely correct answers. In my human form I was known as Moaning Meenish (professional complainer). Visit my "Meet Ganda" page! 🙄'],
     [/\bkk\b|salesman|canteen|clean/, 'Mr. KK is our Senior Salesman, Canteen Cleaner and professional Napper. 😴 Hardworking index: 2%. Zoom in on him on the "Meet Mr. KK" page — available for hire at ₹9,999/day (work not guaranteed), never for sale.'],
-    [/chearean|coder|programm|developer|\bcode\b|best product/, 'Chearean.c is our BEST PRODUCT 👑 — programmer, coder and all-rounder, 4.9★ from 1,00,000 ratings and perfectly expensive (₹5 crore). Compiles on the first try. 💻'],
+    [/ismeart|chearean|chillar|charan|coder|programm|developer|\bcode\b|best product/, 'Ismeart Chearean is our BEST PRODUCT 👑 — programmer, all-rounder and a dancer who dances his butt off. 4.9★, ₹5 crore. Warning: a chip in his brain can turn him into Chillar Charan. 💻💃'],
     [/vishne|doraemon|gadget|batsm|opener/, 'Vishneamon (#4 best-seller) opens gadgets AND batsmen. Hand him a box or a bat, he opens it. Pancake tower on request. 🔧🏏'],
     [/harish|long jump|milkshake|shake/, 'Long Jump Harish (#5) jumps long and makes milkshakes. Book him (Bulley) as a service for ₹14,999/day. Landing not guaranteed, milkshake is. 🏃🥤'],
     [/rohit|chetak|chapri|kadha/, 'Chetaku Rohit, our Official Chapri (#6), rides at a minimum of 100 km/h and sells Rohit\'s Special Kadha. Horn included. 🛵🍵'],
     [/baddie|gym|aura|lean/, 'Lean Baddie (#7) does gym and baddiness. Aura +1000, lean mode permanent. 💪😎'],
-    [/sridhar|sullileni|sing|dance/, 'Sullileni Sridhar (#8) sings and dances. Book him per show for ₹39,999. 🎤💃'],
-    [/krishna|model|catwalk|ramp/, 'Krishna (#15, the final piece) is a professional model who sometimes codes between shoots. Catwalk certified, sunglasses included. 🕶️💻'],
-    [/karre|mama|last piece/, 'Karre Mama (#14) is the very last piece in the mall, smiles for no reason and is first at the biryani counter. 🏁😁'],
-    [/allen|sully|chit/, 'Allen Sully (#12) specialises in chits and coding: tiny notes, tidy commits. Chits sold separately. 📝💻'],
-    [/shouri|smiley|kick|benchmark/, 'Smiley Shouri (#10) is the benchmark of product standards — a professional butt-kicker who smiles throughout. Just a notch below Chearean.c. 😁🦵'],
-    [/satyam|silent|fed up|grumbl/, 'Silent Satyam (#12, last on the charts) specialises in getting fed up. Repeatedly. Tea helps, briefly. 😩☕'],
+    [/sridhar|sullileni|sing|dance/, 'Sullileni Sridhar (#8) sings and dances — he started at ₹10 a show and is now ₹39,999. Drawback: moans too loudly. 🎤💃'],
+    [/krishna|model|catwalk|ramp|free fire|freefire/, 'Krishna (#15) is a professional model, the No.1 hardcore Free Fire fan, and barely codes. Dislikes stories with meaning. 🕶️🎮'],
+    [/karre|mama|last piece/, 'Karre Mama (#14) is a playboy and a fighter who battles heartbreaks and heartjoys daily. Skills: talking nonsense and ML development. Only ₹1,314. 💘🥊'],
+    [/alan|allen|sully|chit|ameerpet|vibecod/, 'Alan Sully (#12) is an HTML vibecoder and a JS AI developer (claimed — and allegedly a big fraud). Teaches in Ameerpet market, makes chits on the side. 🌐📝'],
+    [/shouri|soulful|smiley|heroish|benchmark/, 'Soulful Shouri (#10) is the benchmark of product standards: heroish antics, plenty of soul, and a legendary danceoff to Cheasturana.c sung by Kodi Garu. 🎭💃'],
+    [/satyam|sulking|silent|fed up|grumbl/, 'Sulking Satyam (#13) specialises in getting fed up and sulking. Repeatedly. Tea helps, briefly. 😩☕'],
     [/cr jaggu|npc|gta/, 'CR Jaggu (#11) is a premier GTA NPC. Stands still, repeats one line, respawns after every run-over. 🎮'],
     [/pay|upi|card|cod|cash|qr|gateway/, 'At checkout, scan the Susheer Pay QR code to pay. Fair warning: the QR leads somewhere funny. We accept hugs but they do not clear the bill. 🤗😂'],
     [/hi\b|hello|hey|namaste|yo\b/, 'Hello boss! 😘 I\'m the Ganda Chatbot. How can I help you today?'],
@@ -165,6 +166,7 @@
       if (awaitFeedback) { awaitFeedback = false; safe(() => { const f = JSON.parse(localStorage.getItem('susheer_feedback') || '[]'); f.push({ text: txt.slice(0, 500), at: Date.now() }); localStorage.setItem('susheer_feedback', JSON.stringify(f)); }); say('Got it, noted! Your feedback goes straight to the Ganda Chatbot. 💌'); chips(MAIN); return; }
       const t = txt.toLowerCase();
       if (/feedback|rate|review|complain|suggest/.test(t)) return feedback();
+      if (Math.random() < 0.35) { say(pick(['Not now, I am tired. Ask Sulking Satyam.', 'Have you tried turning the mall off and on again?', 'Banana. That is my final answer.', 'I would answer, but I am sulking.', '42. Next question.', 'My humour is useless and so is this reply. Next!', 'Ugh, another question. I was in the middle of complaining.'])); chips(MAIN); return; }
       const hit = KB.find(k => k[0].test(t));
       say(hit ? hit[1] : pick(['Hmm, the Ganda Chatbot is scratching her head 🤔. Try asking about delivery, refunds, discounts or helicopters!', 'I did not get that, boss. But I can help with delivery, refunds, discounts and flying machines. 🚁']));
       chips(MAIN);
@@ -244,4 +246,20 @@
   const nav = document.querySelector('.top nav'); if (nav) nav.insertAdjacentHTML('afterbegin', '<a href="#" id="spinNav" class="spinbtn">🎡 Spin & Win</a>');
   document.addEventListener('click', e => { if (e.target.closest('#spinNav')) { e.preventDefault(); openWheel(); } });
   if (!safe(() => localStorage.getItem('wheel_seen')) && !hasCoupon()) setTimeout(() => { safe(() => localStorage.setItem('wheel_seen', 1)); if (!chat.classList.contains('open')) openWheel(); }, 28000);
+})();
+
+/* quiet-mode toggle: mute every popup */
+(function () {
+  const { SM } = window, safe = (fn, d) => { try { return fn(); } catch (e) { return d; } };
+  const nav = document.querySelector('.top nav'); if (!nav) return;
+  nav.insertAdjacentHTML('beforeend', '<a href="#" id="quietBtn" title="Mute / unmute the popups">🔔</a>');
+  const btn = document.getElementById('quietBtn');
+  const paint = () => { const q = safe(() => localStorage.getItem('susheer_quiet') === '1', false); btn.textContent = q ? '🔕' : '🔔'; btn.title = q ? 'Popups muted — click to unmute' : 'Mute / unmute the popups'; };
+  paint();
+  btn.addEventListener('click', e => {
+    e.preventDefault(); const q = safe(() => localStorage.getItem('susheer_quiet') === '1', false);
+    safe(() => localStorage.setItem('susheer_quiet', q ? '0' : '1')); paint();
+    if (!q) document.querySelectorAll('#salesman,#mallpop,#jagpop,.proof,.pa').forEach(el => el.classList.remove('show'));
+    SM.toast(q ? 'Popups back on 🔔' : 'Popups muted 🔕 — peace at last');
+  });
 })();
