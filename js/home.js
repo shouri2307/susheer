@@ -15,14 +15,25 @@
   const flip = () => { [...hs].forEach(e => e.classList.remove('on')); void hs[hi].offsetWidth; hs[hi].classList.add('on'); hi = (hi + 1) % hs.length; };
   flip(); setInterval(flip, 5000);
 
-  // flash-sale row for the Jaggu items
-  $('#flashRow').innerHTML = [D.LOCAL_JAG, D.LOCAL_LANG, D.GLOBAL_LANG].map(i => P[i]).map(p => `<a class="fr" href="product.html?id=${p.id}">
-    <img src="${p.img}" alt="${p.name}"><div><span class="hottag" style="position:static">⚡ FLASH</span><b>${p.name}</b><span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>
-    <span class="frp">${SM.inr(p.price)} <s>${SM.inr(p.mrp)}</s></span><small>🔥 ${SM.sold(900, 6000)} sold · ends in <span class="js-timer">--:--:--</span></small></div></a>`).join('');
+  // all-time leaderboard (funny rankings)
+  const top3 = P[102];  // Susheer Apples — the people's champion
+  const board = [
+    { p: P[1], n: 1, medal: '🥇', sold: 1248760 }, { p: P[D.LOCAL_JAG], n: 2, medal: '🥈', sold: 874300 },
+    { p: top3, n: 3, medal: '🥉', sold: 621400, note: 'Champion of the common folk 🍎' }, { p: P[0], n: 343, medal: '📉', sold: 3, note: 'Least popular. Hence the one-on-one sale. Please buy. 🥺' }
+  ];
+  $('#board').innerHTML = board.map(b => `<article class="rank r${b.n > 3 ? 'x' : b.n}">
+      <div class="medal">${b.medal}<small>#${b.n}</small></div>
+      <a href="product.html?id=${b.p.id}">${SM.visual(b.p)}<h3>${b.p.name}</h3></a>
+      <div class="price"><b>${SM.inr(b.p.price)}</b><s>${SM.inr(b.p.mrp)}</s></div>
+      <div class="sold">🛒 <span class="js-n" data-n="${b.sold}">${b.sold.toLocaleString('en-IN')}</span> sold all-time</div>
+      ${b.p.flash ? '<div class="flashtag">⚡ FLASH SALE · <span class="js-timer">--:--:--</span></div>' : ''}
+      ${b.note ? `<small class="note">${b.note}</small>` : ''}
+      <a class="btn ${b.p.flash ? 'buy' : 'pri'} block" href="product.html?id=${b.p.id}">${b.n === 343 ? 'Please buy 🥺' : 'Buy now'}</a>
+    </article>`).join('');
 
   // deals rail
   const shuffled = P.filter(p => !p.flash).sort(() => Math.random() - .5).slice(0, 14);
-  $('#deals').innerHTML = [P[0], P[1], P[D.LOCAL_JAG], P[D.LOCAL_LANG], P[D.GLOBAL_LANG], ...shuffled].map(SM.card).join('');
+  $('#deals').innerHTML = [P[0], P[1], P[D.LOCAL_JAG], ...shuffled].map(SM.card).join('');
 
   // category chips + sidebar
   const counts = {}; P.forEach(p => counts[p.cat] = (counts[p.cat] || 0) + 1);

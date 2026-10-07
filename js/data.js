@@ -1,6 +1,6 @@
 /* Susheer Shopping Mall — catalog (parody). Every product is prefixed "Susheer". */
 (function () {
-  let SM_LOCAL_JAG, SM_LOCAL_LANG, SM_GLOBAL_LANG;
+  let SM_LOCAL_JAG;
   // category: [id, label, icon, accent, items "emoji|name|price"]
   const CATS = [
     ['mobiles', 'Mobiles', '📱', '#6c5ce7', [
@@ -122,19 +122,22 @@
   // Product 0 — the headline flash sale item
   products.push({
     id: 0, name: 'Susheer — Original Edition (Flash Sale)', short: 'Susheer', emoji: '🕴️', cat: 'mall', catLabel: 'Mall Specials',
-    price: 50000, mrp: 99999, rating: 4.9, reviews: 100000, img: 'assets/susheer-product.jpg', flash: true, bogo: true,
-    desc: 'The one. The only. Susheer himself — now at a flash sale price of ₹50,000 only. Buy now and get 1 FREE! Comes with a signature hoodie, premium swagger and unlimited mall-walking energy. (Parody item — no humans are actually for sale.)',
-    tags: ['Flash Sale', 'Buy 1 Get 1 Free', 'Limited Stock']
+    price: 50000, mrp: 99999, rating: 3.1, reviews: 12, img: 'assets/susheer-product.jpg', flash: true, bogo: true,
+    rank: { n: 343, label: '📉 LEAST POPULAR ITEM IN THE MALL', sold: 3 },
+    taglines: ['😬 Least popular item in the mall — please buy', '🤝 ONE-ON-ONE SALE: buy 1, get 1 FREE', '📉 Rank #343 out of 343 (we checked twice)', '🥺 Sold 3 units. Two were returned.', '🎁 Free 2nd piece because nobody wants the first'],
+    desc: 'Susheer himself — now at a flash sale price of ₹50,000. Sales have been… slow. Susheer is officially the LEAST popular item in the entire mall, which is exactly why he is on a desperate ONE-ON-ONE sale: buy 1, get 1 FREE. Comes with a signature hoodie and mall-walking energy. (Parody item — no humans are actually for sale.)',
+    tags: ['Flash Sale', 'One-on-One Sale', 'Buy 1 Get 1 Free', 'Please buy']
   });
 
   // Product 1 — the only item in the Jaggu department
   products.push({
-    id: 1, name: 'Langadeesh Garu', short: 'Langadeesh Garu', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
-    price: 10000000, mrp: 25000000, rating: 5.0, reviews: 99999, img: 'assets/langadeesh.jpg', hot: true, fit: true,
-    gallery: [['assets/langadeesh.jpg', 'Langadeesh Garu'], ['assets/jagadeesh-flash.jpg', 'Fan favourite: Local Jagadeesh 👀']],
-    taglines: ['🔥 FRESH & HOT — just landed at Bowenpally Mall!', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '🏆 Voted Most Wanted by 99,999 shoppers', '📦 Ships with free swagger', '⚠️ May cause sudden crushes'],
-    desc: 'The one and only Langadeesh Garu — the rarest item in the entire Susheer Shopping Mall. Only ONE piece exists, so every sale is a miracle. Price: ₹1 Crore, non-negotiable. (Parody item — no humans are actually for sale.)',
-    tags: ['🔥 HOT', 'Only 1 in the mall', 'Selling out fast']
+    id: 1, name: 'Global Langadeesh', short: 'Global Langadeesh', emoji: '🌍', cat: 'jaggu', catLabel: 'Jaggu',
+    price: 10000000, mrp: 25000000, rating: 5.0, reviews: 999999, img: 'assets/langadeesh.jpg', hot: true, fit: true, flash: true,
+    rank: { n: 1, label: '🏆 #1 MOST SOLD PRODUCT IN SUSHEER MALL HISTORY', sold: 1248760 },
+    gallery: [['assets/langadeesh.jpg', 'Global Langadeesh 🌍'], ['assets/jagadeesh-flash.jpg', 'His local cousin: Local Langadeesh (#2 most sold) 👀']],
+    taglines: ['🏆 #1 most sold product in Susheer Mall history', '🔥 FRESH & HOT — just landed at Bowenpally Mall!', '🌍 Shipped worldwide (and to the neighbours)', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '⚠️ May cause sudden crushes'],
+    desc: 'Global Langadeesh — the MOST SOLD product in the entire history of Susheer Shopping Mall. Over 12 lakh units sold (and somehow still only 1 left in stock). Now on FLASH SALE at ₹1 Crore, non-negotiable. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏆 #1 Bestseller Ever', '🔥 HOT', '⚡ Flash Sale', 'Only 1 in the mall']
   });
 
   CATS.forEach(([cid, label, icon, color, items]) => {
@@ -157,34 +160,15 @@
 
   // Local Jagadeesh — the flash-sale item behind the side popup (added last so existing product ids stay put)
   products.push({
-    id: products.length, name: 'Local Jagadeesh (Flash Sale)', short: 'Local Jagadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
+    id: products.length, name: 'Local Langadeesh (Flash Sale)', short: 'Local Langadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
     price: 75000, mrp: 500000, rating: 4.9, reviews: 88888, img: 'assets/jagadeesh-flash.jpg', hot: true, fit: true, flash: true,
-    gallery: [['assets/jagadeesh-flash.jpg', 'Local Jagadeesh — surrounded by fans'], ['assets/langadeesh.jpg', 'Also trending: Langadeesh Garu 🔥']],
-    taglines: ['💘 Selling out EXTREMELY fast!', '💍 "Marry Me" requests: 10 and counting', '🏃 Selling faster than Bowenpally biryani', '📩 DM Langadeesh for contact details', '⚠️ Warning: may cause sudden proposals', '🔥 Local legend. Limited stock. Unlimited rizz.'],
-    desc: 'Local Jagadeesh is the most in-demand item at the Susheer Shopping Mall right now. Surrounded by admirers and selling out extremely fast. DM Langadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['⚡ Flash Sale', '🔥 HOT', 'Selling out fast']
+    rank: { n: 2, label: '🥈 #2 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 874300 },
+    gallery: [['assets/jagadeesh-flash.jpg', 'Local Langadeesh — surrounded by fans'], ['assets/langadeesh.jpg', 'His global cousin: Global Langadeesh (#1 most sold) 🌍']],
+    taglines: ['💘 Selling out EXTREMELY fast!', '🥈 #2 most sold product in the mall', '💍 "Marry Me" requests: 10 and counting', '🏃 Selling faster than Bowenpally biryani', '📩 DM Global Langadeesh for contact details', '⚠️ Warning: may cause sudden proposals', '🔥 Local legend. Limited stock. Unlimited rizz.'],
+    desc: 'Local Langadeesh — the 2nd most sold product in Susheer Mall history, now on FLASH SALE. Surrounded by admirers and selling out extremely fast. DM Global Langadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['⚡ Flash Sale', '🥈 #2 Bestseller', '🔥 HOT', 'Selling out fast']
   });
   SM_LOCAL_JAG = products.length - 1;
-
-  // Local & Global Langadeesh — the flash-sale twins
-  products.push({
-    id: products.length, name: 'Local Langadeesh (Ghibli Edition)', short: 'Local Langadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
-    price: 99999, mrp: 300000, rating: 4.9, reviews: 77777, img: 'assets/langadeesh-ghibli.svg', hot: true, fit: true, flash: true, twin: 'global',
-    gallery: [['assets/langadeesh-ghibli.svg', 'Local Langadeesh — Ghibli Edition 🌤️'], ['assets/langadeesh.jpg', 'Original (non-animated) version']],
-    taglines: ['🌤️ Hand-drawn. Hand-picked. Hand over your money.', '🔥 FLASH SALE — made in Bowenpally!', '🍃 Powered by Bowenpally breeze & biryani', '🏠 Local: zero shipping time, delivered by shouting', '🎨 Studio Ghibli vibes, Susheer prices'],
-    desc: 'Local Langadeesh, Ghibli Edition — the same legend, but drawn in a dreamy hand-painted style. Made in Bowenpally, delivered to your door by pure enthusiasm. (Parody item — no humans are actually for sale.)',
-    tags: ['⚡ Flash Sale', '🔥 HOT', 'Made in Bowenpally']
-  });
-  SM_LOCAL_LANG = products.length - 1;
-  products.push({
-    id: products.length, name: 'Global Langadeesh (Worldwide Edition)', short: 'Global Langadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
-    price: 499999, mrp: 2000000, rating: 5.0, reviews: 66666, img: 'assets/salesman-full.jpg', hot: true, fit: true, flash: true, twin: 'local',
-    gallery: [['assets/salesman-full.jpg', 'Global Langadeesh — Worldwide Edition 🌍'], ['assets/langadeesh-ghibli.svg', 'Also on sale: Local Langadeesh 🌤️']],
-    taglines: ['🌍 Now shipping to 195 countries (and 1 mall)', '✈️ Delivered by private jet. Probably.', '💼 Business-class swagger, economy price', '🔥 FLASH SALE — world rate experience!', '🛰️ Tracked by satellite. And by Mr. KK.'],
-    desc: 'Global Langadeesh, Worldwide Edition — the international version, now cleared for export. Comes with sunglasses, a crisp white shirt and passport-ready confidence. (Parody item — no humans are actually for sale.)',
-    tags: ['⚡ Flash Sale', '🔥 HOT', 'Ships worldwide']
-  });
-  SM_GLOBAL_LANG = products.length - 1;
 
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};
@@ -194,7 +178,7 @@
     CATS: [{ id: 'jaggu', label: 'Jaggu', icon: '🔥', color: '#ff3d00' }].concat(CATS.map(c => ({ id: c[0], label: c[1], icon: c[2], color: c[3] }))),
     products,
     FLASH_PRICE: 50000,
-    LOCAL_JAG: SM_LOCAL_JAG, LOCAL_LANG: SM_LOCAL_LANG, GLOBAL_LANG: SM_GLOBAL_LANG,
+    LOCAL_JAG: SM_LOCAL_JAG,
     REVIEWS: [
       ['Ramesh K.', 5, 'Bought one. A helicopter landed on my terrace to deliver it. 10/10 would be surprised again.'],
       ['Priya S.', 5, 'My mother-in-law now shops only at Susheer. Please send help.'],

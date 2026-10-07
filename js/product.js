@@ -21,11 +21,12 @@
     <div class="pdp-media">${media}</div>
     <div>
       <h1>${p.name}</h1>
-      ${p.taglines ? `<span class="hotline">🔥 FRESH &amp; HOT</span><span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>` : ''}
+      ${p.rank ? `<div class="rankbig r${p.rank.n > 3 ? 'x' : p.rank.n}">${p.rank.label} · <b>${p.rank.sold.toLocaleString('en-IN')}</b> sold all-time</div>` : ''}
+      ${p.taglines ? `${p.hot ? '<span class="hotline">🔥 FRESH &amp; HOT</span>' : ''}<span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>` : ''}
       <div class="rate" style="margin-top:10px;font-size:14px"><span class="star">${p.rating} ★</span><span class="rv">${p.reviews.toLocaleString('en-IN')} ratings</span></div>
       <div class="big-price">${inr(p.price)} <s>${inr(p.mrp)}</s> <span class="off">${off}% off</span></div>
-      ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>Only 1 left in the mall!</b></div>` : ''}
-      ${p.bogo ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · <b>BUY NOW, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
+      ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>Only 1 left in the mall!</b>${p.flash ? ' · ⚡ <b>FLASH SALE</b> ends in <b class="js-timer">--:--:--</b>' : ''}</div>` : ''}
+      ${p.bogo ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · 😅 Sales are slow, so this is a <b>ONE-ON-ONE SALE: BUY 1, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="offers">
         <div><b>Bank offer:</b> 10% instant discount on Susheer Pay cards</div>
@@ -41,17 +42,6 @@
       <p class="desc">${p.desc}</p>
     </div>`;
 
-  if (p.twin) {
-    const L = P[D.LOCAL_LANG], G = P[D.GLOBAL_LANG];
-    $('#pdp').insertAdjacentHTML('afterend', `<section class="vs"><div class="sec-h"><h2>🥊 Local vs Global Langadeesh</h2><span>Which one are you?</span></div>
-      <div class="vs-t"><div></div><b>🌤️ Local (Ghibli)</b><b>🌍 Global</b>
-      <span>Price</span><i>${inr(L.price)}</i><i>${inr(G.price)}</i>
-      <span>Delivery</span><i>Shouted across Bowenpally</i><i>Private jet*</i>
-      <span>Language</span><i>Telugu, Hindi, vibes</i><i>All 7,000 languages</i>
-      <span>Favourite food</span><i>Biryani</i><i>Biryani (imported)</i>
-      <span>Warranty</span><i>Until he gets hungry</i><i>Worldwide* (*Bowenpally only)</i></div>
-      <p style="text-align:center;margin-top:14px"><a class="btn pri" href="product.html?id=${p.twin === 'global' ? D.GLOBAL_LANG : D.LOCAL_LANG}">Check out the ${p.twin} one →</a></p></section>`);
-  }
   const rv = [...D.REVIEWS].sort(() => Math.random() - .5).slice(0, 6);
   $('#pdp').insertAdjacentHTML('afterend', `<section class="reviews"><div class="sec-h"><h2>⭐ Customer reviews <span style="font-size:14px">(100% real*)</span></h2><span>*as real as this mall</span></div><div class="rev-grid">${rv.map(r => `<div class="rev"><div class="rh"><span>${r[0]}</span><span class="st">${'★'.repeat(r[1])}${'☆'.repeat(5 - r[1])}</span></div>${r[2]}<br><small>✔ Verified Susheer buyer</small></div>`).join('')}</div></section>`);
   setInterval(() => { const v = $('.js-view'); if (v) v.textContent = 30 + Math.floor(Math.random() * 60); }, 1500);
