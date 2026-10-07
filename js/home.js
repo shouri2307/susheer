@@ -31,7 +31,7 @@
   // best product of the mall
   const bp = P.find(x => x.best);
   $('#best').innerHTML = `<div class="bestcard"><a href="product.html?id=${bp.id}" class="bc-img"><img src="${bp.img}" alt="${bp.name}"></a>
-    <div class="bc-body"><span class="bc-crown">👑 BEST PRODUCT OF SUSHEER SHOPPING MALL</span>
+    <div class="bc-body"><span class="bc-crown">👑 BEST PRODUCT OF USELESS SHOPPING MALL</span>
       <h2>${bp.name}</h2>
       <div class="rate"><span class="star">${bp.rating} ★</span><span class="rv">${bp.reviews.toLocaleString('en-IN')} ratings · excellently reviewed</span></div>
       <p class="bc-line">💻 Programmer · coder · all-rounder. <b>Perfectly expensive.</b></p>

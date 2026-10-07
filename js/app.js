@@ -64,7 +64,7 @@
   /* ---------- chrome ---------- */
   const here = location.pathname.split('/').pop() || 'index.html';
   const nav = (h, t) => `<a href="${h}" class="${here === h ? 'on' : ''}">${t}</a>`;
-  const MALL_PHRASE = '🏬 SUSHEER SHOPPING MALL ✦ Bowenpally ✦ World Rate Experience ✦ 🚁 Helicopters for Sale ✦ ✈️ Luxury Aircraft ✦ ';
+  const MALL_PHRASE = '🏬 USELESS SHOPPING MALL ✦ Maisammaguda ✦ World Rate Experience ✦ 🚁 Helicopters for Sale ✦ ✈️ Luxury Aircraft ✦ ';
   document.body.insertAdjacentHTML('afterbegin', `
     <div class="roam" aria-hidden="true"><div class="roam-track">${(`<span>${MALL_PHRASE}</span>`).repeat(8)}</div></div>
     <div class="flashbar">
@@ -74,7 +74,7 @@
       <a class="fb-btn" id="fbBtn" href="product.html?id=0">Buy now →</a>
     </div>
     <header class="top">
-      <a href="index.html" class="logo"><img src="assets/mall-main.jpg" alt=""><span><i>Susheer</i><em>Shopping Mall</em></span></a>
+      <a href="index.html" class="logo"><img src="assets/mall-main.jpg" alt=""><span><i>Useless</i><em>Shopping Mall</em></span></a>
       <form class="search" action="index.html" method="get"><input name="q" placeholder="Search Susheer apples, Susheer sofas, Susheer everything…" aria-label="Search" value="${safe(() => new URLSearchParams(location.search).get('q') || '', '').replace(/"/g, '')}"><button aria-label="Search">🔍</button></form>
       <nav>${nav('index.html', 'Shop')}${nav('about.html', 'The Mall')}${nav('kk.html', 'Meet Mr. KK')}${nav('cart.html', 'Cart <span id="cartCount" class="badge zero">0</span>')}</nav>
     </header>
@@ -82,11 +82,11 @@
   document.body.insertAdjacentHTML('beforeend', `
     <footer class="foot">
       <div class="foot-in">
-        <div><div class="flogo">Susheer Shopping Mall</div><p>Plz visit <b>Bowenpally Mall</b> for world rate experience.</p></div>
+        <div><div class="flogo">Useless Shopping Mall</div><p>Plz visit <b>Maisammaguda Mall</b> for world rate experience.</p></div>
         <div><b>Shop</b><a href="index.html?cat=helicopters">Helicopters</a><a href="index.html?cat=cars">Cars</a><a href="index.html?cat=planes">Planes</a><a href="index.html?cat=jaggu">Jaggu 🔥</a><a href="index.html?cat=grocery">Grocery</a><a href="index.html?cat=mobiles">Mobiles</a><a href="index.html?cat=womens">Fashion</a><a href="product.html?id=0">Flash Sale</a></div>
         <div><b>Mall</b><a href="about.html">About the Mall</a><a href="kk.html">Meet Mr. KK</a><a href="about.html#gallery">Gallery</a><a href="cart.html">Cart</a></div>
       </div>
-      <p class="fine">Susheer Shopping Mall is a parody project made for fun and is not affiliated with any real retailer. No real orders, payments or humans are sold. Product photos are from Wikimedia Commons (free licences). 😄</p>
+      <p class="fine">Useless Shopping Mall is a parody project made for fun and is not affiliated with any real retailer. No real orders, payments or humans are sold. Product photos are from Wikimedia Commons (free licences). 😄</p>
     </footer>
     <aside class="salesman" id="salesman" aria-live="polite">
       <button class="x" aria-label="Dismiss Mr. KK" id="salesX">×</button>
@@ -105,8 +105,8 @@
     </aside>
     <aside class="mallpop" id="mallpop">
       <button class="x" aria-label="Close" id="mallX">×</button>
-      <img id="mallImg" src="" alt="Susheer Shopping Mall">
-      <div class="mp-t"><b>Plz visit Bowenpally Mall</b><span id="mallLine">for world rate experience</span></div>
+      <img id="mallImg" src="" alt="Useless Shopping Mall">
+      <div class="mp-t"><b>Plz visit Maisammaguda Mall</b><span id="mallLine">for world rate experience</span></div>
     </aside>`);
   SM.refreshCart();
 
@@ -134,7 +134,7 @@
     p => `Bhai! ${p.short} for just ${inr(p.price)} — ${Math.round((1 - p.price / p.mrp) * 100)}% off, only today!`,
     p => `Psst… you need ${p.short}. Trust me, I'm the salesman. Only ${inr(p.price)}!`,
     p => `Mega offer! ${p.short} at ${inr(p.price)}. Last piece in the mall, hurry!`,
-    p => `Boss, ${p.short}? Straight from Bowenpally Mall. Only ${inr(p.price)}, free delivery!`,
+    p => `Boss, ${p.short}? Straight from Maisammaguda Mall. Only ${inr(p.price)}, free delivery!`,
     p => `Arre wait! ${p.short} just dropped to ${inr(p.price)}. Even the helicopters are jealous.`,
     p => `Deal of the minute: ${p.short} — was ${inr(p.mrp)}, now ${inr(p.price)}. Don't blink!`,
     p => `Buy ${p.short} and I'll personally say "thanks bhai". That's a ${Math.round((1 - p.price / p.mrp) * 100)}% off deal!`

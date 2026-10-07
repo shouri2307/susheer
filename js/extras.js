@@ -35,7 +35,7 @@
     'Lean Baddie is spotting someone on the bench press. The aura is being felt by all floors.',
     'Sullileni Sridhar will perform on Level 2 shortly. Earplugs available at Aisle 9.',
     'Susheer, our #3 bestseller, is signing autographs at the Flash Sale counter.',
-    'Plz visit Bowenpally Mall for world rate experience. This message repeats every 40 seconds.'
+    'Plz visit Maisammaguda Mall for world rate experience. This message repeats every 40 seconds.'
   ];
   document.body.insertAdjacentHTML('beforeend', '<div class="pa" id="pa" role="status"><span class="sp">📢</span><span><b>MALL ANNOUNCEMENT:</b> <span id="paTxt"></span></span></div>');
   const showPA = () => {
@@ -46,19 +46,19 @@
 
   /* ---------- fun facts (also used by home.js) ---------- */
   SM.facts = [
-    ['🚁', 'The Susheer Shopping Mall rooftop has more helicopters than the nearest three bus stops combined.'],
+    ['🚁', 'The Useless Shopping Mall rooftop has more helicopters than the nearest three bus stops combined.'],
     ['🍎', 'An apple a day keeps the doctor away — a Susheer Apple a day keeps the cashier busy.'],
     ['🐙', 'Octopuses have three hearts. Mr. KK has one, and it belongs to our customers. 😘'],
     ['🛒', 'The first shopping cart was invented in 1937 in Oklahoma. Ours has a helicopter lane.'],
     ['🍯', 'Honey never spoils. Susheer Honey (500 g) also never spoils — we sell it too fast.'],
-    ['🏬', 'Bowenpally Mall is the only mall where you can buy aircraft and a banana in the same bill.'],
+    ['🏬', 'Maisammaguda Mall is the only mall where you can buy aircraft and a banana in the same bill.'],
     ['⏰', 'Flash sale prices reset every midnight. Mr. KK stays up to watch the counter.'],
     ['📱', 'More people own a mobile phone than a toothbrush. Buy both at Susheer — we have it all.'],
-    ['🥭', 'Mangoes are the national fruit of India. Susheer Mangoes are the national fruit of Bowenpally.'],
+    ['🥭', 'Mangoes are the national fruit of India. Susheer Mangoes are the national fruit of Maisammaguda.'],
     ['✈️', 'A Boeing 747 has about 6 million parts. Our Passenger Airliner ships with all of them. Mostly.'],
     ['😴', 'Cats sleep 70% of their lives. Susheer Cat Scratcher Tower is built for the other 30%.'],
     ['🍌', 'Bananas are berries; strawberries are not. Susheer Fruit Dept. has opinions about this.'],
-    ['🎯', '9 out of 10 shoppers at Susheer Mall say "Plz visit Bowenpally Mall for world rate experience."'],
+    ['🎯', '9 out of 10 shoppers at Useless Mall say "Plz visit Maisammaguda Mall for world rate experience."'],
     ['👶', 'Mr. Diaper Dilip absorbs 99% of your problems. The other 1% is the EMI.'],
     ['🧠', 'Fun fact: this entire mall was built with pure confidence and CSS.']
   ];
@@ -94,7 +94,7 @@
 
   /* ---------- social proof toasts ---------- */
   const names = ['Ramesh', 'Priya', 'Venkat', 'Anjali', 'Sai', 'Lakshmi', 'Rahul', 'Fatima', 'Kiran', 'Divya', 'Arjun', 'Meena', 'Ganesh', 'Sneha'];
-  const places = ['Bowenpally', 'Secunderabad', 'Kukatpally', 'Begumpet', 'Alwal', 'Madhapur', 'Tarnaka', 'Marredpally'];
+  const places = ['Maisammaguda', 'Secunderabad', 'Kukatpally', 'Begumpet', 'Alwal', 'Madhapur', 'Tarnaka', 'Marredpally'];
   const verbs = ['just bought', 'just added to cart', 'is eyeing', 'just ordered'];
   const proof = document.createElement('div'); proof.className = 'proof'; document.body.appendChild(proof);
   const showProof = () => {
@@ -123,11 +123,11 @@
   const chips = a => { qr.innerHTML = a.map(x => `<button>${x}</button>`).join(''); };
   const MAIN = ['🚚 Delivery', '↩️ Refunds', '🎡 Discounts', '🚁 Helicopters', '⭐ Give feedback'];
   const KB = [
-    [/deliver|ship|track|order status|where.*order/, 'We deliver within 30 minutes in Bowenpally, same-day across Hyderabad. Orders above ₹1 crore are delivered by helicopter. 🚁 (Yes, really. Pilot not included.)'],
+    [/deliver|ship|track|order status|where.*order/, 'We deliver within 30 minutes in Maisammaguda, same-day across Hyderabad. Orders above ₹1 crore are delivered by helicopter. 🚁 (Yes, really. Pilot not included.)'],
     [/refund|return|replace|cancel/, '7-day returns on everything except Jagadeesh — he is one of a kind and non-returnable. 😄 Refunds reach your Susheer Pay in 2 minutes (in our imagination).'],
     [/discount|offer|coupon|deal|cheap|sale|wheel|spin/, 'Spin the wheel for a coupon! 🎡 Tap the "Spin & Win" button at the top. Also: Susheer is on FLASH SALE for ₹50K — buy 1 get 1 FREE.'],
     [/heli|plane|jet|aircraft|car\b|cars|boat|yacht|bike/, 'Our Helicopters, Cars, Planes, Bikes and Boats departments are live! Check the sidebar on the shop page. Test flights on the rooftop every Sunday. ✈️'],
-    [/jagadeesh|langadeesh|dilip|diaper|\bdd\b|jaggu/, 'Ah, the legends! 🏆 Jagadeesh is the #1 most sold product in Susheer Mall history (₹1 crore, only 1 left!). 🥈 Mr. Diaper Dilip (Mr. DD) is #2 and on flash sale — fully absorbent, Pampers sold separately. 🥉 Susheer himself is #3. DM Jagadeesh for contact details. 📩'],
+    [/jagadeesh|langadeesh|dilip|diaper|\bdd\b|jaggu/, 'Ah, the legends! 🏆 Jagadeesh is the #1 most sold product in Useless Mall history (₹1 crore, only 1 left!). 🥈 Mr. Diaper Dilip (Mr. DD) is #2 and on flash sale — fully absorbent, Pampers sold separately. 🥉 Susheer himself is #3. DM Jagadeesh for contact details. 📩'],
     [/susheer|flash|50k|50,000/, 'Susheer himself is our #3 best-seller! 🥉 Flash sale: ₹50,000, BUY 1 GET 1 FREE. Mr. DD and Jagadeesh are on flash sale too!'],
     [/\bkk\b|salesman|canteen|clean/, 'Mr. KK is our Senior Salesman, Canteen Cleaner and professional Napper. 😴 Hardworking index: 2%. Zoom in on him on the "Meet Mr. KK" page — available for hire at ₹9,999/day (work not guaranteed), never for sale.'],
     [/chearean|coder|programm|developer|\bcode\b|best product/, 'Chearean.c is our BEST PRODUCT 👑 — programmer, coder and all-rounder, 4.9★ from 1,00,000 ratings and perfectly expensive (₹5 crore). Compiles on the first try. 💻'],
@@ -144,8 +144,8 @@
     [/cr jaggu|npc|gta/, 'CR Jaggu (#11) is a premier GTA NPC. Stands still, repeats one line, respawns after every run-over. 🎮'],
     [/pay|upi|card|cod|cash|qr|gateway/, 'At checkout, scan the Susheer Pay QR code to pay. Fair warning: the QR leads somewhere funny. We accept hugs but they do not clear the bill. 🤗😂'],
     [/hi\b|hello|hey|namaste|yo\b/, 'Hello boss! 😘 I\'m the Ganda Chatbot. How can I help you today?'],
-    [/thank|thanks|tq/, 'Thank you boss! Plz visit Bowenpally Mall for world rate experience. 💖'],
-    [/where|address|location|bowenpally|visit|open/, 'Susheer Shopping Mall is in Bowenpally, Hyderabad. Open 9 AM – 11 PM. Look for the tall glowing tower with helicopters on top. 🏬']
+    [/thank|thanks|tq/, 'Thank you boss! Plz visit Maisammaguda Mall for world rate experience. 💖'],
+    [/where|address|location|maisammaguda|visit|open/, 'Useless Shopping Mall is in Maisammaguda, Hyderabad. Open 9 AM – 11 PM. Look for the tall glowing tower with helicopters on top. 🏬']
   ];
   const feedback = () => {
     say('How was your Susheer experience? Tap a star:');

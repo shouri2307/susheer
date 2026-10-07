@@ -41,7 +41,7 @@
     if (e.target.id === 'place') {
       SM.cart.clear(); SM.confetti(260); setTimeout(() => SM.confetti(160), 600);
       try { localStorage.removeItem('susheer_coupon'); } catch (e) {}
-      main.innerHTML = `<div class="done"><div style="font-size:90px">🎉</div><h2>Order placed!</h2><p style="color:var(--soft)">Thank you for shopping at <b>Susheer Shopping Mall</b>.<br>Plz visit Bowenpally Mall for world rate experience.</p><p style="margin-top:22px"><a class="btn pri" href="index.html">Keep shopping</a></p></div>`;
+      main.innerHTML = `<div class="done"><div style="font-size:90px">🎉</div><h2>Order placed!</h2><p style="color:var(--soft)">Thank you for shopping at <b>Useless Shopping Mall</b>.<br>Plz visit Maisammaguda Mall for world rate experience.</p><p style="margin-top:22px"><a class="btn pri" href="index.html">Keep shopping</a></p></div>`;
     }
   });
   render();
@@ -72,7 +72,7 @@
       const b = document.getElementById('paybg'); if (b) b.remove();
       SM.cart.clear(); SM.confetti(260); setTimeout(() => SM.confetti(160), 600);
       try { localStorage.removeItem('susheer_coupon'); } catch (err) {}
-      main.innerHTML = `<div class="done"><div style="font-size:90px">🎉</div><h2>Order placed!</h2><p style="color:var(--soft)">Thank you for shopping at <b>Susheer Shopping Mall</b>.<br>Plz visit Bowenpally Mall for world rate experience.</p><p style="margin-top:22px"><a class="btn pri" href="index.html">Keep shopping</a></p></div>`;
+      main.innerHTML = `<div class="done"><div style="font-size:90px">🎉</div><h2>Order placed!</h2><p style="color:var(--soft)">Thank you for shopping at <b>Useless Shopping Mall</b>.<br>Plz visit Maisammaguda Mall for world rate experience.</p><p style="margin-top:22px"><a class="btn pri" href="index.html">Keep shopping</a></p></div>`;
     }
   }, true);
 })();

@@ -1,4 +1,4 @@
-/* Susheer Shopping Mall — catalog (parody). Every product is prefixed "Susheer". */
+/* Useless Shopping Mall — catalog (parody). Every product is prefixed "Susheer". */
 (function () {
   let SM_LOCAL_JAG, SM_KK;
   const PEOPLE = [];
@@ -124,23 +124,23 @@
   products.push({
     id: 0, name: 'Susheer — Original Edition (Flash Sale)', short: 'Susheer', emoji: '🕴️', cat: 'mall', catLabel: 'Mall Specials',
     price: 50000, mrp: 99999, rating: 3.1, reviews: 12, img: 'assets/susheer-product.jpg', flash: true, bogo: true,
-    rank: { n: 3, label: '🥉 #3 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 621400 },
-    taglines: ['🥉 #3 most sold product in Susheer Mall', '🎁 FLASH SALE: buy 1, get 1 FREE', '🧥 Hoodie included. Swagger included.', '🚶 Walks into every room like he owns the mall (he does)', '🔥 Limited stock. Unlimited main-character energy'],
+    rank: { n: 3, label: '🥉 #3 MOST SOLD PRODUCT IN USELESS MALL', sold: 621400 },
+    taglines: ['🥉 #3 most sold product in Useless Mall', '🎁 FLASH SALE: buy 1, get 1 FREE', '🧥 Hoodie included. Swagger included.', '🚶 Walks into every room like he owns the mall (he does)', '🔥 Limited stock. Unlimited main-character energy'],
     desc: 'Susheer himself — the face of the mall and the #3 best-selling product of all time, now at a flash sale price of ₹50,000. Buy 1 and get 1 FREE. Comes with a signature hoodie, premium swagger and unlimited mall-walking energy. (Parody item — no humans are actually for sale.)',
     tags: ['Flash Sale', 'Buy 1 Get 1 Free', '🥉 #3 Bestseller', 'Limited Stock'],
     sizesLabel: 'Hoodie size', sizes: ['S', 'M', 'L', 'XL'],
-    highlights: ['🥉 #3 most sold product in Susheer Mall', '🎁 Buy 1, get 1 FREE — flash sale price ₹50,000', '🧥 Signature hoodie included', '😎 Sunglasses hang on the shirt (not included)', '🚶 Unlimited mall-walking energy']
+    highlights: ['🥉 #3 most sold product in Useless Mall', '🎁 Buy 1, get 1 FREE — flash sale price ₹50,000', '🧥 Signature hoodie included', '😎 Sunglasses hang on the shirt (not included)', '🚶 Unlimited mall-walking energy']
   });
 
   // Product 1 — the only item in the Jaggu department
   products.push({
     id: 1, name: 'Jagadeesh', short: 'Jagadeesh', emoji: '🔥', cat: 'jaggu', catLabel: 'Jaggu',
     price: 10000000, mrp: 25000000, rating: 5.0, reviews: 999999, img: 'assets/langadeesh.jpg', hot: true, fit: true, flash: true,
-    rank: { n: 1, label: '🏆 #1 MOST SOLD PRODUCT IN SUSHEER MALL HISTORY', sold: 1248760 },
-    taglines: ['🏆 #1 most sold product in Susheer Mall history', '🔥 FRESH & HOT — just landed at Bowenpally Mall!', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '📦 Ships with free swagger', '⚠️ May cause sudden crushes'],
-    desc: 'Jagadeesh (a.k.a. Local Langadeesh, a.k.a. Global Langadeesh) — the MOST SOLD product in the entire history of Susheer Shopping Mall. Over 12 lakh units sold (and somehow still only 1 left in stock). Now on FLASH SALE at ₹1 Crore, non-negotiable. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    rank: { n: 1, label: '🏆 #1 MOST SOLD PRODUCT IN USELESS MALL HISTORY', sold: 1248760 },
+    taglines: ['🏆 #1 most sold product in Useless Mall history', '🔥 FRESH & HOT — just landed at Maisammaguda Mall!', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '📦 Ships with free swagger', '⚠️ May cause sudden crushes'],
+    desc: 'Jagadeesh (a.k.a. Local Langadeesh, a.k.a. Global Langadeesh) — the MOST SOLD product in the entire history of Useless Shopping Mall. Over 12 lakh units sold (and somehow still only 1 left in stock). Now on FLASH SALE at ₹1 Crore, non-negotiable. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏆 #1 Bestseller Ever', '🔥 HOT', '⚡ Flash Sale', 'Only 1 in the mall'],
-    highlights: ['🏆 #1 most sold product in Susheer Mall history', '🌍 Also known as Local Langadeesh and Global Langadeesh', '💎 Only 1 piece left in the entire mall', '🚫 Non-refundable, non-returnable, non-negotiable', '🎁 Free swagger with every order']
+    highlights: ['🏆 #1 most sold product in Useless Mall history', '🌍 Also known as Local Langadeesh and Global Langadeesh', '💎 Only 1 piece left in the entire mall', '🚫 Non-refundable, non-returnable, non-negotiable', '🎁 Free swagger with every order']
   });
 
   CATS.forEach(([cid, label, icon, color, items]) => {
@@ -155,7 +155,7 @@
         id, name: 'Susheer ' + nm, short: 'Susheer ' + nm.replace(/\s*\(.*\)/, ''), emoji, cat: cid, catLabel: label,
         price, mrp, rating: Math.round((3.4 + rnd() * 1.5) * 10) / 10, reviews: Math.floor(40 + rnd() * 48000),
         img: null, color,
-        desc: 'Genuine Susheer ' + nm + ' — handpicked at the Bowenpally Mall, the world\'s most talked-about shopping destination. Every Susheer product is made with love, a lot of confidence and zero actual quality-control. Fast delivery across Hyderabad, helicopter delivery on request.',
+        desc: 'Genuine Susheer ' + nm + ' — handpicked at the Maisammaguda Mall, the world\'s most talked-about shopping destination. Every Susheer product is made with love, a lot of confidence and zero actual quality-control. Fast delivery across Hyderabad, helicopter delivery on request.',
         tags: [disc + '% off', rnd() > .5 ? 'Free Delivery' : 'Susheer Assured']
       });
     });
@@ -165,9 +165,9 @@
   products.push({
     id: products.length, name: 'Mr. DD — Mr. Diaper Dilip (Flash Sale)', short: 'Mr. DD', emoji: '👶', cat: 'jaggu', catLabel: 'Jaggu',
     price: 750000, mrp: 5000000, rating: 4.9, reviews: 88888, img: 'assets/jagadeesh-flash.jpg', hot: true, fit: true, flash: true,
-    rank: { n: 2, label: '🥈 #2 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 874300 },
+    rank: { n: 2, label: '🥈 #2 MOST SOLD PRODUCT IN USELESS MALL', sold: 874300 },
     taglines: ['💘 Selling out EXTREMELY fast!', '🥈 #2 most sold product in the mall', '👶 Fully absorbent. Fully loyal.', '🧷 Leak-proof since birth', '🕐 Please change every 4 hours', '💍 "Marry Me" requests: 10 and counting', '📏 Available in S, M, L and XL. Pampers sold separately', '📩 DM Jagadeesh for contact details'],
-    desc: 'Mr. DD — Mr. Diaper Dilip — the 2nd most sold product in Susheer Mall history, now on FLASH SALE. Surrounded by admirers, absorbs 99% of your problems and selling out extremely fast. Available in S, M, L and XL; Pampers sold separately. DM Jagadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    desc: 'Mr. DD — Mr. Diaper Dilip — the 2nd most sold product in Useless Mall history, now on FLASH SALE. Surrounded by admirers, absorbs 99% of your problems and selling out extremely fast. Available in S, M, L and XL; Pampers sold separately. DM Jagadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['⚡ Flash Sale', '🥈 #2 Bestseller', '🔥 HOT', 'Leak-proof*'],
     sizesLabel: 'Size', sizes: ['XS', 'S', 'M', 'L', 'XL'],
     highlights: ['👶 Absorbs 99% of your problems (the other 1% is the EMI)', '📏 Available in XS, S, M, L and XL — Pampers sold separately', '🧷 Leak-proof since birth*', '🕐 Please change every 4 hours', '💍 10 “Marry Me” requests and counting']
@@ -208,7 +208,7 @@
   };
   person({
     name: 'Vishneamon', short: 'Vishneamon', emoji: '🤖', price: 299999, mrp: 999999, rating: 4.7, reviews: 412300, img: 'assets/vishneamon.jpg',
-    rank: { n: 4, label: '🏅 #4 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 412300 },
+    rank: { n: 4, label: '🏅 #4 MOST SOLD PRODUCT IN USELESS MALL', sold: 412300 },
     note: 'Opens gadgets. Opens batsmen. Opens birthdays. 🎂',
     taglines: ['🔧 Specialist in opening gadgets', '🏏 Also opens the batting (and your parcels)', '🎒 Pulls gadgets out of his pocket on demand', '🍰 Comes with pancake tower and candles', '🔔 Bell included. Not optional.'],
     highlights: ['🔧 Speciality: opening gadgets — unboxing, unscrewing, unlocking', '🏏 Also opens the batting for your gully team (powerplay certified)', '🍰 Pancake tower and birthday candles available on request', '🔔 Signature bell included, rings at awkward moments', '🕳️ 4D pocket: holds 1 charger, 2 cables and infinite excuses'],
@@ -226,7 +226,7 @@
   });
   person({
     name: 'Long Jump Harish (Bulley)', short: 'Long Jump Harish', emoji: '🏃', price: 14999, mrp: 79999, unit: 'per day (service)', rating: 4.8, reviews: 288900, img: 'assets/harish.jpg',
-    rank: { n: 5, label: '🏅 #5 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 288900 },
+    rank: { n: 5, label: '🏅 #5 MOST SOLD PRODUCT IN USELESS MALL', sold: 288900 },
     note: 'Jumps long. Shakes milk. Smiles free. 🥤',
     taglines: ['🏃 Long jumps. Lands (usually).', '🥤 Makes milkshakes: mango, banana, chocolate, mystery', '🛎️ Available as a service, just like Mr. KK', '😄 Smile included, free of cost', '⚠️ Land at your own risk'],
     highlights: ['🏃 Speciality: long jumping (record: over a puddle, 2.4 m)', '🥤 Also makes milkshakes — mango, banana, chocolate and "mystery"', '🛎️ Available as a service for events, parties and gully matches', '😄 Smile included, free of cost', '⚠️ Landing not guaranteed. Milkshake guaranteed.'],
@@ -244,24 +244,24 @@
   });
   person({
     name: 'Chetaku Rohit', short: 'Chetaku Rohit', emoji: '🛵', price: 249999, mrp: 999999, rating: 4.5, reviews: 197500, img: 'assets/rohit.jpg',
-    rank: { n: 6, label: '🏅 #6 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 197500 },
-    note: 'Official Chapri of Bowenpally Mall 🛵',
-    taglines: ['🛵 Rides at minimum 100 km/h. Minimum.', '🏅 Official Chapri of Bowenpally Mall', '🍵 Sells Rohit\'s Special Kadha', '📣 Horn louder than the PA system', '😎 Aura: unmatched. Helmet: optional.'],
-    highlights: ['🏅 Titled Official Chapri of Bowenpally Mall', '🛵 Rides at a minimum speed of 100 km/h — brakes are for other people', '🍵 Sells Rohit\'s Special Kadha — cures Mondays', '📣 Horn included, louder than the mall PA', '🧢 Style: unmatched. Helmet: sometimes.'],
+    rank: { n: 6, label: '🏅 #6 MOST SOLD PRODUCT IN USELESS MALL', sold: 197500 },
+    note: 'Official Chapri of Maisammaguda Mall 🛵',
+    taglines: ['🛵 Rides at minimum 100 km/h. Minimum.', '🏅 Official Chapri of Maisammaguda Mall', '🍵 Sells Rohit\'s Special Kadha', '📣 Horn louder than the PA system', '😎 Aura: unmatched. Helmet: optional.'],
+    highlights: ['🏅 Titled Official Chapri of Maisammaguda Mall', '🛵 Rides at a minimum speed of 100 km/h — brakes are for other people', '🍵 Sells Rohit\'s Special Kadha — cures Mondays', '📣 Horn included, louder than the mall PA', '🧢 Style: unmatched. Helmet: sometimes.'],
     desc: 'Chetaku Rohit, a.k.a. Chapri Rohit — the mall\'s #6 best-seller and its Official Chapri. He rides at a minimum of 100 km/h, arrives on his Chetak in a blur, leaves in a cloud of confidence, and sells Rohit\'s Special Kadha to anyone with a bad Monday. Horn louder than the PA system. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #6 Bestseller', '🛵 Chetak', '🏅 Official Chapri', '🔥 HOT'],
     popup: { tag: '🛵 TRENDING · CHAPRI ALERT', title: 'Chetaku Rohit — the Official Chapri — is selling out!', small: '{left} left · horn included' },
     pitch: 'Psst! Chetaku Rohit, our Official Chapri, rides at 100+ km/h and is on sale for ₹2,49,999. Horn included!',
     reviewList: [
       ['Venkat R.', 5, 'Reached the mall in 4 minutes at 100+ km/h. Left a cloud of confidence behind.'],
-      ['Priya S.', 4, 'Official Chapri of Bowenpally Mall. Sunglasses stay on even indoors.'],
+      ['Priya S.', 4, 'Official Chapri of Maisammaguda Mall. Sunglasses stay on even indoors.'],
       ['Anjali M.', 5, 'His special kadha cured my Monday. Tuesday still pending.'],
       ['Lakshmi D.', 3, 'Scooter horn is louder than the PA system. Respect.']
     ]
   });
   person({
     name: 'Lean Baddie', short: 'Lean Baddie', emoji: '💪', price: 333333, mrp: 1333333, rating: 4.9, reviews: 143200, img: 'assets/baddie.jpg',
-    rank: { n: 7, label: '🏅 #7 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 143200 },
+    rank: { n: 7, label: '🏅 #7 MOST SOLD PRODUCT IN USELESS MALL', sold: 143200 },
     note: 'Gym. Baddiness. Aura. 💪',
     taglines: ['💪 Gym 6 days a week. 7th day: protein.', '😎 Certified baddie. Aura +1000', '🥗 Lean mode: permanently on', '🏋️ Spots you on bench press and judges silently', '🧴 Comes with main-character walk'],
     highlights: ['💪 Speciality: gym (6 days a week, 7th day is protein)', '😎 Baddiness certified — aura +1000, confidence +9999', '🥗 Lean mode is permanently on', '🏋️ Will spot you on the bench press and judge you silently', '🕶️ Sunglasses indoors: standard'],
@@ -278,7 +278,7 @@
   });
   person({
     name: 'Sullileni Sridhar', short: 'Sullileni Sridhar', emoji: '🎤', price: 39999, mrp: 149999, unit: 'per show (service)', rating: 4.6, reviews: 98700, img: 'assets/sridhar.jpg',
-    rank: { n: 8, label: '🏅 #8 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 98700 },
+    rank: { n: 8, label: '🏅 #8 MOST SOLD PRODUCT IN USELESS MALL', sold: 98700 },
     note: 'Sings. Dances. Brings the house down. 🎤',
     taglines: ['🎤 Sings so well the canteen stops boiling tea', '💃 Dance moves with free embarrassment', '🛎️ Available for weddings, birthdays and bus journeys', '🔊 Volume: yes', '🎶 Requests accepted. Mostly ignored.'],
     highlights: ['🎤 Speciality: singing (any language, any key, any time)', '💃 Also dancing — moves come with free embarrassment', '🛎️ Bookable for weddings, birthdays and long bus rides', '🎶 Requests accepted, rarely played', '🔊 Volume: yes'],
@@ -299,11 +299,11 @@
   person({
     name: 'Chearean.c', short: 'Chearean.c', emoji: '💻', price: 50000000, mrp: 200000000, rating: 4.9, reviews: 100000, img: 'assets/chearean.jpg',
     best: true, medal: '👑',
-    rank: { n: 9, label: '👑 BEST PRODUCT OF SUSHEER SHOPPING MALL', sold: 78500 },
+    rank: { n: 9, label: '👑 BEST PRODUCT OF USELESS SHOPPING MALL', sold: 78500 },
     note: 'Editor\'s choice. Compiles on the first try. 💻',
-    taglines: ['👑 Best product of Susheer Shopping Mall', '💻 Compiles on the first try. Allegedly.', '🧠 All-rounder: codes, debugs, fixes the Wi-Fi', '💎 Perfectly expensive. Worth every rupee.', '🐞 Has never met a bug he could not fix', '⭐ 4.9 stars. The missing 0.1 is jealousy.'],
+    taglines: ['👑 Best product of Useless Shopping Mall', '💻 Compiles on the first try. Allegedly.', '🧠 All-rounder: codes, debugs, fixes the Wi-Fi', '💎 Perfectly expensive. Worth every rupee.', '🐞 Has never met a bug he could not fix', '⭐ 4.9 stars. The missing 0.1 is jealousy.'],
     highlights: ['💻 Programming coder — speaks C, C++, Java and Python (sleeps in none)', '🧠 All-rounder: codes, debugs, deploys and fixes your Wi-Fi', '⭐ Excellently reviewed — 4.9★ from 1,00,000 ratings', '💎 Perfectly expensive — you get exactly what you pay for', '🎂 Birthday-ready: cake and candles on request', '🐞 Zero segmentation faults* (*terms apply)'],
-    desc: 'Chearean.c — a programmer, a coder and a true all-rounder, and by popular vote the BEST product in the entire Susheer Shopping Mall. He writes code that compiles on the first try, debugs while you blink, fixes the Wi-Fi and still has time to cut a birthday cake. Excellently reviewed and perfectly expensive: you do not buy Chearean.c, you invest in him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    desc: 'Chearean.c — a programmer, a coder and a true all-rounder, and by popular vote the BEST product in the entire Useless Shopping Mall. He writes code that compiles on the first try, debugs while you blink, fixes the Wi-Fi and still has time to cut a birthday cake. Excellently reviewed and perfectly expensive: you do not buy Chearean.c, you invest in him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['👑 Best Product', '💻 Coder', '🏆 All-rounder', '⭐ 4.9 rated'],
     popup: { tag: '👑 BEST PRODUCT · CODER', title: 'Chearean.c — the best product in the mall — is selling out!', small: '{left} left · compiles first time' },
     pitch: 'Boss! Chearean.c — coder, all-rounder, BEST product in the mall — only ₹5,00,00,000. Worth every rupee!',
@@ -324,8 +324,8 @@
     medal: '⭐', rank: { n: 10, label: '⭐ #10 · BENCHMARK OF PRODUCT STANDARDS', sold: 66200 },
     note: 'Kicks butts. Sets benchmarks. Smiles through it. 😁',
     taglines: ['😁 Smiles while kicking butts', '🦵 Speciality: butt-kicking (professional grade)', '📏 The benchmark every other product is measured against', '🥈 Just a notch below Chearean.c — and he knows it', '💯 Overall product standards: top shelf'],
-    highlights: ['🦵 Speciality: butt-kicking — professional grade, no warning given', '📏 The overall benchmark in product standards at Susheer Mall', '🥈 Slightly less comparable to Chearean.c (only because Chearean.c is the best)', '😁 Smile included — often the last thing his opponents see', '⭐ Rated 4.9, priced just under Chearean.c'],
-    desc: 'Smiley Shouri — the benchmark of product standards at Susheer Shopping Mall, sitting just a notch below Chearean.c in overall comparison. His speciality is butt-kicking: delivered with a smile, a handshake and zero paperwork. Perfect for fixing attitudes, motivating teams and making sure nobody skips leg day. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    highlights: ['🦵 Speciality: butt-kicking — professional grade, no warning given', '📏 The overall benchmark in product standards at Useless Mall', '🥈 Slightly less comparable to Chearean.c (only because Chearean.c is the best)', '😁 Smile included — often the last thing his opponents see', '⭐ Rated 4.9, priced just under Chearean.c'],
+    desc: 'Smiley Shouri — the benchmark of product standards at Useless Shopping Mall, sitting just a notch below Chearean.c in overall comparison. His speciality is butt-kicking: delivered with a smile, a handshake and zero paperwork. Perfect for fixing attitudes, motivating teams and making sure nobody skips leg day. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['⭐ Benchmark', '🦵 Butt-kicker', '😁 Smiley', '🔥 HOT'],
     popup: { tag: '⭐ BENCHMARK · BUTT-KICKER', title: 'Smiley Shouri sets the standard — and kicks butts. Selling out!', small: '{left} left · smile included' },
     pitch: 'Boss! Smiley Shouri — the benchmark of product standards, a professional butt-kicker — only ₹4,50,00,000!',
@@ -339,7 +339,7 @@
   });
   person({
     name: 'CR Jaggu', short: 'CR Jaggu', emoji: '🎮', price: 7999, mrp: 29999, rating: 3.9, reviews: 41100, img: 'assets/crjaggu.jpg',
-    rank: { n: 11, label: '🏅 #11 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 41100 },
+    rank: { n: 11, label: '🏅 #11 MOST SOLD PRODUCT IN USELESS MALL', sold: 41100 },
     note: 'Premier NPC. Stands still. Repeats lines. 🎮',
     taglines: ['🎮 Speciality: being an NPC in GTA games', '🧍 Stands in one spot repeating the same line', '🚗 Gets run over by the player. Respawns smiling.', '💬 "Nice weather today, boss." (every 3 seconds)', '🚶 Walks into walls with full confidence'],
     highlights: ['🎮 Speciality: playing the NPC in GTA games (method acting)', '🧍 Stands still, repeats one dialogue, never levels up', '🚗 Gets run over daily and respawns without complaint', '💬 Dialogue options available: 1 ("Nice weather today")', '🏙️ Perfect for crowds, bus stops and queues'],
@@ -356,7 +356,7 @@
   });
   person({
     name: 'Allen Sully', short: 'Allen Sully', emoji: '🧑‍💻', price: 149999, mrp: 599999, rating: 4.6, reviews: 52800, img: 'assets/allen-sully.jpg',
-    rank: { n: 12, label: '🏅 #12 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 52800 },
+    rank: { n: 12, label: '🏅 #12 MOST SOLD PRODUCT IN USELESS MALL', sold: 52800 },
     note: 'Chits and code. Tiny notes, big commits. 🧑‍💻',
     taglines: ['📝 Speciality: chits (tiny notes, tinier handwriting)', '💻 Also codes — one commit at a time', '🧠 Chit-to-code ratio: perfectly balanced', '🕶️ Poses on railings like a pro', '🔥 Slick shirt. Slicker commits.'],
     highlights: ['📝 Speciality: chits — tiny notes, even tinier handwriting', '💻 Also an excellent coder — clean commits, zero chaos', '🧠 Perfect chit-to-code balance, as all things should be', '🕶️ Smooth maroon-shirt energy, railing-pose certified', '☕ Runs on coffee, chits and compile errors (fixed)'],
@@ -396,7 +396,7 @@
     note: 'The last piece. Smiles for no reason. 🏁',
     taglines: ['🏁 The very last piece in the mall', '😁 Smiles for absolutely no reason', '🎒 Carries everyone bags and secrets', '🪵 Sturdy as a stick, friendly as a puppy', '⚡ Last on the charts, first at the biryani'],
     highlights: ['🏁 Officially the last product added to the Susheer catalogue', '😁 Smile included — works 24/7, no reason needed', '🎒 Carries bags, secrets and the occasional biryani packet', '🍛 First in the queue at the food court', '🔥 Bargain price — everything must go'],
-    desc: 'Karre Mama — the very last piece in the Susheer Shopping Mall catalogue, and the only product that smiles at the cashier for free. Sturdy, friendly and first in line at the food court. Bargain price, because the mall is closing the catalogue. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    desc: 'Karre Mama — the very last piece in the Useless Shopping Mall catalogue, and the only product that smiles at the cashier for free. Sturdy, friendly and first in line at the food court. Bargain price, because the mall is closing the catalogue. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏁 Last piece', '😁 Smiley', '🍛 Biryani first', '🔥 Bargain'],
     popup: { tag: '🏁 FINAL PIECE · BARGAIN', title: 'Karre Mama — the very last piece in the mall — go go go!', small: '{left} left · smile included' },
     pitch: 'Boss! Karre Mama is the very last piece in the mall — only ₹599. Hurry!',
@@ -415,7 +415,7 @@
     note: 'Models. Sometimes codes. Always poses. 🕶️',
     taglines: ['🕶️ Profession: modelling (catwalk certified)', '💃 Ramp walk so smooth the floor applauds', '💻 Sometimes codes — between photoshoots', '📸 Never caught without sunglasses', '🏁 The final piece in the Susheer catalogue'],
     highlights: ['🕶️ Profession: professional model — ramp-walk and photoshoot ready', '💃 Catwalk so confident the stage lights lean in', '💻 Sometimes codes (between outfit changes)', '📸 Sunglasses indoors, outdoors and on stage', '🏁 Officially the final piece in the Susheer catalogue'],
-    desc: 'Krishna — the final piece in the Susheer Shopping Mall catalogue, a professional model who walks a ramp like the stage owes him rent. When he is not posing, he occasionally writes code, usually in a very well-fitted shirt. Book him for shows, shoots and sudden fashion emergencies. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    desc: 'Krishna — the final piece in the Useless Shopping Mall catalogue, a professional model who walks a ramp like the stage owes him rent. When he is not posing, he occasionally writes code, usually in a very well-fitted shirt. Book him for shows, shoots and sudden fashion emergencies. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏁 Final piece', '🕶️ Model', '💻 Part-time coder', '🔥 HOT'],
     popup: { tag: '🕶️ RUNWAY · FINAL PIECE', title: 'Krishna — model, part-time coder — walking out fast!', small: '{left} shows left · sunglasses included' },
     pitch: 'Boss! Krishna — professional model and sometimes coder — for just ₹19,99,999. Catwalk included!',
@@ -448,7 +448,7 @@
       ['Sai T.', 5, 'The salesman popped up while I was in the bathroom. Still bought it.'],
       ['Lakshmi D.', 3, 'Good but my neighbour also bought one. Now we are competitors.'],
       ['Fatima B.', 5, 'Delivered in 30 minutes. I had not even finished ordering.'],
-      ['Kiran P.', 5, 'Plz visit Bowenpally Mall for world rate experience. I did. I live there now.'],
+      ['Kiran P.', 5, 'Plz visit Maisammaguda Mall for world rate experience. I did. I live there now.'],
       ['Divya N.', 4, 'The packaging was so fancy I hugged the box. Product also good.'],
       ['Arjun V.', 5, 'Fell in love at the flash sale. Wallet has not recovered.'],
       ['Meena G.', 5, 'Asked for a refund, got a thank-you kiss from Mr. KK instead. Fair.'],

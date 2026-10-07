@@ -2,7 +2,7 @@
   const { SM, SM_DATA: D } = window, P = D.products, $ = SM.$, inr = SM.inr;
   const id = +(new URLSearchParams(location.search).get('id') || 0);
   const p = P[id] || P[0];
-  document.title = p.name + ' — Susheer Shopping Mall';
+  document.title = p.name + ' — Useless Shopping Mall';
   const off = Math.round((1 - p.price / p.mrp) * 100);
   let qty = 1;
 
@@ -36,7 +36,7 @@
       <div class="offers">
         <div><b>Bank offer:</b> 10% instant discount on Susheer Pay cards</div>
         <div><b>Free delivery</b> across Hyderabad · helicopter delivery on request 🚁</div>
-        <div><b>Bowenpally pickup:</b> collect from Susheer Shopping Mall, world rate experience</div>
+        <div><b>Maisammaguda pickup:</b> collect from Useless Shopping Mall, world rate experience</div>
       </div>
       <div class="qty"><span>Quantity</span><div class="stepper"><button id="qm" aria-label="Less">−</button><span id="q">1</span><button id="qp" aria-label="More">+</button></div></div>
       <div class="btns">
