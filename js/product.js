@@ -41,6 +41,17 @@
       <p class="desc">${p.desc}</p>
     </div>`;
 
+  if (p.twin) {
+    const L = P[D.LOCAL_LANG], G = P[D.GLOBAL_LANG];
+    $('#pdp').insertAdjacentHTML('afterend', `<section class="vs"><div class="sec-h"><h2>🥊 Local vs Global Langadeesh</h2><span>Which one are you?</span></div>
+      <div class="vs-t"><div></div><b>🌤️ Local (Ghibli)</b><b>🌍 Global</b>
+      <span>Price</span><i>${inr(L.price)}</i><i>${inr(G.price)}</i>
+      <span>Delivery</span><i>Shouted across Bowenpally</i><i>Private jet*</i>
+      <span>Language</span><i>Telugu, Hindi, vibes</i><i>All 7,000 languages</i>
+      <span>Favourite food</span><i>Biryani</i><i>Biryani (imported)</i>
+      <span>Warranty</span><i>Until he gets hungry</i><i>Worldwide* (*Bowenpally only)</i></div>
+      <p style="text-align:center;margin-top:14px"><a class="btn pri" href="product.html?id=${p.twin === 'global' ? D.GLOBAL_LANG : D.LOCAL_LANG}">Check out the ${p.twin} one →</a></p></section>`);
+  }
   const rv = [...D.REVIEWS].sort(() => Math.random() - .5).slice(0, 6);
   $('#pdp').insertAdjacentHTML('afterend', `<section class="reviews"><div class="sec-h"><h2>⭐ Customer reviews <span style="font-size:14px">(100% real*)</span></h2><span>*as real as this mall</span></div><div class="rev-grid">${rv.map(r => `<div class="rev"><div class="rh"><span>${r[0]}</span><span class="st">${'★'.repeat(r[1])}${'☆'.repeat(5 - r[1])}</span></div>${r[2]}<br><small>✔ Verified Susheer buyer</small></div>`).join('')}</div></section>`);
   setInterval(() => { const v = $('.js-view'); if (v) v.textContent = 30 + Math.floor(Math.random() * 60); }, 1500);

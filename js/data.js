@@ -1,6 +1,6 @@
 /* Susheer Shopping Mall — catalog (parody). Every product is prefixed "Susheer". */
 (function () {
-  let SM_LOCAL_JAG;
+  let SM_LOCAL_JAG, SM_LOCAL_LANG, SM_GLOBAL_LANG;
   // category: [id, label, icon, accent, items "emoji|name|price"]
   const CATS = [
     ['mobiles', 'Mobiles', '📱', '#6c5ce7', [
@@ -166,6 +166,26 @@
   });
   SM_LOCAL_JAG = products.length - 1;
 
+  // Local & Global Langadeesh — the flash-sale twins
+  products.push({
+    id: products.length, name: 'Local Langadeesh (Ghibli Edition)', short: 'Local Langadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
+    price: 99999, mrp: 300000, rating: 4.9, reviews: 77777, img: 'assets/langadeesh-ghibli.svg', hot: true, fit: true, flash: true, twin: 'global',
+    gallery: [['assets/langadeesh-ghibli.svg', 'Local Langadeesh — Ghibli Edition 🌤️'], ['assets/langadeesh.jpg', 'Original (non-animated) version']],
+    taglines: ['🌤️ Hand-drawn. Hand-picked. Hand over your money.', '🔥 FLASH SALE — made in Bowenpally!', '🍃 Powered by Bowenpally breeze & biryani', '🏠 Local: zero shipping time, delivered by shouting', '🎨 Studio Ghibli vibes, Susheer prices'],
+    desc: 'Local Langadeesh, Ghibli Edition — the same legend, but drawn in a dreamy hand-painted style. Made in Bowenpally, delivered to your door by pure enthusiasm. (Parody item — no humans are actually for sale.)',
+    tags: ['⚡ Flash Sale', '🔥 HOT', 'Made in Bowenpally']
+  });
+  SM_LOCAL_LANG = products.length - 1;
+  products.push({
+    id: products.length, name: 'Global Langadeesh (Worldwide Edition)', short: 'Global Langadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
+    price: 499999, mrp: 2000000, rating: 5.0, reviews: 66666, img: 'assets/salesman-full.jpg', hot: true, fit: true, flash: true, twin: 'local',
+    gallery: [['assets/salesman-full.jpg', 'Global Langadeesh — Worldwide Edition 🌍'], ['assets/langadeesh-ghibli.svg', 'Also on sale: Local Langadeesh 🌤️']],
+    taglines: ['🌍 Now shipping to 195 countries (and 1 mall)', '✈️ Delivered by private jet. Probably.', '💼 Business-class swagger, economy price', '🔥 FLASH SALE — world rate experience!', '🛰️ Tracked by satellite. And by Mr. KK.'],
+    desc: 'Global Langadeesh, Worldwide Edition — the international version, now cleared for export. Comes with sunglasses, a crisp white shirt and passport-ready confidence. (Parody item — no humans are actually for sale.)',
+    tags: ['⚡ Flash Sale', '🔥 HOT', 'Ships worldwide']
+  });
+  SM_GLOBAL_LANG = products.length - 1;
+
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};
   products.forEach(p => { if (!p.img && IMG[p.id]) p.photo = IMG[p.id]; });
@@ -174,7 +194,7 @@
     CATS: [{ id: 'jaggu', label: 'Jaggu', icon: '🔥', color: '#ff3d00' }].concat(CATS.map(c => ({ id: c[0], label: c[1], icon: c[2], color: c[3] }))),
     products,
     FLASH_PRICE: 50000,
-    LOCAL_JAG: SM_LOCAL_JAG,
+    LOCAL_JAG: SM_LOCAL_JAG, LOCAL_LANG: SM_LOCAL_LANG, GLOBAL_LANG: SM_GLOBAL_LANG,
     REVIEWS: [
       ['Ramesh K.', 5, 'Bought one. A helicopter landed on my terrace to deliver it. 10/10 would be surprised again.'],
       ['Priya S.', 5, 'My mother-in-law now shops only at Susheer. Please send help.'],

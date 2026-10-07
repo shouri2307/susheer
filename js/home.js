@@ -15,9 +15,14 @@
   const flip = () => { [...hs].forEach(e => e.classList.remove('on')); void hs[hi].offsetWidth; hs[hi].classList.add('on'); hi = (hi + 1) % hs.length; };
   flip(); setInterval(flip, 5000);
 
+  // flash-sale row for the Jaggu items
+  $('#flashRow').innerHTML = [D.LOCAL_JAG, D.LOCAL_LANG, D.GLOBAL_LANG].map(i => P[i]).map(p => `<a class="fr" href="product.html?id=${p.id}">
+    <img src="${p.img}" alt="${p.name}"><div><span class="hottag" style="position:static">⚡ FLASH</span><b>${p.name}</b><span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>
+    <span class="frp">${SM.inr(p.price)} <s>${SM.inr(p.mrp)}</s></span><small>🔥 ${SM.sold(900, 6000)} sold · ends in <span class="js-timer">--:--:--</span></small></div></a>`).join('');
+
   // deals rail
   const shuffled = P.filter(p => !p.flash).sort(() => Math.random() - .5).slice(0, 14);
-  $('#deals').innerHTML = [P[0], P[1], P[D.LOCAL_JAG], ...shuffled].map(SM.card).join('');
+  $('#deals').innerHTML = [P[0], P[1], P[D.LOCAL_JAG], P[D.LOCAL_LANG], P[D.GLOBAL_LANG], ...shuffled].map(SM.card).join('');
 
   // category chips + sidebar
   const counts = {}; P.forEach(p => counts[p.cat] = (counts[p.cat] || 0) + 1);

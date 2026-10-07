@@ -69,9 +69,9 @@
     <div class="roam" aria-hidden="true"><div class="roam-track">${(`<span>${MALL_PHRASE}</span>`).repeat(8)}</div></div>
     <div class="flashbar">
       <span class="fb-fire">🔥</span>
-      <b>SUSHEER FOR SALE</b> — FLASH SALE FOR <b>₹50K ONLY</b> — <b>BUY NOW, GET 1 FREE!</b>
+      <span id="fbMsg"><b>SUSHEER FOR SALE</b> — FLASH SALE FOR <b>₹50K ONLY</b> — <b>BUY NOW, GET 1 FREE!</b></span>
       <span class="fb-timer" id="fbTimer">--:--:--</span>
-      <a class="fb-btn" href="product.html?id=0">Buy now →</a>
+      <a class="fb-btn" id="fbBtn" href="product.html?id=0">Buy now →</a>
     </div>
     <header class="top">
       <a href="index.html" class="logo"><img src="assets/mall-main.jpg" alt=""><span><i>Susheer</i><em>Shopping Mall</em></span></a>
@@ -100,9 +100,9 @@
     </div>
     <aside class="jagpop" id="jagpop">
       <button class="x" aria-label="Close" id="jagX">×</button>
-      <a href="product.html?id=${D.LOCAL_JAG}"><img src="assets/jagadeesh-flash.jpg" alt="Local Jagadeesh flash sale">
-        <div class="jp-t"><span class="jp-tag">⚡ LOCAL FLASH SALE</span><b>Local Jagadeesh's selling out EXTREMELY fast!</b>
-        <small><span id="jagLeft">7</span> left · DM <u>Langadeesh</u> for contact details</small></div></a>
+      <a id="jagA" href="product.html?id=${D.LOCAL_JAG}"><img id="jagImg" src="assets/jagadeesh-flash.jpg" alt="Flash sale">
+        <div class="jp-t"><span class="jp-tag" id="jagTag">⚡ LOCAL FLASH SALE</span><b id="jagB">Local Jagadeesh's selling out EXTREMELY fast!</b>
+        <small><span id="jagLeft">7</span> left · <span id="jagS">DM <u>Langadeesh</u> for contact details</span></small></div></a>
     </aside>
     <aside class="mallpop" id="mallpop">
       <button class="x" aria-label="Close" id="mallX">×</button>
@@ -119,6 +119,14 @@
     document.querySelectorAll('#fbTimer,.js-timer').forEach(el => (el.textContent = t));
   };
   tick(); setInterval(tick, 1000);
+  // rotate the flash-sale bar through every flash item
+  const FB = [
+    ['<b>SUSHEER FOR SALE</b> — FLASH SALE FOR <b>₹50K ONLY</b> — <b>BUY NOW, GET 1 FREE!</b>', 0],
+    ['<b>LOCAL LANGADEESH</b> (Ghibli Edition) — FLASH SALE <b>₹99,999</b> — made in Bowenpally!', D.LOCAL_LANG],
+    ['<b>GLOBAL LANGADEESH</b> — FLASH SALE <b>₹4,99,999</b> — now shipping worldwide 🌍', D.GLOBAL_LANG],
+    ['<b>LOCAL JAGADEESH</b> — selling out <b>EXTREMELY fast</b> — ₹75,000 only!', D.LOCAL_JAG]
+  ];
+  let fbi = 0; setInterval(() => { fbi = (fbi + 1) % FB.length; const m = $('#fbMsg'); m.style.animation = 'none'; void m.offsetWidth; m.style.animation = ''; m.innerHTML = FB[fbi][0]; $('#fbBtn').href = 'product.html?id=' + FB[fbi][1]; }, 4200);
 
   /* ---------- salesman: random product pitches ---------- */
   const pitches = [
@@ -190,9 +198,16 @@
   };
 
   /* ---------- Local Jagadeesh flash-sale side popup ---------- */
+  const JAGS = [
+    { id: D.LOCAL_JAG, img: 'assets/jagadeesh-flash.jpg', tag: '⚡ LOCAL FLASH SALE', b: "Local Jagadeesh's selling out EXTREMELY fast!", s: 'DM <u>Langadeesh</u> for contact details' },
+    { id: D.LOCAL_LANG, img: 'assets/langadeesh-ghibli.svg', tag: '🌤️ GHIBLI EDITION', b: 'Local Langadeesh just dropped — FLASH SALE ₹99,999!', s: 'made in <u>Bowenpally</u>' },
+    { id: D.GLOBAL_LANG, img: 'assets/salesman-full.jpg', tag: '🌍 NOW GLOBAL', b: 'Global Langadeesh is shipping worldwide — FLASH SALE!', s: 'free <u>private jet</u> delivery*' },
+    { id: 1, img: 'assets/langadeesh.jpg', tag: '🔥 FRESH & HOT', b: 'Langadeesh Garu — only 1 left in the mall!', s: 'priced at <u>₹1 crore</u>' }
+  ];
   const jp = $('#jagpop'); let left = 7;
   const showJag = () => {
     if (!document.hidden) {
+      const v = pick(JAGS); $('#jagA').href = 'product.html?id=' + v.id; $('#jagImg').src = v.img; $('#jagTag').textContent = v.tag; $('#jagB').textContent = v.b; $('#jagS').innerHTML = v.s;
       left = 2 + Math.floor(Math.random() * 9); $('#jagLeft').textContent = left;
       jp.classList.add('show'); setTimeout(() => jp.classList.remove('show'), 7500);
     }

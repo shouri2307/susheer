@@ -20,6 +20,8 @@
     'Customer in Aisle 7: your cart has 14 aircraft. We are proud of you.',
     'Security to Gate 2: someone asked for a discount on the escalator.',
     'Local Jagadeesh is selling out fast. Admirers, please form a single line.',
+    'Local Langadeesh and Global Langadeesh are in a friendly flash-sale rivalry. Please pick a side.',
+    'Global Langadeesh has landed. Local Langadeesh says: "Bro, I was already here."',
     'Plz visit Bowenpally Mall for world rate experience. This message repeats every 40 seconds.'
   ];
   document.body.insertAdjacentHTML('beforeend', '<div class="pa" id="pa" role="status"><span class="sp">📢</span><span><b>MALL ANNOUNCEMENT:</b> <span id="paTxt"></span></span></div>');
@@ -110,6 +112,7 @@
     [/refund|return|replace|cancel/, '7-day returns on everything except Langadeesh Garu — he is one of a kind and non-returnable. 😄 Refunds reach your Susheer Pay in 2 minutes (in our imagination).'],
     [/discount|offer|coupon|deal|cheap|sale|wheel|spin/, 'Spin the wheel for a coupon! 🎡 Tap the "Spin & Win" button at the top. Also: Susheer is on FLASH SALE for ₹50K — buy 1 get 1 FREE.'],
     [/heli|plane|jet|aircraft|car\b|cars|boat|yacht|bike/, 'Our Helicopters, Cars, Planes, Bikes and Boats departments are live! Check the sidebar on the shop page. Test flights on the rooftop every Sunday. ✈️'],
+    [/local|global|ghibli/, 'Local Langadeesh (Ghibli Edition) is ₹99,999, hand-drawn and made in Bowenpally. Global Langadeesh is ₹4,99,999 and ships worldwide. Both are on FLASH SALE — pick a side! 🌤️🌍'],
     [/langadeesh|jagadeesh|jaggu/, 'Ah, the legend! Langadeesh Garu is in the Jaggu department at ₹1 crore (only 1 left!). For Local Jagadeesh\'s flash sale, DM Langadeesh for contact details. 📩'],
     [/susheer|flash|50k|50,000/, 'Susheer is on flash sale: ₹50,000 only and BUY 1 GET 1 FREE. Limited stock, unlimited swagger. 🔥'],
     [/pay|upi|card|cod|cash/, 'We accept Susheer Pay, UPI, cards and cash on delivery. Hugs are accepted but do not clear the bill. 🤗'],
