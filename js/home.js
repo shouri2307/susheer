@@ -26,6 +26,7 @@
       <div class="price"><b>${SM.inr(b.p.price)}</b><s>${SM.inr(b.p.mrp)}</s></div>
       <div class="sold">🛒 <span class="js-n" data-n="${b.sold}">${b.sold.toLocaleString('en-IN')}</span> sold all-time</div>
       ${b.p.flash ? '<div class="flashtag">⚡ FLASH SALE · <span class="js-timer">--:--:--</span></div>' : ''}
+      ${b.p.highlights ? `<ul class="rank-hl">${b.p.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}</ul>` : ''}
       ${b.note ? `<small class="note">${b.note}</small>` : ''}
       <a class="btn ${b.p.flash ? 'buy' : 'pri'} block" href="product.html?id=${b.p.id}">Buy now</a>
     </article>`).join('');

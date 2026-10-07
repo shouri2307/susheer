@@ -76,7 +76,7 @@
     <header class="top">
       <a href="index.html" class="logo"><img src="assets/mall-main.jpg" alt=""><span><i>Susheer</i><em>Shopping Mall</em></span></a>
       <form class="search" action="index.html" method="get"><input name="q" placeholder="Search Susheer apples, Susheer sofas, Susheer everything…" aria-label="Search" value="${safe(() => new URLSearchParams(location.search).get('q') || '', '').replace(/"/g, '')}"><button aria-label="Search">🔍</button></form>
-      <nav>${nav('index.html', 'Shop')}${nav('about.html', 'The Mall')}${nav('cart.html', 'Cart <span id="cartCount" class="badge zero">0</span>')}</nav>
+      <nav>${nav('index.html', 'Shop')}${nav('about.html', 'The Mall')}${nav('kk.html', 'Meet Mr. KK')}${nav('cart.html', 'Cart <span id="cartCount" class="badge zero">0</span>')}</nav>
     </header>
     <div id="toasts"></div>`);
   document.body.insertAdjacentHTML('beforeend', `
@@ -84,19 +84,19 @@
       <div class="foot-in">
         <div><div class="flogo">Susheer Shopping Mall</div><p>Plz visit <b>Bowenpally Mall</b> for world rate experience.</p></div>
         <div><b>Shop</b><a href="index.html?cat=helicopters">Helicopters</a><a href="index.html?cat=cars">Cars</a><a href="index.html?cat=planes">Planes</a><a href="index.html?cat=jaggu">Jaggu 🔥</a><a href="index.html?cat=grocery">Grocery</a><a href="index.html?cat=mobiles">Mobiles</a><a href="index.html?cat=womens">Fashion</a><a href="product.html?id=0">Flash Sale</a></div>
-        <div><b>Mall</b><a href="about.html">About the Mall</a><a href="about.html#gallery">Gallery</a><a href="cart.html">Cart</a></div>
+        <div><b>Mall</b><a href="about.html">About the Mall</a><a href="kk.html">Meet Mr. KK</a><a href="about.html#gallery">Gallery</a><a href="cart.html">Cart</a></div>
       </div>
       <p class="fine">Susheer Shopping Mall is a parody project made for fun and is not affiliated with any real retailer. No real orders, payments or humans are sold. Product photos are from Wikimedia Commons (free licences). 😄</p>
     </footer>
     <aside class="salesman" id="salesman" aria-live="polite">
       <button class="x" aria-label="Dismiss Mr. KK" id="salesX">×</button>
-      <div class="kk-wrap" id="kkWrap"><img class="kk-photo" src="assets/salesman-full.jpg" alt="Mr. KK"><div class="kkfx" id="kkFx"></div><span class="kk-name">MR. KK</span></div>
+      <div class="kk-wrap" id="kkWrap"><img class="kk-photo" src="assets/salesman-full.jpg" alt="Mr. KK"><div class="kkfx" id="kkFx"></div><a class="kk-name" href="kk.html" title="Meet Mr. KK">MR. KK ↗</a></div>
       <div class="bub"><span class="who">Mr. KK says:</span><p id="salesTxt"></p>
         <div class="srow"><a id="salesGo" href="#" class="sgo">View offer</a><button id="salesAdd" class="sadd">Add 🛒</button></div></div>
     </aside>
     <div class="thanks" id="thanks" aria-hidden="true">
-      <div class="t-face"><div class="t-zoom"><img src="assets/salesman-full.jpg" alt=""></div><span class="t-heart">❤️</span></div>
-      <div class="t-txt">Thank you boss! 😘</div>
+      <div class="t-face"><div class="t-zoom"><img src="assets/thanks-guy.jpg" alt=""></div><span class="t-heart">❤️</span></div>
+      <div class="t-txt" id="tTxt">Thank you boss!</div>
     </div>
     <aside class="jagpop" id="jagpop">
       <button class="x" aria-label="Close" id="jagX">×</button>
@@ -195,6 +195,7 @@
       h.style.cssText = `left:${10 + Math.random() * 80}%;animation-delay:${0.9 + Math.random() * 1.2}s;font-size:${22 + Math.random() * 30}px`;
       th.appendChild(h);
     }
+    $('#tTxt').textContent = pick(['Thank you boss!', 'Thank you, you legend!', 'Dhanyavaad boss!', 'Love you boss, thank you!']);
     th.classList.add('show'); clearTimeout(thT);
     thT = setTimeout(() => th.classList.remove('show'), 3200);
   };

@@ -22,6 +22,7 @@
     'Mr. Diaper Dilip is selling out fast. Admirers, please form a single line.',
     'Parents: Mr. Diaper Dilip is available in sizes S, M, L and XL. Pampers sold separately.',
     'Aisle 9: someone asked Mr. DD if he is leak-proof. He confirmed. Applause.',
+    'Mr. KK has finished cleaning the canteen. He is now walking. Please admire.',
     'Susheer, our #3 bestseller, is signing autographs at the Flash Sale counter.',
     'Plz visit Bowenpally Mall for world rate experience. This message repeats every 40 seconds.'
   ];
@@ -116,6 +117,7 @@
     [/heli|plane|jet|aircraft|car\b|cars|boat|yacht|bike/, 'Our Helicopters, Cars, Planes, Bikes and Boats departments are live! Check the sidebar on the shop page. Test flights on the rooftop every Sunday. ✈️'],
     [/jagadeesh|langadeesh|dilip|diaper|\bdd\b|jaggu/, 'Ah, the legends! 🏆 Jagadeesh is the #1 most sold product in Susheer Mall history (₹1 crore, only 1 left!). 🥈 Mr. Diaper Dilip (Mr. DD) is #2 and on flash sale — fully absorbent, Pampers sold separately. 🥉 Susheer himself is #3. DM Jagadeesh for contact details. 📩'],
     [/susheer|flash|50k|50,000/, 'Susheer himself is our #3 best-seller! 🥉 Flash sale: ₹50,000, BUY 1 GET 1 FREE. Mr. DD and Jagadeesh are on flash sale too!'],
+    [/\bkk\b|salesman|canteen|clean/, 'Mr. KK is our Senior Salesman, Canteen Cleaner and professional Aisle Walker. 🧹🚶 Zoom in on him on the "Meet Mr. KK" page — available for hire at ₹999/day, never for sale.'],
     [/pay|upi|card|cod|cash/, 'We accept Susheer Pay, UPI, cards and cash on delivery. Hugs are accepted but do not clear the bill. 🤗'],
     [/hi\b|hello|hey|namaste|yo\b/, 'Hello boss! 😘 I\'m Mr. KK. How can I help you today?'],
     [/thank|thanks|tq/, 'Thank you boss! Plz visit Bowenpally Mall for world rate experience. 💖'],

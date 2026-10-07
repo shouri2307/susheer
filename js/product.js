@@ -8,13 +8,16 @@
 
   $('#crumb').innerHTML = `<a href="index.html">Home</a> › <a href="index.html?cat=${p.cat}">${p.catLabel}</a> › ${p.name}`;
 
-  const media = p.gallery
-    ? `<div class="gal">${p.gallery.map(g => `<figure><img src="${g[0]}" alt="${g[1]}"><figcaption>${g[1]}</figcaption></figure>`).join('')}</div>`
-    : p.bogo
+  const buddy = p.buddy != null ? P[p.buddy] : null;
+  const media = p.bogo
     ? `<div class="gal">
          <figure><img src="${p.img}" alt="Susheer"><figcaption>Susheer #1</figcaption></figure>
          <figure><img src="${p.img}" alt="Susheer — free copy"><span class="free">🎁 FREE</span><figcaption>Susheer #2 (on the house)</figcaption></figure>
        </div>`
+    : p.fit
+    ? `<div class="gal one"><figure><img src="${p.img}" alt="${p.name}"></figure></div>
+       ${buddy ? `<a class="buddy" href="product.html?id=${buddy.id}"><img src="${buddy.img}" alt="${buddy.name}"><span><small>Often bought together</small><b>${buddy.name}</b><i>${buddy.rank ? buddy.rank.label : ''}</i></span></a>` : ''}
+       ${p.kk ? '<a class="buddy" href="kk.html"><span style="padding:4px 6px"><small>Want the full story?</small><b>🔎 Meet Mr. KK — zoom in on his page</b></span></a>' : ''}`
     : SM.visual(p, 'big');
 
   $('#pdp').innerHTML = `
@@ -28,6 +31,8 @@
       ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>Only 1 left in the mall!</b>${p.flash ? ' · ⚡ <b>FLASH SALE</b> ends in <b class="js-timer">--:--:--</b>' : ''}</div>` : ''}
       ${p.bogo ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · <b>BUY 1, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
+      ${p.sizes ? `<div class="sizes"><span>${p.sizesLabel || 'Size'}</span>${p.sizes.map((z, i) => `<button type="button" class="${i === 1 ? 'on' : ''}" data-size="${z}">${z}</button>`).join('')}</div>` : ''}
+      ${p.highlights ? `<div class="hl-box"><h4>✨ Highlights</h4><ul>${p.highlights.map(h => `<li>${h}</li>`).join('')}</ul></div>` : ''}
       <div class="offers">
         <div><b>Bank offer:</b> 10% instant discount on Susheer Pay cards</div>
         <div><b>Free delivery</b> across Hyderabad · helicopter delivery on request 🚁</div>
@@ -47,7 +52,9 @@
   setInterval(() => { const v = $('.js-view'); if (v) v.textContent = 30 + Math.floor(Math.random() * 60); }, 1500);
   $('#qm').onclick = () => { qty = Math.max(1, qty - 1); $('#q').textContent = qty; };
   $('#qp').onclick = () => { qty = Math.min(10, qty + 1); $('#q').textContent = qty; };
-  $('#add').onclick = () => { SM.cart.add(p.id, qty); SM.toast('Added to cart: ' + p.short + (p.bogo ? ' (+1 FREE 🎁)' : '')); };
+  let size = p.sizes ? p.sizes[1] : '';
+  document.addEventListener('click', e => { const b = e.target.closest('[data-size]'); if (!b) return; size = b.dataset.size; document.querySelectorAll('[data-size]').forEach(x => x.classList.toggle('on', x === b)); });
+  $('#add').onclick = () => { SM.cart.add(p.id, qty); SM.toast('Added to cart: ' + p.short + (size ? ' (size ' + size + ')' : '') + (p.bogo ? ' (+1 FREE 🎁)' : '')); };
   $('#buy').onclick = () => { SM.cart.add(p.id, qty); location.href = 'cart.html'; };
 
   $('#related').innerHTML = P.filter(x => x.cat === p.cat && x.id !== p.id).sort(() => Math.random() - .5).slice(0, 8).map(SM.card).join('');

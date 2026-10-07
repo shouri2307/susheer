@@ -206,3 +206,44 @@ body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gr
 .lr-body{flex:1;min-width:220px}
 .lr-body small{color:#ff8a9a;font-weight:800;font-size:11px;letter-spacing:.06em}
 .lr-body h3{margin:4px 0}.lr-body p{color:var(--soft);font-size:13.5px;margin:4px 0 6px}
+
+/* ---- v6: thank-you guy zoom, one-photo product pages, highlights, sizes, Mr. KK page ---- */
+.thanks{--ox:56.2%;--oy:72.2%;--z:3.5}
+.t-zoom img{transform-origin:var(--ox) var(--oy);transform:translate(calc(-1 * var(--ox)),calc(-1 * var(--oy))) scale(1)}
+.thanks.show .t-zoom img{animation:zoomlips2 1s cubic-bezier(.5,0,.2,1) forwards}
+@keyframes zoomlips2{to{transform:translate(calc(-1 * var(--ox)),calc(-1 * var(--oy))) scale(var(--z))}}
+.kk-name{text-decoration:none}
+.gal.one{grid-template-columns:1fr}
+.buddy{display:flex;align-items:center;gap:12px;margin-top:14px;padding:10px 12px;border-radius:16px;background:var(--card);border:1px solid var(--line);transition:.2s}
+.buddy:hover{border-color:var(--violet);transform:translateY(-2px)}
+.buddy img{width:56px;height:70px;object-fit:cover;object-position:top;border-radius:10px;background:#000}
+.buddy span{display:flex;flex-direction:column;font-size:13px;gap:2px}
+.buddy small{color:var(--soft);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.buddy i{font-style:normal;color:var(--gold);font-size:11px;font-weight:700}
+.hl-box{margin:16px 0;padding:16px 18px;border-radius:18px;background:linear-gradient(120deg,rgba(255,210,63,.16),rgba(255,61,129,.14));border:1.5px solid rgba(255,210,63,.55);box-shadow:0 0 30px rgba(255,210,63,.12)}
+.hl-box h4{font-size:15px;margin-bottom:8px;color:var(--gold);letter-spacing:.06em}
+.hl-box ul{list-style:none;display:grid;gap:7px}
+.hl-box li{font-size:14.5px;font-weight:600;padding-left:2px;line-height:1.35}
+.sizes{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.sizes>span{font-size:13px;color:var(--soft);margin-right:4px}
+.sizes button{min-width:46px;padding:9px 14px;border-radius:12px;background:var(--card);border:1.5px solid var(--line);font-weight:800;font-size:13px;transition:.15s}
+.sizes button:hover{border-color:var(--violet)}
+.sizes button.on{background:var(--grad);color:#14102b;border-color:transparent;transform:scale(1.06)}
+.rank-hl{list-style:none;display:grid;gap:4px;font-size:12px;font-weight:600;color:#e8e3ff;margin:2px 0}
+.rank-hl li{padding:4px 8px;border-radius:8px;background:rgba(255,255,255,.06)}
+.rank-hl li:first-child{background:linear-gradient(90deg,rgba(255,210,63,.28),rgba(255,61,129,.2));font-weight:800}
+/* Mr. KK page */
+.kk-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;padding:36px 0 30px}
+.kk-frame{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:3/4;max-height:620px;margin:auto;width:100%;max-width:470px;border:3px solid var(--gold);box-shadow:0 30px 90px rgba(255,210,63,.3);background:#000}
+.kk-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transform-origin:50% 30%;transform:scale(1)}
+.kk-frame.zoom img{animation:kkzoom 3.2s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes kkzoom{0%{transform:scale(1)}100%{transform:scale(3.1)}}
+.kk-frame .cap{position:absolute;left:0;right:0;bottom:0;padding:12px;text-align:center;font-weight:900;letter-spacing:.14em;font-size:12px;background:linear-gradient(0deg,rgba(0,0,0,.8),transparent);color:var(--gold)}
+.kk-hero h1{font-size:clamp(34px,5vw,62px);line-height:1;font-weight:900;letter-spacing:-.03em;margin:10px 0}
+.duties{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:26px 0 40px}
+.duty{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;transition:.2s}
+.duty:hover{transform:translateY(-5px);border-color:var(--pink)}
+.duty b{display:block;font-size:30px;margin-bottom:6px}
+.duty h3{font-size:16px;margin-bottom:4px}.duty p{color:var(--soft);font-size:13.5px}
+@media(max-width:900px){.kk-hero{grid-template-columns:1fr}}
+.kk-frame.done img{animation:none;transform:scale(3.1)}

@@ -1,6 +1,6 @@
 /* Susheer Shopping Mall — catalog (parody). Every product is prefixed "Susheer". */
 (function () {
-  let SM_LOCAL_JAG;
+  let SM_LOCAL_JAG, SM_KK;
   // category: [id, label, icon, accent, items "emoji|name|price"]
   const CATS = [
     ['mobiles', 'Mobiles', '📱', '#6c5ce7', [
@@ -126,7 +126,9 @@
     rank: { n: 3, label: '🥉 #3 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 621400 },
     taglines: ['🥉 #3 most sold product in Susheer Mall', '🎁 FLASH SALE: buy 1, get 1 FREE', '🧥 Hoodie included. Swagger included.', '🚶 Walks into every room like he owns the mall (he does)', '🔥 Limited stock. Unlimited main-character energy'],
     desc: 'Susheer himself — the face of the mall and the #3 best-selling product of all time, now at a flash sale price of ₹50,000. Buy 1 and get 1 FREE. Comes with a signature hoodie, premium swagger and unlimited mall-walking energy. (Parody item — no humans are actually for sale.)',
-    tags: ['Flash Sale', 'Buy 1 Get 1 Free', '🥉 #3 Bestseller', 'Limited Stock']
+    tags: ['Flash Sale', 'Buy 1 Get 1 Free', '🥉 #3 Bestseller', 'Limited Stock'],
+    sizesLabel: 'Hoodie size', sizes: ['S', 'M', 'L', 'XL'],
+    highlights: ['🥉 #3 most sold product in Susheer Mall', '🎁 Buy 1, get 1 FREE — flash sale price ₹50,000', '🧥 Signature hoodie included', '😎 Sunglasses hang on the shirt (not included)', '🚶 Unlimited mall-walking energy']
   });
 
   // Product 1 — the only item in the Jaggu department
@@ -134,10 +136,10 @@
     id: 1, name: 'Jagadeesh', short: 'Jagadeesh', emoji: '🔥', cat: 'jaggu', catLabel: 'Jaggu',
     price: 10000000, mrp: 25000000, rating: 5.0, reviews: 999999, img: 'assets/langadeesh.jpg', hot: true, fit: true, flash: true,
     rank: { n: 1, label: '🏆 #1 MOST SOLD PRODUCT IN SUSHEER MALL HISTORY', sold: 1248760 },
-    gallery: [['assets/langadeesh.jpg', 'Jagadeesh 🔥'], ['assets/jagadeesh-flash.jpg', 'His buddy: Mr. Diaper Dilip (#2 most sold) 👶']],
     taglines: ['🏆 #1 most sold product in Susheer Mall history', '🔥 FRESH & HOT — just landed at Bowenpally Mall!', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '📦 Ships with free swagger', '⚠️ May cause sudden crushes'],
-    desc: 'Jagadeesh (a.k.a. Local Langadeesh) — the MOST SOLD product in the entire history of Susheer Shopping Mall. Over 12 lakh units sold (and somehow still only 1 left in stock). Now on FLASH SALE at ₹1 Crore, non-negotiable. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['🏆 #1 Bestseller Ever', '🔥 HOT', '⚡ Flash Sale', 'Only 1 in the mall']
+    desc: 'Jagadeesh (a.k.a. Local Langadeesh, a.k.a. Global Langadeesh) — the MOST SOLD product in the entire history of Susheer Shopping Mall. Over 12 lakh units sold (and somehow still only 1 left in stock). Now on FLASH SALE at ₹1 Crore, non-negotiable. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏆 #1 Bestseller Ever', '🔥 HOT', '⚡ Flash Sale', 'Only 1 in the mall'],
+    highlights: ['🏆 #1 most sold product in Susheer Mall history', '🌍 Also known as Local Langadeesh and Global Langadeesh', '💎 Only 1 piece left in the entire mall', '🚫 Non-refundable, non-returnable, non-negotiable', '🎁 Free swagger with every order']
   });
 
   CATS.forEach(([cid, label, icon, color, items]) => {
@@ -163,12 +165,25 @@
     id: products.length, name: 'Mr. DD — Mr. Diaper Dilip (Flash Sale)', short: 'Mr. DD', emoji: '👶', cat: 'jaggu', catLabel: 'Jaggu',
     price: 75000, mrp: 500000, rating: 4.9, reviews: 88888, img: 'assets/jagadeesh-flash.jpg', hot: true, fit: true, flash: true,
     rank: { n: 2, label: '🥈 #2 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 874300 },
-    gallery: [['assets/jagadeesh-flash.jpg', 'Mr. Diaper Dilip — surrounded by fans'], ['assets/langadeesh.jpg', 'His buddy: Jagadeesh (#1 most sold) 🏆']],
     taglines: ['💘 Selling out EXTREMELY fast!', '🥈 #2 most sold product in the mall', '👶 Fully absorbent. Fully loyal.', '🧷 Leak-proof since birth', '🕐 Please change every 4 hours', '💍 "Marry Me" requests: 10 and counting', '📏 Available in S, M, L and XL. Pampers sold separately', '📩 DM Jagadeesh for contact details'],
     desc: 'Mr. DD — Mr. Diaper Dilip — the 2nd most sold product in Susheer Mall history, now on FLASH SALE. Surrounded by admirers, absorbs 99% of your problems and selling out extremely fast. Available in S, M, L and XL; Pampers sold separately. DM Jagadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['⚡ Flash Sale', '🥈 #2 Bestseller', '🔥 HOT', 'Leak-proof*']
+    tags: ['⚡ Flash Sale', '🥈 #2 Bestseller', '🔥 HOT', 'Leak-proof*'],
+    sizesLabel: 'Size', sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    highlights: ['👶 Absorbs 99% of your problems (the other 1% is the EMI)', '📏 Available in XS, S, M, L and XL — Pampers sold separately', '🧷 Leak-proof since birth*', '🕐 Please change every 4 hours', '💍 10 “Marry Me” requests and counting']
   });
   SM_LOCAL_JAG = products.length - 1;
+  products[1].buddy = SM_LOCAL_JAG; products[SM_LOCAL_JAG].buddy = 1;
+
+  // Mr. KK — the mall's multi-skilled salesman, sold as a product on his own page (kk.html)
+  products.push({
+    id: products.length, name: 'Mr. KK — Senior Salesman, Canteen Cleaner & Aisle Walker', short: 'Mr. KK', emoji: '🧑‍💼', cat: 'mall', catLabel: 'Mall Specials',
+    price: 999, mrp: 4999, rating: 4.8, reviews: 43210, img: 'assets/salesman-full.jpg', fit: true, kk: true,
+    taglines: ['🛍️ Sells Susheer products. All 342 of them.', '🧹 Cleans the canteen before AND after the biryani rush', '🚶 Walks the aisles 14 km a day (tracked by nobody)', '😘 Blows kisses at customers who add to cart', '🧑‍💼 Available for rent. Never for sale.'],
+    highlights: ['🛍️ Sells Susheer products — apples to aircraft', '🧹 Cleans the canteen (tables, floors and the odd biryani spill)', '🚶 Walks the aisles all day with confidence', '😎 Pops up uninvited with “offers” (very friendly)', '🤝 Hire for ₹999/day — lunch not included'],
+    desc: 'Mr. KK is the beating heart of Susheer Shopping Mall: a Senior Salesman by title, a Canteen Cleaner by dedication and a professional Aisle Walker by passion. He sells Susheer products, keeps the canteen spotless, walks the mall like he owns it and pops up when you least expect it with a deal you did not know you needed. Available for hire (₹999/day) — never for sale. (Parody item — approved by the guy himself.)',
+    tags: ['🧑‍💼 Hire', '🧹 Canteen certified', '🚶 Walker', 'Not for sale']
+  });
+  SM_KK = products.length - 1;
 
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};
@@ -179,6 +194,7 @@
     products,
     FLASH_PRICE: 50000,
     LOCAL_JAG: SM_LOCAL_JAG,
+    KK_ID: SM_KK,
     REVIEWS: [
       ['Ramesh K.', 5, 'Bought one. A helicopter landed on my terrace to deliver it. 10/10 would be surprised again.'],
       ['Priya S.', 5, 'My mother-in-law now shops only at Susheer. Please send help.'],
