@@ -408,6 +408,25 @@
     ]
   });
 
+
+  person({
+    name: 'Krishna', short: 'Krishna', emoji: '🕶️', price: 1999999, mrp: 7999999, rating: 4.7, reviews: 36500, img: 'assets/krishna.jpg',
+    medal: '🏁', rank: { n: 15, label: '🏁 #15 · THE FINAL PIECE · CATWALK CERTIFIED', sold: 36500 },
+    note: 'Models. Sometimes codes. Always poses. 🕶️',
+    taglines: ['🕶️ Profession: modelling (catwalk certified)', '💃 Ramp walk so smooth the floor applauds', '💻 Sometimes codes — between photoshoots', '📸 Never caught without sunglasses', '🏁 The final piece in the Susheer catalogue'],
+    highlights: ['🕶️ Profession: professional model — ramp-walk and photoshoot ready', '💃 Catwalk so confident the stage lights lean in', '💻 Sometimes codes (between outfit changes)', '📸 Sunglasses indoors, outdoors and on stage', '🏁 Officially the final piece in the Susheer catalogue'],
+    desc: 'Krishna — the final piece in the Susheer Shopping Mall catalogue, a professional model who walks a ramp like the stage owes him rent. When he is not posing, he occasionally writes code, usually in a very well-fitted shirt. Book him for shows, shoots and sudden fashion emergencies. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏁 Final piece', '🕶️ Model', '💻 Part-time coder', '🔥 HOT'],
+    popup: { tag: '🕶️ RUNWAY · FINAL PIECE', title: 'Krishna — model, part-time coder — walking out fast!', small: '{left} shows left · sunglasses included' },
+    pitch: 'Boss! Krishna — professional model and sometimes coder — for just ₹19,99,999. Catwalk included!',
+    reviewList: [
+      ['Priya S.', 5, 'Walked the ramp and the whole hall went quiet. Then loud. Then very loud.'],
+      ['Arjun V.', 4, 'Models in the morning, codes in the afternoon, poses in between.'],
+      ['Meena G.', 5, 'Sunglasses never came off. Neither did the confidence.'],
+      ['Sai T.', 5, 'Booked him for our event. The floor needed a standing ovation too.']
+    ]
+  });
+
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};
   products.forEach(p => { if (!p.img && IMG[p.id]) p.photo = IMG[p.id]; });
