@@ -135,6 +135,7 @@
     [/rohit|chetak|chapri|kadha/, 'Chetaku Rohit, our Official Chapri (#6), rides at a minimum of 100 km/h and sells Rohit\'s Special Kadha. Horn included. 🛵🍵'],
     [/baddie|gym|aura|lean/, 'Lean Baddie (#7) does gym and baddiness. Aura +1000, lean mode permanent. 💪😎'],
     [/sridhar|sullileni|sing|dance/, 'Sullileni Sridhar (#8) sings and dances. Book him per show for ₹39,999. 🎤💃'],
+    [/karre|mama|last piece/, 'Karre Mama (#14) is the very last piece in the mall, smiles for no reason and is first at the biryani counter. 🏁😁'],
     [/allen|sully|chit/, 'Allen Sully (#12) specialises in chits and coding: tiny notes, tidy commits. Chits sold separately. 📝💻'],
     [/shouri|smiley|kick|benchmark/, 'Smiley Shouri (#10) is the benchmark of product standards — a professional butt-kicker who smiles throughout. Just a notch below Chearean.c. 😁🦵'],
     [/satyam|silent|fed up|grumbl/, 'Silent Satyam (#12, last on the charts) specialises in getting fed up. Repeatedly. Tea helps, briefly. 😩☕'],

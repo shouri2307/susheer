@@ -389,6 +389,25 @@
     ]
   });
 
+
+  person({
+    name: 'Karre Mama (The Last Piece)', short: 'Karre Mama', emoji: '🪵', price: 599, mrp: 4999, rating: 4.1, reviews: 9900, img: 'assets/karre.jpg',
+    medal: '🏁', rank: { n: 14, label: '🏁 #14 · THE VERY LAST PIECE IN THE MALL', sold: 9900 },
+    note: 'The last piece. Smiles for no reason. 🏁',
+    taglines: ['🏁 The very last piece in the mall', '😁 Smiles for absolutely no reason', '🎒 Carries everyone bags and secrets', '🪵 Sturdy as a stick, friendly as a puppy', '⚡ Last on the charts, first at the biryani'],
+    highlights: ['🏁 Officially the last product added to the Susheer catalogue', '😁 Smile included — works 24/7, no reason needed', '🎒 Carries bags, secrets and the occasional biryani packet', '🍛 First in the queue at the food court', '🔥 Bargain price — everything must go'],
+    desc: 'Karre Mama — the very last piece in the Susheer Shopping Mall catalogue, and the only product that smiles at the cashier for free. Sturdy, friendly and first in line at the food court. Bargain price, because the mall is closing the catalogue. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏁 Last piece', '😁 Smiley', '🍛 Biryani first', '🔥 Bargain'],
+    popup: { tag: '🏁 FINAL PIECE · BARGAIN', title: 'Karre Mama — the very last piece in the mall — go go go!', small: '{left} left · smile included' },
+    pitch: 'Boss! Karre Mama is the very last piece in the mall — only ₹599. Hurry!',
+    reviewList: [
+      ['Ramesh K.', 5, 'Smiled at me for 10 minutes straight. No reason. Best product ever.'],
+      ['Priya S.', 4, 'Carried all my shopping bags and half my secrets.'],
+      ['Sai T.', 4, 'First in line at the biryani counter. Respect.'],
+      ['Divya N.', 4, 'Last piece in the mall, first in my heart.']
+    ]
+  });
+
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};
   products.forEach(p => { if (!p.img && IMG[p.id]) p.photo = IMG[p.id]; });
