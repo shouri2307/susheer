@@ -20,7 +20,7 @@
   $('#board').innerHTML = board.map(b => `<article class="rank r${b.n > 3 ? 'x' : b.n}">
       <div class="medal">${b.medal}<small>#${b.n}</small></div>
       <a href="product.html?id=${b.p.id}">${SM.visual(b.p)}<h3>${b.p.name}</h3></a>
-      <div class="price"><b>${SM.inr(b.p.price)}</b><s>${SM.inr(b.p.mrp)}</s></div>
+      <div class="price">${b.p.priceText ? `<b class="ptxt">${b.p.priceText}</b>` : `<b>${SM.inr(b.p.price)}</b><s>${SM.inr(b.p.mrp)}</s>`}</div>
       <div class="sold">🛒 <span class="js-n" data-n="${b.sold}">${b.sold.toLocaleString('en-IN')}</span> sold all-time</div>
       ${b.p.flash ? '<div class="flashtag">⚡ FLASH SALE · <span class="js-timer">--:--:--</span></div>' : ''}
       ${b.p.highlights ? `<ul class="rank-hl">${b.p.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}</ul>` : ''}
@@ -37,7 +37,8 @@
       <p class="bc-line">💻 Programmer · coder · all-rounder. <b>Perfectly expensive.</b></p>
       <ul>${bp.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}</ul>
       <div class="price"><b style="font-size:26px">${SM.inr(bp.price)}</b><s>${SM.inr(bp.mrp)}</s></div>
-      <a class="btn pri" href="product.html?id=${bp.id}">See why he is the best →</a></div></div>`;
+      <a class="btn pri" href="product.html?id=${bp.id}">See why he is the best →</a>
+      ${(() => { const r = P.find(x => x.short === 'Smiley Shouri'); return r ? `<div class="runner">🥈 Runner-up for Best Product: <a href="product.html?id=${r.id}">Smiley Shouri</a> — the benchmark of product standards, just a notch below.</div>` : ''; })()}</div></div>`;
 
   // deals rail
   const shuffled = P.filter(p => !p.flash).sort(() => Math.random() - .5).slice(0, 14);

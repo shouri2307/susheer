@@ -14,7 +14,7 @@
   SM.cart = {
     get: load,
     count() { return Object.values(load()).reduce((a, b) => a + b, 0); },
-    add(id, q = 1) { const c = load(); c[id] = Math.min(10, (c[id] || 0) + q); save(c); SM.refreshCart(); SM.thanks(); },
+    add(id, q = 1) { if (P[id] && P[id].noBuy) { SM.toast("Sorry boss, you can't afford " + P[id].short + " 💅"); return false; } const c = load(); c[id] = Math.min(10, (c[id] || 0) + q); save(c); SM.refreshCart(); SM.thanks(); return true; },
     set(id, q) { const c = load(); if (q <= 0) delete c[id]; else c[id] = Math.min(10, q); save(c); SM.refreshCart(); },
     clear() { save({}); SM.refreshCart(); }
   };
@@ -31,7 +31,7 @@
 
   /* ---------- product card ---------- */
   SM.visual = (p, cls = '') => {
-    if (p.img) return `<div class="vis photo ${p.fit ? 'fit' : ''} ${cls}"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`;
+    if (p.img) return `<div class="vis photo ${p.fit ? 'fit' : ''} ${cls}" style="--c:${p.color || '#7c5cff'}"><span class="emo" style="position:absolute;opacity:.6">${p.emoji}</span><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.remove()" style="position:relative"></div>`;
     const im = p.photo ? `<img class="stock" src="${p.photo}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
     return `<div class="vis ${p.photo ? 'hasimg' : ''} ${cls}" style="--c:${p.color}"><span class="emo">${p.emoji}</span>${im}</div>`;
   };
@@ -46,7 +46,7 @@
         ${SM.visual(p)}
         <h3>${p.name}</h3>
         <div class="rate"><span class="star">${p.rating} ★</span><span class="rv">(${p.reviews.toLocaleString('en-IN')})</span></div>
-        <div class="price"><b>${inr(p.price)}</b><s>${inr(p.mrp)}</s><span class="off">${off}% off</span></div>
+        ${p.priceText ? `<div class="price"><b class="ptxt">${p.priceText}</b></div>` : `<div class="price"><b>${inr(p.price)}</b><s>${inr(p.mrp)}</s><span class="off">${off}% off</span></div>`}
         ${p.taglines ? `<span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>` : ''}
         ${p.hot || p.flash ? `<div class="sold">🔥 ${SM.sold(p.hot ? 1200 : 3000, p.hot ? 4800 : 9000)} sold in last hour · selling fast!</div>` : ''}
       </a>
@@ -57,7 +57,7 @@
     const b = e.target.closest('[data-add]'); if (!b) return;
     e.preventDefault();
     const p = P[+b.dataset.add];
-    SM.cart.add(p.id, 1);
+    if (SM.cart.add(p.id, 1) === false) return;
     SM.toast('Added: ' + p.short + (p.bogo ? ' (+1 FREE 🎁)' : ''));
   });
 
@@ -113,7 +113,7 @@
   // flash bar rotates through every flash-sale item
   const FB = [
     ['<b>SUSHEER FOR SALE</b> — FLASH SALE FOR <b>₹50K ONLY</b> — <b>BUY 1, GET 1 FREE!</b> 🥉 #3 BESTSELLER', 0],
-    ['🥈 <b>MR. DIAPER DILIP (MR. DD)</b> — #2 MOST SOLD — FLASH SALE <b>₹7.5 LAKH</b> — <b>FULLY ABSORBENT, SELLING OUT FAST!</b>', D.LOCAL_JAG],
+    ['🥈 <b>MR. DIAPER DILIP (MR. DD)</b> — #2 MOST SOLD — FLASH SALE · PRICE: <b>U CAN\'T AFFORD THIS 💅</b> — <b>FULLY ABSORBENT, SELLING OUT FAST!</b>', D.LOCAL_JAG],
     ['🏆 <b>JAGADEESH</b> — #1 MOST SOLD EVER — FLASH SALE <b>₹1 CRORE</b> — <b>ONLY 1 LEFT!</b>', 1]
   ];
   let fbi = 0;
@@ -165,7 +165,7 @@
   const hideSales = () => { sales.classList.remove('show'); schedule(); };
   const schedule = () => { clearTimeout(salesTimer); salesTimer = setTimeout(showSales, 6000 + Math.random() * 9000); };
   $('#salesX').onclick = () => { SM.kkMood('wow', 900); sales.classList.remove('show'); clearTimeout(salesTimer); schedule(); };
-  $('#salesAdd').onclick = () => { if (curP) { SM.cart.add(curP.id); SM.kkMood('kiss', 2600); SM.toast('Mr. KK added ' + curP.short + ' to your cart 😎'); } };
+  $('#salesAdd').onclick = () => { if (curP) { if (SM.cart.add(curP.id) === false) return; SM.kkMood('kiss', 2600); SM.toast('Mr. KK added ' + curP.short + ' to your cart 😎'); } };
   $('#kkWrap').addEventListener('mouseenter', () => SM.kkMood('wink', 1600));
   sales.addEventListener('mouseleave', () => { clearTimeout(salesTimer); salesTimer = setTimeout(hideSales, 4000); });
   salesTimer = setTimeout(showSales, 3500);

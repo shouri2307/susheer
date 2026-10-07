@@ -21,6 +21,7 @@
       </div>`;
     }).join('');
     const cdisc = cp ? Math.round(total * cp.pct / 100) : 0;
+    window.__cartTotal = total - cdisc;
     main.innerHTML = `<div class="cart-wrap"><div><div class="sec-h" style="margin-top:20px"><h2>Your cart (${SM.cart.count()} items${free ? ' + ' + free + ' free' : ''})</h2></div>${lines}</div>
       <aside class="sum"><h3>Price details</h3>
         <div class="r"><span>Price</span><span>${inr(mrp)}</span></div>
@@ -44,4 +45,34 @@
     }
   });
   render();
+
+  /* ---------- Susheer Pay: fake payment gateway with a QR code ---------- */
+  function loadQR(cb) {
+    if (window.QRCode) return cb();
+    const sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'; sc.onload = cb; document.head.appendChild(sc);
+  }
+  function openPay(total) {
+    const el = document.createElement('div'); el.className = 'paybg'; el.id = 'paybg';
+    el.innerHTML = `<div class="paycard"><button class="xx" id="payX" aria-label="Close">×</button>
+      <div class="pay-h"><b>Susheer Pay</b><small>Secure* checkout</small></div>
+      <div class="pay-amt">${inr(total)}</div>
+      <p class="pay-sub">Scan this QR code with any scanner app to pay</p>
+      <div class="qrbox" id="qrbox"><span class="qrload">Generating QR…</span></div>
+      <div class="pay-timer">QR expires in <b id="payT">04:59</b></div>
+      <button class="btn buy block" id="payDone">I have paid ✔</button>
+      <p class="pay-fine">*Parody gateway. No money is taken. Scanning the QR may cause laughter.</p></div>`;
+    document.body.appendChild(el);
+    loadQR(() => { const box = document.getElementById('qrbox'); if (!box) return; box.innerHTML = ''; new QRCode(box, { text: location.origin + '/scan.html', width: 190, height: 190, colorDark: '#14102b', colorLight: '#ffffff' }); });
+    let left = 299; const t = setInterval(() => { const x = document.getElementById('payT'); if (!x) return clearInterval(t); left = left > 0 ? left - 1 : 299; x.textContent = String(Math.floor(left / 60)).padStart(2, '0') + ':' + String(left % 60).padStart(2, '0'); }, 1000);
+  }
+  document.addEventListener('click', e => {
+    if (e.target.id === 'place') { e.stopImmediatePropagation(); openPay(window.__cartTotal || 0); return; }
+    if (e.target.id === 'payX' || e.target.id === 'paybg') { const b = document.getElementById('paybg'); if (b) b.remove(); return; }
+    if (e.target.id === 'payDone') {
+      const b = document.getElementById('paybg'); if (b) b.remove();
+      SM.cart.clear(); SM.confetti(260); setTimeout(() => SM.confetti(160), 600);
+      try { localStorage.removeItem('susheer_coupon'); } catch (err) {}
+      main.innerHTML = `<div class="done"><div style="font-size:90px">🎉</div><h2>Order placed!</h2><p style="color:var(--soft)">Thank you for shopping at <b>Susheer Shopping Mall</b>.<br>Plz visit Bowenpally Mall for world rate experience.</p><p style="margin-top:22px"><a class="btn pri" href="index.html">Keep shopping</a></p></div>`;
+    }
+  }, true);
 })();

@@ -284,3 +284,26 @@ body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gr
 .kk-frame.done img{transform:scale(1.18)}
 @keyframes kkzoom{0%{transform:scale(1)}100%{transform:scale(1.18)}}
 .rank .medal{font-size:34px}
+
+/* ---- v9: taunt price, payment gateway, runner-up ---- */
+.ptxt{color:#ff6b9a;font-size:13px!important;line-height:1.25;text-transform:uppercase;letter-spacing:.03em}
+.ptxt-big{font-size:clamp(24px,3.4vw,36px);color:#ff6b9a;font-weight:900;text-transform:uppercase;letter-spacing:.02em}
+.runner{margin-top:12px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.08);font-size:13.5px}
+.runner a{color:var(--gold);font-weight:800}
+.rank.rx .medal{filter:none}
+.paybg{position:fixed;inset:0;z-index:800;display:grid;place-items:center;background:rgba(4,4,12,.85);backdrop-filter:blur(8px);padding:16px}
+.paycard{position:relative;width:min(380px,100%);padding:22px;border-radius:26px;background:#fff;color:#14102b;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.6);border-top:8px solid var(--violet)}
+.paycard .xx{position:absolute;right:12px;top:12px;width:30px;height:30px;border-radius:50%;background:#eee;color:#14102b;font-size:18px}
+.pay-h{display:flex;flex-direction:column;align-items:center;margin-bottom:6px}
+.pay-h b{font:900 22px Georgia,serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pay-h small{color:#6a6d92;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.pay-amt{font-size:34px;font-weight:900;margin:6px 0}
+.pay-sub{font-size:13px;color:#555a8a;margin-bottom:10px}
+.qrbox{display:grid;place-items:center;width:210px;height:210px;margin:0 auto 10px;padding:10px;border:3px dashed #7c5cff;border-radius:18px;background:#fff}
+.qrbox img,.qrbox canvas{max-width:100%}
+.qrload{font-size:13px;color:#888}
+.pay-timer{font-size:13px;margin-bottom:12px;color:#555a8a}
+.pay-fine{font-size:11px;color:#8a8db0;margin-top:10px}
+
+.bigemo{display:grid;place-items:center;aspect-ratio:3/4;font-size:140px;border-radius:20px;background:radial-gradient(circle at 50% 30%,#2a2160,#0b0d1a);border:1px solid var(--line)}
+.vis.photo.fit .emo{z-index:0}

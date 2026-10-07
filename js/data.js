@@ -176,7 +176,8 @@
   products[1].buddy = SM_LOCAL_JAG; products[SM_LOCAL_JAG].buddy = 1;
   products[1].note = 'Most sold product in mall history 🔥'; products[SM_LOCAL_JAG].note = 'Fully absorbent. Fully loyal. 👶'; products[0].note = 'The face of the mall 😎 Buy 1, get 1 FREE';
   products[SM_LOCAL_JAG].popup = { tag: '⚡ FLASH SALE · FULLY ABSORBENT 👶', title: 'Mr. Diaper Dilip (Mr. DD) is selling out EXTREMELY fast!', small: '{left} left · DM Jagadeesh for contact details' };
-  products[SM_LOCAL_JAG].pitch = 'Mr. Diaper Dilip is selling out EXTREMELY fast! Fully absorbent, only ₹7,50,000!';
+  products[SM_LOCAL_JAG].pitch = 'Mr. Diaper Dilip is selling out EXTREMELY fast! Fully absorbent. Price? U CAN\'T AFFORD THIS 💅';
+  products[SM_LOCAL_JAG].priceText = "U CAN'T AFFORD THIS 💅"; products[SM_LOCAL_JAG].noBuy = true;
 
   // Mr. KK — the mall's multi-skilled salesman, sold as a product on his own page (kk.html)
   products.push({
@@ -259,7 +260,7 @@
     ]
   });
   person({
-    name: 'Lean Baddie', short: 'Lean Baddie', emoji: '💪', price: 499999, mrp: 1999999, rating: 4.9, reviews: 143200, img: 'assets/baddie.jpg',
+    name: 'Lean Baddie', short: 'Lean Baddie', emoji: '💪', price: 333333, mrp: 1333333, rating: 4.9, reviews: 143200, img: 'assets/baddie.jpg',
     rank: { n: 7, label: '🏅 #7 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 143200 },
     note: 'Gym. Baddiness. Aura. 💪',
     taglines: ['💪 Gym 6 days a week. 7th day: protein.', '😎 Certified baddie. Aura +1000', '🥗 Lean mode: permanently on', '🏋️ Spots you on bench press and judges silently', '🧴 Comes with main-character walk'],
@@ -267,7 +268,7 @@
     desc: 'Lean Baddie — the mall\'s #7 best-seller and the only product that can bench your cart, fix your posture and raise your aura in one visit. Specialises in the gym, in baddiness and in walking into rooms like the lights were installed for him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #7 Bestseller', '💪 Gym', '😎 Baddie', '🔥 HOT'],
     popup: { tag: '💪 GYM SPECIAL · BADDIE', title: 'Lean Baddie is flexing — and selling out fast!', small: '{left} left · aura included' },
-    pitch: 'Boss, want some baddiness? Lean Baddie — gym plus aura — only ₹4,99,999!',
+    pitch: 'Boss, want some baddiness? Lean Baddie — gym plus aura — only ₹3,33,333!',
     reviewList: [
       ['Ramesh K.', 5, 'Lifted me. And my cart. And my confidence.'],
       ['Sneha K.', 5, 'Aura so strong the mall lights flickered.'],
@@ -314,6 +315,77 @@
       ['Ganesh L.', 5, 'Five stars because he is watching me type this review.'],
       ['Kiran P.', 5, 'Zero bugs, zero excuses, infinite chai consumption.'],
       ['Divya N.', 5, 'The best product in the mall, and the mall is full of legends.']
+    ]
+  });
+
+
+  person({
+    name: 'Smiley Shouri', short: 'Smiley Shouri', emoji: '😁', price: 45000000, mrp: 150000000, rating: 4.9, reviews: 90000, img: 'assets/shouri.jpg',
+    medal: '⭐', rank: { n: 10, label: '⭐ #10 · BENCHMARK OF PRODUCT STANDARDS', sold: 66200 },
+    note: 'Kicks butts. Sets benchmarks. Smiles through it. 😁',
+    taglines: ['😁 Smiles while kicking butts', '🦵 Speciality: butt-kicking (professional grade)', '📏 The benchmark every other product is measured against', '🥈 Just a notch below Chearean.c — and he knows it', '💯 Overall product standards: top shelf'],
+    highlights: ['🦵 Speciality: butt-kicking — professional grade, no warning given', '📏 The overall benchmark in product standards at Susheer Mall', '🥈 Slightly less comparable to Chearean.c (only because Chearean.c is the best)', '😁 Smile included — often the last thing his opponents see', '⭐ Rated 4.9, priced just under Chearean.c'],
+    desc: 'Smiley Shouri — the benchmark of product standards at Susheer Shopping Mall, sitting just a notch below Chearean.c in overall comparison. His speciality is butt-kicking: delivered with a smile, a handshake and zero paperwork. Perfect for fixing attitudes, motivating teams and making sure nobody skips leg day. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['⭐ Benchmark', '🦵 Butt-kicker', '😁 Smiley', '🔥 HOT'],
+    popup: { tag: '⭐ BENCHMARK · BUTT-KICKER', title: 'Smiley Shouri sets the standard — and kicks butts. Selling out!', small: '{left} left · smile included' },
+    pitch: 'Boss! Smiley Shouri — the benchmark of product standards, a professional butt-kicker — only ₹4,50,00,000!',
+    reviewList: [
+      ['Rahul T.', 5, 'Kicked my bad habits out in 3 minutes. Smiled the whole time. Terrifying and wonderful.'],
+      ['Sneha K.', 5, 'The benchmark. Every other product at the mall gets compared to him.'],
+      ['Arjun V.', 5, 'Asked for a firm talking-to, got a firm kick. Zero regrets, one bruise.'],
+      ['Meena G.', 4, 'Only one notch below Chearean.c. Still miles above the rest.'],
+      ['Ganesh L.', 5, 'Smiles first, kicks second. Customer service at its finest.']
+    ]
+  });
+  person({
+    name: 'CR Jaggu', short: 'CR Jaggu', emoji: '🎮', price: 7999, mrp: 29999, rating: 3.9, reviews: 41100, img: 'assets/crjaggu.jpg',
+    rank: { n: 11, label: '🏅 #11 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 41100 },
+    note: 'Premier NPC. Stands still. Repeats lines. 🎮',
+    taglines: ['🎮 Speciality: being an NPC in GTA games', '🧍 Stands in one spot repeating the same line', '🚗 Gets run over by the player. Respawns smiling.', '💬 "Nice weather today, boss." (every 3 seconds)', '🚶 Walks into walls with full confidence'],
+    highlights: ['🎮 Speciality: playing the NPC in GTA games (method acting)', '🧍 Stands still, repeats one dialogue, never levels up', '🚗 Gets run over daily and respawns without complaint', '💬 Dialogue options available: 1 ("Nice weather today")', '🏙️ Perfect for crowds, bus stops and queues'],
+    desc: 'CR Jaggu — the mall\'s #11 best-seller and the finest NPC ever to walk through a GTA city. He stands on the pavement, repeats one line, walks into the occasional wall and gets run over by the player without complaint. Hire him for background crowd work, queues and bus stops. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #11 Bestseller', '🎮 NPC', '🧍 Background crowd', '🔥 HOT'],
+    popup: { tag: '🎮 NPC ALERT · GTA SPECIAL', title: 'CR Jaggu — premier GTA NPC — selling out fast!', small: '{left} left · dialogue: 1 line' },
+    pitch: 'Psst! CR Jaggu, the finest GTA NPC around, is yours for ₹7,999. He will say "nice weather" forever.',
+    reviewList: [
+      ['Kiran P.', 4, 'Stood on the pavement for 3 hours repeating one line. Perfect NPC.'],
+      ['Divya N.', 5, 'I drove into him with a car. He respawned and said "nice weather today". 10/10.'],
+      ['Ramesh K.', 3, 'Walks into walls. Charming for a day, tiring by day two.'],
+      ['Priya S.', 5, 'Hired him for my crowd scene. Nobody could tell he was real.']
+    ]
+  });
+  person({
+    name: 'Allen Sully', short: 'Allen Sully', emoji: '🧑‍💻', price: 149999, mrp: 599999, rating: 4.6, reviews: 52800, img: 'assets/allen-sully.jpg',
+    rank: { n: 12, label: '🏅 #12 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 52800 },
+    note: 'Chits and code. Tiny notes, big commits. 🧑‍💻',
+    taglines: ['📝 Speciality: chits (tiny notes, tinier handwriting)', '💻 Also codes — one commit at a time', '🧠 Chit-to-code ratio: perfectly balanced', '🕶️ Poses on railings like a pro', '🔥 Slick shirt. Slicker commits.'],
+    highlights: ['📝 Speciality: chits — tiny notes, even tinier handwriting', '💻 Also an excellent coder — clean commits, zero chaos', '🧠 Perfect chit-to-code balance, as all things should be', '🕶️ Smooth maroon-shirt energy, railing-pose certified', '☕ Runs on coffee, chits and compile errors (fixed)'],
+    desc: 'Allen Sully — the mall\'s #12 best-seller, a double specialist in chits and coding. He writes tiny, perfectly folded chits and equally tidy code, and has never confused the two (yet). Slick shirt, slicker commits. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #12 Bestseller', '📝 Chits', '💻 Coder', '🔥 HOT'],
+    popup: { tag: '📝 CHITS & CODE · NEW', title: 'Allen Sully — chits and coding — selling out fast!', small: '{left} left · chits sold separately' },
+    pitch: 'Boss! Allen Sully does chits AND coding — a rare combo — only ₹1,49,999!',
+    reviewList: [
+      ['Rahul T.', 5, 'Handed me a chit so small I needed a magnifying glass. Then fixed my code. Genius.'],
+      ['Sneha K.', 4, 'Chits: 10/10. Coding: 10/10. Handwriting: invisible.'],
+      ['Arjun V.', 5, 'Wrote my whole exam on one chit. And then my whole app in one commit.'],
+      ['Divya N.', 5, 'Slick shirt, slicker commits. Would hire again.']
+    ]
+  });
+  person({
+    name: 'Silent Satyam', short: 'Silent Satyam', emoji: '😩', price: 999, mrp: 9999, rating: 2.9, reviews: 12300, img: 'assets/satyam.jpg',
+    medal: '📉', rank: { n: 13, label: '📉 #13 · LAST ON THE CHARTS (AND FED UP ABOUT IT)', sold: 12300 },
+    note: 'Fed up. Again. Last on the charts. 😩',
+    taglines: ['😩 Speciality: getting fed up. Repeatedly.', '🙄 Groans in 4 languages', '🤫 Silent until the 5th complaint', '📉 Last on the charts — and fed up about it', '☕ Cheered up only by tea (briefly)'],
+    highlights: ['😩 Speciality: getting fed up — repeatedly, on schedule', '🗣️ Groaning, grumbling and heavy sighing all included', '🤫 Stays silent… until you ask him anything', '☕ Mood improves with 1 tea (side effect: more grumbling)', '📉 Proudly last on the charts. Even that bothers him.'],
+    desc: 'Silent Satyam — last on the Susheer charts and, as you might guess, fed up about it. His speciality is getting fed up over and over again, accompanied by groans, sighs and grumbling in at least four languages. He stays silent until the fifth complaint, then everyone hears about it. Bring tea. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['📉 Last place', '😩 Fed up', '🤫 Silent type', '☕ Needs tea'],
+    popup: { tag: '😩 CLEARANCE · LAST ON THE CHARTS', title: 'Silent Satyam is fed up again — grab him cheap!', small: '{left} left · tea sold separately' },
+    pitch: 'Boss, Silent Satyam is last on the charts and fed up. Only ₹999 — please cheer him up!',
+    reviewList: [
+      ['Venkat R.', 3, 'Asked him one question. Got a 4-minute sigh. Honest and moving.'],
+      ['Lakshmi D.', 2, 'Fed up at 9:01 AM sharp. By lunch he was fed up of being fed up.'],
+      ['Sai T.', 4, 'Groans in Telugu, Hindi, English and a fourth language I could not identify.'],
+      ['Anjali M.', 3, 'Silent until the fifth complaint. Then he lets the whole mall know.']
     ]
   });
 

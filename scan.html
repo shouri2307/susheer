@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Payment received? — Susheer Pay</title>
+  <meta name="theme-color" content="#0b0d1a">
+  <link rel="icon" href="assets/mall-main.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{min-height:100vh;display:grid;place-items:center;padding:20px;font-family:Inter,system-ui,sans-serif;color:#eef0ff;text-align:center;
+      background:radial-gradient(700px 500px at 20% 10%,rgba(255,61,129,.25),transparent),radial-gradient(700px 500px at 80% 90%,rgba(124,92,255,.3),transparent),#0b0d1a}
+    .card{width:min(460px,100%);padding:30px 24px;border-radius:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px)}
+    .logo{font:900 26px Georgia,serif;background:linear-gradient(120deg,#ffd23f,#ff3d81,#7c5cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    h1{font-size:clamp(30px,8vw,48px);font-weight:900;margin:14px 0 8px;line-height:1.05}
+    p{color:#c4c8ee;line-height:1.5}
+    .bar{height:10px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin:18px 0 8px}
+    .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffd23f,#ff3d81,#7c5cff);transition:width 3.2s linear}
+    .big{font-size:84px;margin:6px 0}
+    .btn{display:inline-block;margin:6px;padding:13px 24px;border-radius:99px;font-weight:800;text-decoration:none;color:#14102b;background:linear-gradient(90deg,#ffd23f,#ff3d81)}
+    .btn.g{background:rgba(255,255,255,.12);color:#fff}
+    #end{display:none}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">Susheer Pay</div>
+    <section id="load">
+      <h1>Verifying your payment…</h1>
+      <p id="msg">Connecting to the Susheer Pay mainframe…</p>
+      <div class="bar"><i id="fill"></i></div>
+      <p style="font-size:12px">Please do not close this page or blink.</p>
+    </section>
+    <section id="end">
+      <div class="big">😂</div>
+      <h1>You just got Susheered!</h1>
+      <p>You scanned a QR code on a <b>parody</b> payment gateway. Don't worry — no money was taken, no bank was harmed and your savings live to see another day.</p>
+      <p style="margin-top:10px">Mr. KK says: "Thank you boss!" (he was napping, but he means it).</p>
+      <p style="margin-top:16px"><a class="btn" href="index.html">Back to the mall</a><a class="btn g" href="cart.html">Back to cart</a></p>
+    </section>
+  </main>
+  <script>
+    (function () {
+      var msgs = ['Connecting to the Susheer Pay mainframe…', 'Counting your rupees…', 'Asking Mr. KK to wake up…', 'Checking if Jagadeesh is still #1…', 'Almost there… almost…'];
+      var i = 0, m = document.getElementById('msg');
+      setTimeout(function () { document.getElementById('fill').style.width = '100%'; }, 60);
+      var t = setInterval(function () { i = (i + 1) % msgs.length; m.textContent = msgs[i]; }, 700);
+      setTimeout(function () { clearInterval(t); document.getElementById('load').style.display = 'none'; document.getElementById('end').style.display = 'block'; }, 3500);
+    })();
+  </script>
+</body>
+</html>
