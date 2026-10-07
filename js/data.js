@@ -1,6 +1,7 @@
 /* Susheer Shopping Mall — catalog (parody). Every product is prefixed "Susheer". */
 (function () {
   let SM_LOCAL_JAG, SM_KK;
+  const PEOPLE = [];
   // category: [id, label, icon, accent, items "emoji|name|price"]
   const CATS = [
     ['mobiles', 'Mobiles', '📱', '#6c5ce7', [
@@ -173,17 +174,125 @@
   });
   SM_LOCAL_JAG = products.length - 1;
   products[1].buddy = SM_LOCAL_JAG; products[SM_LOCAL_JAG].buddy = 1;
+  products[1].note = 'Most sold product in mall history 🔥'; products[SM_LOCAL_JAG].note = 'Fully absorbent. Fully loyal. 👶'; products[0].note = 'The face of the mall 😎 Buy 1, get 1 FREE';
+  products[SM_LOCAL_JAG].popup = { tag: '⚡ FLASH SALE · FULLY ABSORBENT 👶', title: 'Mr. Diaper Dilip (Mr. DD) is selling out EXTREMELY fast!', small: '{left} left · DM Jagadeesh for contact details' };
+  products[SM_LOCAL_JAG].pitch = 'Mr. Diaper Dilip is selling out EXTREMELY fast! Fully absorbent, only ₹75,000!';
 
   // Mr. KK — the mall's multi-skilled salesman, sold as a product on his own page (kk.html)
   products.push({
     id: products.length, name: 'Mr. KK — Senior Salesman, Canteen Cleaner & Aisle Walker', short: 'Mr. KK', emoji: '🧑‍💼', cat: 'mall', catLabel: 'Mall Specials',
-    price: 999, mrp: 4999, rating: 4.8, reviews: 43210, img: 'assets/salesman-full.jpg', fit: true, kk: true,
-    taglines: ['🛍️ Sells Susheer products. All 342 of them.', '🧹 Cleans the canteen before AND after the biryani rush', '🚶 Walks the aisles 14 km a day (tracked by nobody)', '😘 Blows kisses at customers who add to cart', '🧑‍💼 Available for rent. Never for sale.'],
-    highlights: ['🛍️ Sells Susheer products — apples to aircraft', '🧹 Cleans the canteen (tables, floors and the odd biryani spill)', '🚶 Walks the aisles all day with confidence', '😎 Pops up uninvited with “offers” (very friendly)', '🤝 Hire for ₹999/day — lunch not included'],
-    desc: 'Mr. KK is the beating heart of Susheer Shopping Mall: a Senior Salesman by title, a Canteen Cleaner by dedication and a professional Aisle Walker by passion. He sells Susheer products, keeps the canteen spotless, walks the mall like he owns it and pops up when you least expect it with a deal you did not know you needed. Available for hire (₹999/day) — never for sale. (Parody item — approved by the guy himself.)',
-    tags: ['🧑‍💼 Hire', '🧹 Canteen certified', '🚶 Walker', 'Not for sale']
+    price: 9999, mrp: 49999, unit: 'per day', rating: 2.4, reviews: 43210, img: 'assets/mr-kk.jpg', fit: true, kk: true,
+    taglines: ['🛍️ Sells Susheer products. When awake.', '🧹 Cleans the canteen. With eyes closed.', '🚶 Walks 14 km a day (mostly to the tea stall)', '😴 Hardworking index: 2%. Napping index: 98%.', '☕ Needs 3 tea breaks to recover from 1 customer', '🧑‍💼 Available for rent. Never for sale.'],
+    highlights: ['🛍️ Sells Susheer products — whenever he wakes up', '🧹 Cleans the canteen (scientifically proven to be "in progress")', '🚶 Walks the aisles all day — straight to the tea stall and back', '😴 Premium napping service included at no extra charge', '☕ Tea breaks: 3 per hour. Lunch break: 4 hours', '🤝 Hire for ₹9,999/day — work not guaranteed']
+    ,
+    desc: 'Mr. KK is the mall\'s Senior Salesman by title, Canteen Cleaner by job description and professional Napper by passion. He sells Susheer products (when awake), cleans the canteen (with his eyes closed) and walks the aisles — mostly towards the tea stall. Famously lazy and allergic to hard work, he still pops up uninvited with a "great offer" just when you were about to leave. Rated 2.4 stars for effort and 5 stars for confidence. Available for hire at ₹9,999/day — never for sale, and honestly, who would buy. (Parody item — approved by the guy himself.)',
+    tags: ['🧑‍💼 Hire', '😴 Napper', '☕ Tea-break pro', 'Not for sale'],
+    reviewList: [
+      ['Ramesh K.', 1, 'Hired him for the day. Found him asleep in the canteen. He said he was cleaning with his eyes closed.'],
+      ['Priya S.', 2, 'Advertised as hardworking. Worked for 7 minutes. Took 3 tea breaks to recover.'],
+      ['Venkat R.', 1, 'Walks 14 km a day? I saw him walk 14 metres — to the tea stall.'],
+      ['Anjali M.', 2, 'He sold me a nap and a story about his back pain. No Susheer products were involved.'],
+      ['Sai T.', 3, 'Nice guy, great smile. Zero work. 3 stars for the smile, minus all the rest.'],
+      ['Lakshmi D.', 1, 'Asked him to clean the table. He asked me to wait. I am still waiting.'],
+      ['Kiran P.', 2, 'Pops up with offers, then vanishes when you actually want to buy. Professional ghosting.'],
+      ['Divya N.', 2, 'Hardworking index: 2%. Napping index: 98%. Value for money: ₹9,999 of regret.']
+    ]
   });
   SM_KK = products.length - 1;
+
+  // The Jaggu gang — more top sellers, ranked in the order they were added
+  const person = o => {
+    const p = Object.assign({ id: products.length, emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu', hot: true, fit: true }, o);
+    products.push(p); PEOPLE.push(p.id); return p;
+  };
+  person({
+    name: 'Vishneamon', short: 'Vishneamon', emoji: '🤖', price: 29999, mrp: 99999, rating: 4.7, reviews: 412300, img: 'assets/vishneamon.jpg',
+    rank: { n: 4, label: '🏅 #4 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 412300 },
+    note: 'Opens gadgets. Opens batsmen. Opens birthdays. 🎂',
+    taglines: ['🔧 Specialist in opening gadgets', '🏏 Also opens the batting (and your parcels)', '🎒 Pulls gadgets out of his pocket on demand', '🍰 Comes with pancake tower and candles', '🔔 Bell included. Not optional.'],
+    highlights: ['🔧 Speciality: opening gadgets — unboxing, unscrewing, unlocking', '🏏 Also opens the batting for your gully team (powerplay certified)', '🍰 Pancake tower and birthday candles available on request', '🔔 Signature bell included, rings at awkward moments', '🕳️ 4D pocket: holds 1 charger, 2 cables and infinite excuses'],
+    desc: 'Vishneamon — the mall\'s #4 best-seller and a legend in two professions: opening gadgets and opening the batting. Hand him any box and he will open it. Hand him a bat and he will open the innings. He may also open your fridge. Pancake tower and candles available for birthdays. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #4 Bestseller', '🔧 Gadget opener', '🏏 Opening batsman', '🔥 HOT'],
+    popup: { tag: '🔧 NEW · GADGET OPENER', title: 'Vishneamon opens gadgets AND batsmen — selling out fast!', small: '{left} left · DM Jagadeesh for bookings' },
+    pitch: 'Boss! Vishneamon opens any gadget in 10 seconds and opens the batting too. Only ₹29,999!',
+    reviewList: [
+      ['Rahul T.', 5, 'Asked him to open a gadget. He opened my phone, my laptop and my wallet. Very efficient.'],
+      ['Sneha K.', 5, 'Opened the batting for our gully team. Scored 2 in 3 hours. Legend.'],
+      ['Arjun V.', 4, 'Pulls everything out of his pocket except what you actually asked for.'],
+      ['Meena G.', 5, 'Birthday-ready! Brought the pancake tower, the candles and a screwdriver.'],
+      ['Ganesh L.', 3, 'Opened my new TV box with a fork. TV is fine. Fork is not.']
+    ]
+  });
+  person({
+    name: 'Long Jump Harish', short: 'Long Jump Harish', emoji: '🏃', price: 1499, mrp: 7999, unit: 'per day (service)', rating: 4.8, reviews: 288900, img: 'assets/harish.jpg',
+    rank: { n: 5, label: '🏅 #5 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 288900 },
+    note: 'Jumps long. Shakes milk. Smiles free. 🥤',
+    taglines: ['🏃 Long jumps. Lands (usually).', '🥤 Makes milkshakes: mango, banana, chocolate, mystery', '🛎️ Available as a service, just like Mr. KK', '😄 Smile included, free of cost', '⚠️ Land at your own risk'],
+    highlights: ['🏃 Speciality: long jumping (record: over a puddle, 2.4 m)', '🥤 Also makes milkshakes — mango, banana, chocolate and "mystery"', '🛎️ Available as a service for events, parties and gully matches', '😄 Smile included, free of cost', '⚠️ Landing not guaranteed. Milkshake guaranteed.'],
+    desc: 'Long Jump Harish — the mall\'s #5 best-seller and the only human who can long jump AND make a thick milkshake before breakfast. Available as a service (book him just like Mr. KK, but he actually works). Perfect for parties, sports days and unexpected milkshake emergencies. Landing not included. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #5 Bestseller', '🛎️ Service', '🥤 Milkshake maker', '🏃 Long jumper'],
+    popup: { tag: '🛎️ BOOK NOW · SERVICE', title: 'Long Jump Harish: jumps long, shakes milk — booking fast!', small: '{left} slots left today · only ₹1,499/day' },
+    pitch: 'Bhai, book Long Jump Harish! He jumps long AND makes milkshakes. Just ₹1,499 a day!',
+    reviewList: [
+      ['Ramya P.', 5, 'Long jumped over a puddle holding my milkshake. Not a drop spilt. Hired again.'],
+      ['Kiran P.', 4, 'Milkshake 10/10. Landing 6/10. Please book a softer ground.'],
+      ['Divya N.', 5, 'Booked him for my sister\'s party. Kids loved the milkshake, the jump AND the smile.'],
+      ['Sai T.', 5, 'Mango shake, mango jump. Mango everything.'],
+      ['Fatima B.', 4, 'Smiled the whole time. The milkshake had extra vibes. Still good.']
+    ]
+  });
+  person({
+    name: 'Chetak Rohit (aka Chapri Rohit)', short: 'Chetak Rohit', emoji: '🛵', price: 2499, mrp: 9999, rating: 4.5, reviews: 197500, img: 'assets/rohit.jpg',
+    rank: { n: 6, label: '🏅 #6 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 197500 },
+    note: 'Official Chapri of Bowenpally Mall 🛵',
+    taglines: ['🛵 Rides the Chetak at 80 km/h (in his head)', '🏅 Official Chapri of Bowenpally Mall', '🍵 Sells Rohit\'s Special Kadha', '📣 Horn louder than the PA system', '😎 Aura: unmatched. Helmet: optional.'],
+    highlights: ['🏅 Titled Official Chapri of Bowenpally Mall', '🛵 Rides his Chetak like it is a racehorse', '🍵 Sells Rohit\'s Special Kadha — cures Mondays', '📣 Horn included, louder than the mall PA', '🧢 Style: unmatched. Helmet: sometimes.'],
+    desc: 'Chetak Rohit, a.k.a. Chapri Rohit — the mall\'s #6 best-seller and its Official Chapri. He arrives on a Chetak, leaves in a cloud of confidence, and sells Rohit\'s Special Kadha to anyone with a bad Monday. Horn louder than the PA system. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #6 Bestseller', '🛵 Chetak', '🏅 Official Chapri', '🔥 HOT'],
+    popup: { tag: '🛵 TRENDING · CHAPRI ALERT', title: 'Chetak Rohit — the Official Chapri — is selling out!', small: '{left} left · horn included' },
+    pitch: 'Psst! Chetak Rohit, our Official Chapri, is on sale for ₹2,499. Horn included!',
+    reviewList: [
+      ['Venkat R.', 5, 'Reached the mall in 4 minutes on his Chetak. Left a cloud of confidence behind.'],
+      ['Priya S.', 4, 'Official Chapri of Bowenpally Mall. Sunglasses stay on even indoors.'],
+      ['Anjali M.', 5, 'His special kadha cured my Monday. Tuesday still pending.'],
+      ['Lakshmi D.', 3, 'Scooter horn is louder than the PA system. Respect.']
+    ]
+  });
+  person({
+    name: 'Lean Baddie', short: 'Lean Baddie', emoji: '💪', price: 4999, mrp: 19999, rating: 4.9, reviews: 143200, img: 'assets/baddie.jpg',
+    rank: { n: 7, label: '🏅 #7 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 143200 },
+    note: 'Gym. Baddiness. Aura. 💪',
+    taglines: ['💪 Gym 6 days a week. 7th day: protein.', '😎 Certified baddie. Aura +1000', '🥗 Lean mode: permanently on', '🏋️ Spots you on bench press and judges silently', '🧴 Comes with main-character walk'],
+    highlights: ['💪 Speciality: gym (6 days a week, 7th day is protein)', '😎 Baddiness certified — aura +1000, confidence +9999', '🥗 Lean mode is permanently on', '🏋️ Will spot you on the bench press and judge you silently', '🕶️ Sunglasses indoors: standard'],
+    desc: 'Lean Baddie — the mall\'s #7 best-seller and the only product that can bench your cart, fix your posture and raise your aura in one visit. Specialises in the gym, in baddiness and in walking into rooms like the lights were installed for him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #7 Bestseller', '💪 Gym', '😎 Baddie', '🔥 HOT'],
+    popup: { tag: '💪 GYM SPECIAL · BADDIE', title: 'Lean Baddie is flexing — and selling out fast!', small: '{left} left · aura included' },
+    pitch: 'Boss, want some baddiness? Lean Baddie — gym plus aura — only ₹4,999!',
+    reviewList: [
+      ['Ramesh K.', 5, 'Lifted me. And my cart. And my confidence.'],
+      ['Sneha K.', 5, 'Aura so strong the mall lights flickered.'],
+      ['Arjun V.', 4, 'Gym 6 days a week. On the 7th day he recovers with biryani.'],
+      ['Meena G.', 5, 'Baddie energy: 100%. Lean mode: permanent.']
+    ]
+  });
+  person({
+    name: 'Sullileni Sridhar', short: 'Sullileni Sridhar', emoji: '🎤', price: 3999, mrp: 14999, unit: 'per show (service)', rating: 4.6, reviews: 98700, img: 'assets/sridhar.jpg',
+    rank: { n: 8, label: '🏅 #8 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 98700 },
+    note: 'Sings. Dances. Brings the house down. 🎤',
+    taglines: ['🎤 Sings so well the canteen stops boiling tea', '💃 Dance moves with free embarrassment', '🛎️ Available for weddings, birthdays and bus journeys', '🔊 Volume: yes', '🎶 Requests accepted. Mostly ignored.'],
+    highlights: ['🎤 Speciality: singing (any language, any key, any time)', '💃 Also dancing — moves come with free embarrassment', '🛎️ Bookable for weddings, birthdays and long bus rides', '🎶 Requests accepted, rarely played', '🔊 Volume: yes'],
+    desc: 'Sullileni Sridhar — the mall\'s #8 best-seller, a one-man concert and dance floor. Specialises in singing and dancing, in that order, and sometimes both at once. Book him for weddings, birthdays or any occasion that needs a little more noise. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['🏅 #8 Bestseller', '🎤 Singer', '💃 Dancer', '🛎️ Service'],
+    popup: { tag: '🎤 LIVE · BOOK THE SINGER', title: 'Sullileni Sridhar sings AND dances — booking fast!', small: '{left} shows left this week · ₹3,999' },
+    pitch: 'Bhai, Sullileni Sridhar sings and dances for just ₹3,999 a show. Book now!',
+    reviewList: [
+      ['Divya N.', 5, 'Sang so well the canteen uncle stopped boiling the tea to listen.'],
+      ['Kiran P.', 4, 'His dance moves unlocked a new level of embarrassment for me. 10/10.'],
+      ['Ramya P.', 5, 'Booked for a birthday. Sang, danced, ate half the cake.'],
+      ['Sai T.', 5, 'The Sullileni Sridhar experience: wallet lighter, heart fuller.']
+    ]
+  });
+
 
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};
@@ -195,6 +304,9 @@
     FLASH_PRICE: 50000,
     LOCAL_JAG: SM_LOCAL_JAG,
     KK_ID: SM_KK,
+    PEOPLE: PEOPLE,
+    BOARD: [1, SM_LOCAL_JAG, 0].concat(PEOPLE),
+    POPUPS: [SM_LOCAL_JAG].concat(PEOPLE),
     REVIEWS: [
       ['Ramesh K.', 5, 'Bought one. A helicopter landed on my terrace to deliver it. 10/10 would be surprised again.'],
       ['Priya S.', 5, 'My mother-in-law now shops only at Susheer. Please send help.'],

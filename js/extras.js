@@ -22,7 +22,12 @@
     'Mr. Diaper Dilip is selling out fast. Admirers, please form a single line.',
     'Parents: Mr. Diaper Dilip is available in sizes S, M, L and XL. Pampers sold separately.',
     'Aisle 9: someone asked Mr. DD if he is leak-proof. He confirmed. Applause.',
-    'Mr. KK has finished cleaning the canteen. He is now walking. Please admire.',
+    'Mr. KK has finished cleaning the canteen. Well, he has started a nap near it. Please do not disturb.',
+    'Vishneamon is available at the Gadget Counter. Please do not hand him anything you want to keep closed.',
+    'Long Jump Harish is making milkshakes in the food court. Please stand back from the jump zone.',
+    'Chetak Rohit has parked his Chetak in the atrium. The horn has been confiscated. Again.',
+    'Lean Baddie is spotting someone on the bench press. The aura is being felt by all floors.',
+    'Sullileni Sridhar will perform on Level 2 shortly. Earplugs available at Aisle 9.',
     'Susheer, our #3 bestseller, is signing autographs at the Flash Sale counter.',
     'Plz visit Bowenpally Mall for world rate experience. This message repeats every 40 seconds.'
   ];
@@ -98,12 +103,13 @@
 
   /* ---------- support chat + feedback ---------- */
   document.body.insertAdjacentHTML('beforeend', `
-    <button class="fab" id="fab" aria-label="Open customer support"><span class="kkmini"><img src="assets/salesman-full.jpg" alt="Mr. KK"></span><i>Help</i></button>
-    <section class="chat" id="chat" aria-label="Customer support">
-      <div class="chat-h"><span class="av"><img src="assets/salesman-full.jpg" alt="Mr. KK"></span><div><b>Mr. KK · Customer Support</b><small>🟢 Online · replies in 2 seconds</small></div><button id="chatX" aria-label="Close">×</button></div>
+    <button class="fab" id="fab" aria-label="Open Ganda Chatbot"><span class="kkmini"><img src="assets/ganda.jpg" alt="Ganda Chatbot"></span><i>Ganda Bot</i></button>
+    <div class="gandareveal" id="gandaReveal" aria-hidden="true"><img src="assets/ganda.jpg" alt=""><span>GANDA CHATBOT</span></div>
+    <section class="chat" id="chat" aria-label="Ganda Chatbot">
+      <div class="chat-h"><span class="av"><img src="assets/ganda.jpg" alt="Ganda Chatbot"></span><div><b>Ganda Chatbot · Customer Support</b><small>🟢 Online · replies in 2 seconds</small></div><button id="chatX" aria-label="Close">×</button></div>
       <div class="chat-b" id="chatB"></div>
       <div class="qr" id="qr"></div>
-      <form class="chat-f" id="chatF"><input id="chatI" placeholder="Ask Mr. KK anything…" autocomplete="off"><button>Send</button></form>
+      <form class="chat-f" id="chatF"><input id="chatI" placeholder="Ask the Ganda Chatbot anything…" autocomplete="off"><button>Send</button></form>
     </section>`);
   const chat = $('#chat'), body = $('#chatB'), qr = $('#qr');
   const say = (t, who = 'bot', html) => { const m = document.createElement('div'); m.className = 'msg ' + who; if (html) m.innerHTML = t; else m.textContent = t; body.appendChild(m); body.scrollTop = body.scrollHeight; return m; };
@@ -117,9 +123,14 @@
     [/heli|plane|jet|aircraft|car\b|cars|boat|yacht|bike/, 'Our Helicopters, Cars, Planes, Bikes and Boats departments are live! Check the sidebar on the shop page. Test flights on the rooftop every Sunday. ✈️'],
     [/jagadeesh|langadeesh|dilip|diaper|\bdd\b|jaggu/, 'Ah, the legends! 🏆 Jagadeesh is the #1 most sold product in Susheer Mall history (₹1 crore, only 1 left!). 🥈 Mr. Diaper Dilip (Mr. DD) is #2 and on flash sale — fully absorbent, Pampers sold separately. 🥉 Susheer himself is #3. DM Jagadeesh for contact details. 📩'],
     [/susheer|flash|50k|50,000/, 'Susheer himself is our #3 best-seller! 🥉 Flash sale: ₹50,000, BUY 1 GET 1 FREE. Mr. DD and Jagadeesh are on flash sale too!'],
-    [/\bkk\b|salesman|canteen|clean/, 'Mr. KK is our Senior Salesman, Canteen Cleaner and professional Aisle Walker. 🧹🚶 Zoom in on him on the "Meet Mr. KK" page — available for hire at ₹999/day, never for sale.'],
+    [/\bkk\b|salesman|canteen|clean/, 'Mr. KK is our Senior Salesman, Canteen Cleaner and professional Napper. 😴 Hardworking index: 2%. Zoom in on him on the "Meet Mr. KK" page — available for hire at ₹9,999/day (work not guaranteed), never for sale.'],
+    [/vishne|doraemon|gadget|batsm|opener/, 'Vishneamon (#4 best-seller) opens gadgets AND batsmen. Hand him a box or a bat, he opens it. Pancake tower on request. 🔧🏏'],
+    [/harish|long jump|milkshake|shake/, 'Long Jump Harish (#5) jumps long and makes milkshakes. Book him as a service for ₹1,499/day. Landing not guaranteed, milkshake is. 🏃🥤'],
+    [/rohit|chetak|chapri|kadha/, 'Chetak Rohit, our Official Chapri (#6), rides his Chetak and sells Rohit\'s Special Kadha. Horn included. 🛵🍵'],
+    [/baddie|gym|aura|lean/, 'Lean Baddie (#7) does gym and baddiness. Aura +1000, lean mode permanent. 💪😎'],
+    [/sridhar|sullileni|sing|dance/, 'Sullileni Sridhar (#8) sings and dances. Book him per show for ₹3,999. 🎤💃'],
     [/pay|upi|card|cod|cash/, 'We accept Susheer Pay, UPI, cards and cash on delivery. Hugs are accepted but do not clear the bill. 🤗'],
-    [/hi\b|hello|hey|namaste|yo\b/, 'Hello boss! 😘 I\'m Mr. KK. How can I help you today?'],
+    [/hi\b|hello|hey|namaste|yo\b/, 'Hello boss! 😘 I\'m the Ganda Chatbot. How can I help you today?'],
     [/thank|thanks|tq/, 'Thank you boss! Plz visit Bowenpally Mall for world rate experience. 💖'],
     [/where|address|location|bowenpally|visit|open/, 'Susheer Shopping Mall is in Bowenpally, Hyderabad. Open 9 AM – 11 PM. Look for the tall glowing tower with helicopters on top. 🏬']
   ];
@@ -131,23 +142,31 @@
       st.querySelectorAll('button').forEach((x, i) => x.classList.toggle('on', i < n)); st.style.pointerEvents = 'none';
       safe(() => { const f = JSON.parse(localStorage.getItem('susheer_feedback') || '[]'); f.push({ stars: n, at: Date.now() }); localStorage.setItem('susheer_feedback', JSON.stringify(f)); });
       say(n + ' ⭐', 'me');
-      typing(() => { say(n >= 4 ? 'Wow, thank you boss! 😘 Want to tell us what you loved? Type below.' : 'Oops, sorry about that! 😢 Tell us what went wrong — type below and Mr. KK will fix it (he says).'); SM.confetti && n >= 4 && SM.confetti(60); });
+      typing(() => { say(n >= 4 ? 'Wow, thank you boss! 😘 Want to tell us what you loved? Type below.' : 'Oops, sorry about that! 😢 Tell us what went wrong — type below and the Ganda Chatbot will fix it (she says).'); SM.confetti && n >= 4 && SM.confetti(60); });
       awaitFeedback = true;
     });
   };
   let awaitFeedback = false;
   const reply = txt => {
     typing(() => {
-      if (awaitFeedback) { awaitFeedback = false; safe(() => { const f = JSON.parse(localStorage.getItem('susheer_feedback') || '[]'); f.push({ text: txt.slice(0, 500), at: Date.now() }); localStorage.setItem('susheer_feedback', JSON.stringify(f)); }); say('Got it, noted! Your feedback goes straight to Mr. KK. 💌'); chips(MAIN); return; }
+      if (awaitFeedback) { awaitFeedback = false; safe(() => { const f = JSON.parse(localStorage.getItem('susheer_feedback') || '[]'); f.push({ text: txt.slice(0, 500), at: Date.now() }); localStorage.setItem('susheer_feedback', JSON.stringify(f)); }); say('Got it, noted! Your feedback goes straight to the Ganda Chatbot. 💌'); chips(MAIN); return; }
       const t = txt.toLowerCase();
       if (/feedback|rate|review|complain|suggest/.test(t)) return feedback();
       const hit = KB.find(k => k[0].test(t));
-      say(hit ? hit[1] : pick(['Hmm, Mr. KK is scratching his head 🤔. Try asking about delivery, refunds, discounts or helicopters!', 'I did not get that, boss. But I can help with delivery, refunds, discounts and flying machines. 🚁']));
+      say(hit ? hit[1] : pick(['Hmm, the Ganda Chatbot is scratching her head 🤔. Try asking about delivery, refunds, discounts or helicopters!', 'I did not get that, boss. But I can help with delivery, refunds, discounts and flying machines. 🚁']));
       chips(MAIN);
     });
   };
   let greeted = false;
-  const open = () => { chat.classList.add('open'); if (!greeted) { greeted = true; say('Namaste boss! 🙏 I\'m Mr. KK, your Susheer support guy. Ask me anything or pick a topic below.'); chips(MAIN); } $('#chatI').focus(); };
+  const revealEl = $('#gandaReveal');
+  const open = () => {
+    revealEl.classList.remove('show'); void revealEl.offsetWidth; revealEl.classList.add('show');   // her photo flashes, then fades into the normal UI
+    setTimeout(() => {
+      chat.classList.add('open');
+      if (!greeted) { greeted = true; say('Namaste boss! 🙏 I\'m the Ganda Chatbot, your Susheer support. Ask me anything or pick a topic below.'); chips(MAIN); }
+      $('#chatI').focus();
+    }, 1000);
+  };
   $('#fab').onclick = () => (chat.classList.contains('open') ? chat.classList.remove('open') : open());
   $('#chatX').onclick = () => chat.classList.remove('open');
   qr.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const t = b.textContent.replace(/^[^\w]+/, ''); say(b.textContent, 'me'); chips([]); reply(t); });

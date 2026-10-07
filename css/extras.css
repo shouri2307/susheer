@@ -247,3 +247,22 @@ body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gr
 .duty h3{font-size:16px;margin-bottom:4px}.duty p{color:var(--soft);font-size:13.5px}
 @media(max-width:900px){.kk-hero{grid-template-columns:1fr}}
 .kk-frame.done img{animation:none;transform:scale(3.1)}
+
+/* ---- v7: Ganda Chatbot photo reveal ---- */
+.gandareveal{position:fixed;inset:0;z-index:600;display:grid;place-content:center;justify-items:center;gap:14px;background:rgba(4,4,12,.92);backdrop-filter:blur(8px);opacity:0;pointer-events:none}
+.gandareveal img{max-height:78vh;max-width:min(88vw,520px);border-radius:26px;border:4px solid var(--violet);box-shadow:0 0 120px rgba(124,92,255,.8),0 0 40px rgba(46,229,157,.4)}
+.gandareveal span{font:900 22px Inter,sans-serif;letter-spacing:.3em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gandareveal.show{animation:gfade 2.6s ease forwards}
+@keyframes gfade{0%{opacity:0;transform:scale(1.06)}12%{opacity:1;transform:none}45%{opacity:1}100%{opacity:0;transform:scale(.98)}}
+
+.meter{display:grid;grid-template-columns:1fr auto;gap:6px 14px;max-width:560px;margin:10px 0 30px;font-size:14px}
+.meter div{display:contents}.meter b{font-weight:700}.meter span{font-weight:900;color:var(--gold)}
+.meter i{grid-column:1/-1;height:9px;border-radius:99px;background:var(--card2);overflow:hidden;position:relative}
+.meter i:after{content:"";position:absolute;inset:0;width:var(--w);background:var(--grad);border-radius:99px}
+.kk-frame img{object-position:50% 40%;transform-origin:50% 42%}
+.kk-frame.done img{transform:scale(2.2)}
+@keyframes kkzoom{0%{transform:scale(1)}100%{transform:scale(2.2)}}
+.kk-frame img{object-position:50% 50%;transform-origin:50% 58%}
+.kk-frame.done img{transform:scale(1.7)}
+@keyframes kkzoom{0%{transform:scale(1)}100%{transform:scale(1.7)}}
+.kk-frame img{object-position:30% 50%;transform-origin:48% 58%}

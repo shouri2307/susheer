@@ -27,8 +27,8 @@
       ${p.rank ? `<div class="rankbig r${p.rank.n > 3 ? 'x' : p.rank.n}">${p.rank.label} · <b>${p.rank.sold.toLocaleString('en-IN')}</b> sold all-time</div>` : ''}
       ${p.taglines ? `${p.hot ? '<span class="hotline">🔥 FRESH &amp; HOT</span>' : ''}<span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>` : ''}
       <div class="rate" style="margin-top:10px;font-size:14px"><span class="star">${p.rating} ★</span><span class="rv">${p.reviews.toLocaleString('en-IN')} ratings</span></div>
-      <div class="big-price">${inr(p.price)} <s>${inr(p.mrp)}</s> <span class="off">${off}% off</span></div>
-      ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>Only 1 left in the mall!</b>${p.flash ? ' · ⚡ <b>FLASH SALE</b> ends in <b class="js-timer">--:--:--</b>' : ''}</div>` : ''}
+      <div class="big-price">${inr(p.price)} ${p.unit ? `<small style="font-size:15px;color:var(--soft);font-weight:600">${p.unit}</small>` : ''}<s>${inr(p.mrp)}</s> <span class="off">${off}% off</span></div>
+      ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>${p.unit ? 'Booking fast!' : 'Only 1 left in the mall!'}</b>${p.flash ? ' · ⚡ <b>FLASH SALE</b> ends in <b class="js-timer">--:--:--</b>' : ''}</div>` : ''}
       ${p.bogo ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · <b>BUY 1, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
       ${p.sizes ? `<div class="sizes"><span>${p.sizesLabel || 'Size'}</span>${p.sizes.map((z, i) => `<button type="button" class="${i === 1 ? 'on' : ''}" data-size="${z}">${z}</button>`).join('')}</div>` : ''}
@@ -47,7 +47,7 @@
       <p class="desc">${p.desc}</p>
     </div>`;
 
-  const rv = [...D.REVIEWS].sort(() => Math.random() - .5).slice(0, 6);
+  const rv = [...(p.reviewList || D.REVIEWS)].sort(() => Math.random() - .5).slice(0, 6);
   $('#pdp').insertAdjacentHTML('afterend', `<section class="reviews"><div class="sec-h"><h2>⭐ Customer reviews <span style="font-size:14px">(100% real*)</span></h2><span>*as real as this mall</span></div><div class="rev-grid">${rv.map(r => `<div class="rev"><div class="rh"><span>${r[0]}</span><span class="st">${'★'.repeat(r[1])}${'☆'.repeat(5 - r[1])}</span></div>${r[2]}<br><small>✔ Verified Susheer buyer</small></div>`).join('')}</div></section>`);
   setInterval(() => { const v = $('.js-view'); if (v) v.textContent = 30 + Math.floor(Math.random() * 60); }, 1500);
   $('#qm').onclick = () => { qty = Math.max(1, qty - 1); $('#q').textContent = qty; };

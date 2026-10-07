@@ -16,10 +16,7 @@
   flip(); setInterval(flip, 5000);
 
   // all-time leaderboard (funny rankings)
-  const board = [
-    { p: P[1], n: 1, medal: '🥇', sold: 1248760, note: 'Most sold product in mall history 🔥' }, { p: P[D.LOCAL_JAG], n: 2, medal: '🥈', sold: 874300, note: 'Fully absorbent. Fully loyal. 👶' },
-    { p: P[0], n: 3, medal: '🥉', sold: 621400, note: 'The face of the mall 😎 Buy 1, get 1 FREE' }
-  ];
+  const board = D.BOARD.map(id => { const p = P[id]; return { p, n: p.rank.n, medal: ['🥇', '🥈', '🥉'][p.rank.n - 1] || '🏅', sold: p.rank.sold, note: p.note }; });
   $('#board').innerHTML = board.map(b => `<article class="rank r${b.n > 3 ? 'x' : b.n}">
       <div class="medal">${b.medal}<small>#${b.n}</small></div>
       <a href="product.html?id=${b.p.id}">${SM.visual(b.p)}<h3>${b.p.name}</h3></a>

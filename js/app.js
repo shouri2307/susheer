@@ -90,7 +90,7 @@
     </footer>
     <aside class="salesman" id="salesman" aria-live="polite">
       <button class="x" aria-label="Dismiss Mr. KK" id="salesX">×</button>
-      <div class="kk-wrap" id="kkWrap"><img class="kk-photo" src="assets/salesman-full.jpg" alt="Mr. KK"><div class="kkfx" id="kkFx"></div><a class="kk-name" href="kk.html" title="Meet Mr. KK">MR. KK ↗</a></div>
+      <div class="kk-wrap" id="kkWrap"><img class="kk-photo" src="assets/mr-kk.jpg" alt="Mr. KK"><div class="kkfx" id="kkFx"></div><a class="kk-name" href="kk.html" title="Meet Mr. KK">MR. KK ↗</a></div>
       <div class="bub"><span class="who">Mr. KK says:</span><p id="salesTxt"></p>
         <div class="srow"><a id="salesGo" href="#" class="sgo">View offer</a><button id="salesAdd" class="sadd">Add 🛒</button></div></div>
     </aside>
@@ -100,9 +100,8 @@
     </div>
     <aside class="jagpop" id="jagpop">
       <button class="x" aria-label="Close" id="jagX">×</button>
-      <a href="product.html?id=${D.LOCAL_JAG}"><img src="assets/jagadeesh-flash.jpg" alt="Mr. Diaper Dilip flash sale">
-        <div class="jp-t"><span class="jp-tag">⚡ FLASH SALE · FULLY ABSORBENT 👶</span><b>Mr. Diaper Dilip (Mr. DD) is selling out EXTREMELY fast!</b>
-        <small><span id="jagLeft">7</span> left · DM <u>Jagadeesh</u> for contact details</small></div></a>
+      <a id="jagLink" href="product.html?id=${D.LOCAL_JAG}"><img id="jagImg" src="assets/jagadeesh-flash.jpg" alt="Flash sale">
+        <div class="jp-t"><span class="jp-tag" id="jagTag"></span><b id="jagTitle"></b><small id="jagSmall"></small></div></a>
     </aside>
     <aside class="mallpop" id="mallpop">
       <button class="x" aria-label="Close" id="mallX">×</button>
@@ -154,10 +153,11 @@
   const showSales = () => {
     if (document.hidden || sales.matches(':hover')) return schedule();
     const pool = P.filter(p => !p.flash);
-    curP = Math.random() < 0.18 ? P[0] : pick(pool);
-    $('#salesTxt').textContent = curP.flash
+    const r = Math.random();
+    curP = r < 0.14 ? P[0] : r < 0.4 ? P[pick(D.POPUPS)] : pick(pool);
+    $('#salesTxt').textContent = curP.id === 0
       ? 'SUSHEER himself is on FLASH SALE — ₹50,000 only and BUY 1 GET 1 FREE! Run!!'
-      : pick(pitches)(curP);
+      : curP.pitch || pick(pitches)(curP);
     $('#salesGo').href = 'product.html?id=' + curP.id;
     sales.classList.add('show');
     salesTimer = setTimeout(hideSales, 8500);
@@ -200,11 +200,14 @@
     thT = setTimeout(() => th.classList.remove('show'), 3200);
   };
 
-  /* ---------- Mr. DD flash-sale side popup ---------- */
-  const jp = $('#jagpop'); let left = 7;
+  /* ---------- rotating side popup: a different Susheer top-seller each time ---------- */
+  const jp = $('#jagpop'); let jpi = 0;
   const showJag = () => {
     if (!document.hidden) {
-      left = 2 + Math.floor(Math.random() * 9); $('#jagLeft').textContent = left;
+      const p = P[D.POPUPS[jpi++ % D.POPUPS.length]], pop = p.popup;
+      const left = 2 + Math.floor(Math.random() * 9);
+      $('#jagImg').src = p.img; $('#jagImg').alt = p.name; $('#jagLink').href = 'product.html?id=' + p.id;
+      $('#jagTag').textContent = pop.tag; $('#jagTitle').textContent = pop.title; $('#jagSmall').textContent = pop.small.replace('{left}', left);
       jp.classList.add('show'); setTimeout(() => jp.classList.remove('show'), 7500);
     }
     setTimeout(showJag, 13000 + Math.random() * 14000);
