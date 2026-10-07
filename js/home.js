@@ -19,7 +19,7 @@
   const top3 = P[102];  // Susheer Apples — the people's champion
   const board = [
     { p: P[1], n: 1, medal: '🥇', sold: 1248760 }, { p: P[D.LOCAL_JAG], n: 2, medal: '🥈', sold: 874300 },
-    { p: top3, n: 3, medal: '🥉', sold: 621400, note: 'Champion of the common folk 🍎' }, { p: P[0], n: 343, medal: '📉', sold: 3, note: 'Least popular. Hence the one-on-one sale. Please buy. 🥺' }
+    { p: top3, n: 3, medal: '🥉', sold: 621400, note: 'Champion of the common folk 🍎' }
   ];
   $('#board').innerHTML = board.map(b => `<article class="rank r${b.n > 3 ? 'x' : b.n}">
       <div class="medal">${b.medal}<small>#${b.n}</small></div>
@@ -30,6 +30,16 @@
       ${b.note ? `<small class="note">${b.note}</small>` : ''}
       <a class="btn ${b.p.flash ? 'buy' : 'pri'} block" href="product.html?id=${b.p.id}">${b.n === 343 ? 'Please buy 🥺' : 'Buy now'}</a>
     </article>`).join('');
+
+  // bottom of the leaderboard: Susheer himself (NOT in the top 3)
+  const sh = P[0];
+  $('#boardLast').innerHTML = `<div class="lastrank"><div class="lr-pos">📉<b>#343</b><small>of 343</small></div>
+    <a href="product.html?id=0">${SM.visual(sh)}</a>
+    <div class="lr-body"><small>🔻 BOTTOM OF THE LEADERBOARD · LEAST POPULAR ITEM IN THE MALL</small>
+      <h3>${sh.name}</h3>
+      <p>Only <b class="js-n" data-n="3">3</b> sold all-time (two were returned). That's why he's on a desperate <b>one-on-one sale</b> — buy 1, get 1 FREE. Please. 🥺</p>
+      <div class="price"><b>${SM.inr(sh.price)}</b><s>${SM.inr(sh.mrp)}</s></div></div>
+    <a class="btn buy" href="product.html?id=0">Please buy 🥺</a></div>`;
 
   // deals rail
   const shuffled = P.filter(p => !p.flash).sort(() => Math.random() - .5).slice(0, 14);

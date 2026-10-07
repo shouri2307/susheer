@@ -198,3 +198,11 @@ body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gr
 .rank .flashtag{background:linear-gradient(90deg,#ff7a00,#ff0a54);color:#fff;font-weight:900;font-size:12px;text-align:center;padding:5px;border-radius:10px;animation:pulseb .9s 8 alternate}
 .rank .note{color:var(--soft);font-size:12px;text-align:center}
 .rank .sold{font-size:12.5px}
+.board{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:14px}
+.lastrank{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 18px;margin-bottom:34px;border-radius:20px;background:#12142a;border:2px dashed #4a4f73;filter:saturate(.6)}
+.lastrank .vis{width:96px;height:96px;aspect-ratio:1;border-radius:14px}
+.lr-pos{display:flex;flex-direction:column;align-items:center;font-size:30px;line-height:1}
+.lr-pos b{font-size:18px;color:var(--soft)}.lr-pos small{font-size:10px;color:var(--soft)}
+.lr-body{flex:1;min-width:220px}
+.lr-body small{color:#ff8a9a;font-weight:800;font-size:11px;letter-spacing:.06em}
+.lr-body h3{margin:4px 0}.lr-body p{color:var(--soft);font-size:13.5px;margin:4px 0 6px}
