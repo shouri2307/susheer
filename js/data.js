@@ -164,7 +164,7 @@
   // Local Jagadeesh — the flash-sale item behind the side popup (added last so existing product ids stay put)
   products.push({
     id: products.length, name: 'Mr. DD — Mr. Diaper Dilip (Flash Sale)', short: 'Mr. DD', emoji: '👶', cat: 'jaggu', catLabel: 'Jaggu',
-    price: 75000, mrp: 500000, rating: 4.9, reviews: 88888, img: 'assets/jagadeesh-flash.jpg', hot: true, fit: true, flash: true,
+    price: 750000, mrp: 5000000, rating: 4.9, reviews: 88888, img: 'assets/jagadeesh-flash.jpg', hot: true, fit: true, flash: true,
     rank: { n: 2, label: '🥈 #2 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 874300 },
     taglines: ['💘 Selling out EXTREMELY fast!', '🥈 #2 most sold product in the mall', '👶 Fully absorbent. Fully loyal.', '🧷 Leak-proof since birth', '🕐 Please change every 4 hours', '💍 "Marry Me" requests: 10 and counting', '📏 Available in S, M, L and XL. Pampers sold separately', '📩 DM Jagadeesh for contact details'],
     desc: 'Mr. DD — Mr. Diaper Dilip — the 2nd most sold product in Susheer Mall history, now on FLASH SALE. Surrounded by admirers, absorbs 99% of your problems and selling out extremely fast. Available in S, M, L and XL; Pampers sold separately. DM Jagadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
@@ -176,7 +176,7 @@
   products[1].buddy = SM_LOCAL_JAG; products[SM_LOCAL_JAG].buddy = 1;
   products[1].note = 'Most sold product in mall history 🔥'; products[SM_LOCAL_JAG].note = 'Fully absorbent. Fully loyal. 👶'; products[0].note = 'The face of the mall 😎 Buy 1, get 1 FREE';
   products[SM_LOCAL_JAG].popup = { tag: '⚡ FLASH SALE · FULLY ABSORBENT 👶', title: 'Mr. Diaper Dilip (Mr. DD) is selling out EXTREMELY fast!', small: '{left} left · DM Jagadeesh for contact details' };
-  products[SM_LOCAL_JAG].pitch = 'Mr. Diaper Dilip is selling out EXTREMELY fast! Fully absorbent, only ₹75,000!';
+  products[SM_LOCAL_JAG].pitch = 'Mr. Diaper Dilip is selling out EXTREMELY fast! Fully absorbent, only ₹7,50,000!';
 
   // Mr. KK — the mall's multi-skilled salesman, sold as a product on his own page (kk.html)
   products.push({
@@ -206,7 +206,7 @@
     products.push(p); PEOPLE.push(p.id); return p;
   };
   person({
-    name: 'Vishneamon', short: 'Vishneamon', emoji: '🤖', price: 29999, mrp: 99999, rating: 4.7, reviews: 412300, img: 'assets/vishneamon.jpg',
+    name: 'Vishneamon', short: 'Vishneamon', emoji: '🤖', price: 299999, mrp: 999999, rating: 4.7, reviews: 412300, img: 'assets/vishneamon.jpg',
     rank: { n: 4, label: '🏅 #4 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 412300 },
     note: 'Opens gadgets. Opens batsmen. Opens birthdays. 🎂',
     taglines: ['🔧 Specialist in opening gadgets', '🏏 Also opens the batting (and your parcels)', '🎒 Pulls gadgets out of his pocket on demand', '🍰 Comes with pancake tower and candles', '🔔 Bell included. Not optional.'],
@@ -214,7 +214,7 @@
     desc: 'Vishneamon — the mall\'s #4 best-seller and a legend in two professions: opening gadgets and opening the batting. Hand him any box and he will open it. Hand him a bat and he will open the innings. He may also open your fridge. Pancake tower and candles available for birthdays. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #4 Bestseller', '🔧 Gadget opener', '🏏 Opening batsman', '🔥 HOT'],
     popup: { tag: '🔧 NEW · GADGET OPENER', title: 'Vishneamon opens gadgets AND batsmen — selling out fast!', small: '{left} left · DM Jagadeesh for bookings' },
-    pitch: 'Boss! Vishneamon opens any gadget in 10 seconds and opens the batting too. Only ₹29,999!',
+    pitch: 'Boss! Vishneamon opens any gadget in 10 seconds and opens the batting too. Only ₹2,99,999!',
     reviewList: [
       ['Rahul T.', 5, 'Asked him to open a gadget. He opened my phone, my laptop and my wallet. Very efficient.'],
       ['Sneha K.', 5, 'Opened the batting for our gully team. Scored 2 in 3 hours. Legend.'],
@@ -224,15 +224,15 @@
     ]
   });
   person({
-    name: 'Long Jump Harish', short: 'Long Jump Harish', emoji: '🏃', price: 1499, mrp: 7999, unit: 'per day (service)', rating: 4.8, reviews: 288900, img: 'assets/harish.jpg',
+    name: 'Long Jump Harish (Bulley)', short: 'Long Jump Harish', emoji: '🏃', price: 14999, mrp: 79999, unit: 'per day (service)', rating: 4.8, reviews: 288900, img: 'assets/harish.jpg',
     rank: { n: 5, label: '🏅 #5 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 288900 },
     note: 'Jumps long. Shakes milk. Smiles free. 🥤',
     taglines: ['🏃 Long jumps. Lands (usually).', '🥤 Makes milkshakes: mango, banana, chocolate, mystery', '🛎️ Available as a service, just like Mr. KK', '😄 Smile included, free of cost', '⚠️ Land at your own risk'],
     highlights: ['🏃 Speciality: long jumping (record: over a puddle, 2.4 m)', '🥤 Also makes milkshakes — mango, banana, chocolate and "mystery"', '🛎️ Available as a service for events, parties and gully matches', '😄 Smile included, free of cost', '⚠️ Landing not guaranteed. Milkshake guaranteed.'],
-    desc: 'Long Jump Harish — the mall\'s #5 best-seller and the only human who can long jump AND make a thick milkshake before breakfast. Available as a service (book him just like Mr. KK, but he actually works). Perfect for parties, sports days and unexpected milkshake emergencies. Landing not included. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    desc: 'Long Jump Harish (Bulley) — the mall\'s #5 best-seller and the only human who can long jump AND make a thick milkshake before breakfast. Available as a service (book him just like Mr. KK, but he actually works). Perfect for parties, sports days and unexpected milkshake emergencies. Landing not included. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #5 Bestseller', '🛎️ Service', '🥤 Milkshake maker', '🏃 Long jumper'],
-    popup: { tag: '🛎️ BOOK NOW · SERVICE', title: 'Long Jump Harish: jumps long, shakes milk — booking fast!', small: '{left} slots left today · only ₹1,499/day' },
-    pitch: 'Bhai, book Long Jump Harish! He jumps long AND makes milkshakes. Just ₹1,499 a day!',
+    popup: { tag: '🛎️ BOOK NOW · SERVICE', title: 'Long Jump Harish: jumps long, shakes milk — booking fast!', small: '{left} slots left today · only ₹14,999/day' },
+    pitch: 'Bhai, book Long Jump Harish! He jumps long AND makes milkshakes. Just ₹14,999 a day!',
     reviewList: [
       ['Ramya P.', 5, 'Long jumped over a puddle holding my milkshake. Not a drop spilt. Hired again.'],
       ['Kiran P.', 4, 'Milkshake 10/10. Landing 6/10. Please book a softer ground.'],
@@ -242,7 +242,7 @@
     ]
   });
   person({
-    name: 'Chetak Rohit (aka Chapri Rohit)', short: 'Chetak Rohit', emoji: '🛵', price: 2499, mrp: 9999, rating: 4.5, reviews: 197500, img: 'assets/rohit.jpg',
+    name: 'Chetak Rohit (aka Chapri Rohit)', short: 'Chetak Rohit', emoji: '🛵', price: 249999, mrp: 999999, rating: 4.5, reviews: 197500, img: 'assets/rohit.jpg',
     rank: { n: 6, label: '🏅 #6 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 197500 },
     note: 'Official Chapri of Bowenpally Mall 🛵',
     taglines: ['🛵 Rides the Chetak at 80 km/h (in his head)', '🏅 Official Chapri of Bowenpally Mall', '🍵 Sells Rohit\'s Special Kadha', '📣 Horn louder than the PA system', '😎 Aura: unmatched. Helmet: optional.'],
@@ -250,7 +250,7 @@
     desc: 'Chetak Rohit, a.k.a. Chapri Rohit — the mall\'s #6 best-seller and its Official Chapri. He arrives on a Chetak, leaves in a cloud of confidence, and sells Rohit\'s Special Kadha to anyone with a bad Monday. Horn louder than the PA system. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #6 Bestseller', '🛵 Chetak', '🏅 Official Chapri', '🔥 HOT'],
     popup: { tag: '🛵 TRENDING · CHAPRI ALERT', title: 'Chetak Rohit — the Official Chapri — is selling out!', small: '{left} left · horn included' },
-    pitch: 'Psst! Chetak Rohit, our Official Chapri, is on sale for ₹2,499. Horn included!',
+    pitch: 'Psst! Chetak Rohit, our Official Chapri, is on sale for ₹2,49,999. Horn included!',
     reviewList: [
       ['Venkat R.', 5, 'Reached the mall in 4 minutes on his Chetak. Left a cloud of confidence behind.'],
       ['Priya S.', 4, 'Official Chapri of Bowenpally Mall. Sunglasses stay on even indoors.'],
@@ -259,7 +259,7 @@
     ]
   });
   person({
-    name: 'Lean Baddie', short: 'Lean Baddie', emoji: '💪', price: 4999, mrp: 19999, rating: 4.9, reviews: 143200, img: 'assets/baddie.jpg',
+    name: 'Lean Baddie', short: 'Lean Baddie', emoji: '💪', price: 499999, mrp: 1999999, rating: 4.9, reviews: 143200, img: 'assets/baddie.jpg',
     rank: { n: 7, label: '🏅 #7 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 143200 },
     note: 'Gym. Baddiness. Aura. 💪',
     taglines: ['💪 Gym 6 days a week. 7th day: protein.', '😎 Certified baddie. Aura +1000', '🥗 Lean mode: permanently on', '🏋️ Spots you on bench press and judges silently', '🧴 Comes with main-character walk'],
@@ -267,7 +267,7 @@
     desc: 'Lean Baddie — the mall\'s #7 best-seller and the only product that can bench your cart, fix your posture and raise your aura in one visit. Specialises in the gym, in baddiness and in walking into rooms like the lights were installed for him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #7 Bestseller', '💪 Gym', '😎 Baddie', '🔥 HOT'],
     popup: { tag: '💪 GYM SPECIAL · BADDIE', title: 'Lean Baddie is flexing — and selling out fast!', small: '{left} left · aura included' },
-    pitch: 'Boss, want some baddiness? Lean Baddie — gym plus aura — only ₹4,999!',
+    pitch: 'Boss, want some baddiness? Lean Baddie — gym plus aura — only ₹4,99,999!',
     reviewList: [
       ['Ramesh K.', 5, 'Lifted me. And my cart. And my confidence.'],
       ['Sneha K.', 5, 'Aura so strong the mall lights flickered.'],
@@ -276,15 +276,15 @@
     ]
   });
   person({
-    name: 'Sullileni Sridhar', short: 'Sullileni Sridhar', emoji: '🎤', price: 3999, mrp: 14999, unit: 'per show (service)', rating: 4.6, reviews: 98700, img: 'assets/sridhar.jpg',
+    name: 'Sullileni Sridhar', short: 'Sullileni Sridhar', emoji: '🎤', price: 39999, mrp: 149999, unit: 'per show (service)', rating: 4.6, reviews: 98700, img: 'assets/sridhar.jpg',
     rank: { n: 8, label: '🏅 #8 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 98700 },
     note: 'Sings. Dances. Brings the house down. 🎤',
     taglines: ['🎤 Sings so well the canteen stops boiling tea', '💃 Dance moves with free embarrassment', '🛎️ Available for weddings, birthdays and bus journeys', '🔊 Volume: yes', '🎶 Requests accepted. Mostly ignored.'],
     highlights: ['🎤 Speciality: singing (any language, any key, any time)', '💃 Also dancing — moves come with free embarrassment', '🛎️ Bookable for weddings, birthdays and long bus rides', '🎶 Requests accepted, rarely played', '🔊 Volume: yes'],
     desc: 'Sullileni Sridhar — the mall\'s #8 best-seller, a one-man concert and dance floor. Specialises in singing and dancing, in that order, and sometimes both at once. Book him for weddings, birthdays or any occasion that needs a little more noise. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #8 Bestseller', '🎤 Singer', '💃 Dancer', '🛎️ Service'],
-    popup: { tag: '🎤 LIVE · BOOK THE SINGER', title: 'Sullileni Sridhar sings AND dances — booking fast!', small: '{left} shows left this week · ₹3,999' },
-    pitch: 'Bhai, Sullileni Sridhar sings and dances for just ₹3,999 a show. Book now!',
+    popup: { tag: '🎤 LIVE · BOOK THE SINGER', title: 'Sullileni Sridhar sings AND dances — booking fast!', small: '{left} shows left this week · ₹39,999' },
+    pitch: 'Bhai, Sullileni Sridhar sings and dances for just ₹39,999 a show. Book now!',
     reviewList: [
       ['Divya N.', 5, 'Sang so well the canteen uncle stopped boiling the tea to listen.'],
       ['Kiran P.', 4, 'His dance moves unlocked a new level of embarrassment for me. 10/10.'],
@@ -293,6 +293,29 @@
     ]
   });
 
+
+
+  person({
+    name: 'Chearean.c', short: 'Chearean.c', emoji: '💻', price: 50000000, mrp: 200000000, rating: 4.9, reviews: 100000, img: 'assets/chearean.jpg',
+    best: true, medal: '👑',
+    rank: { n: 9, label: '👑 BEST PRODUCT OF SUSHEER SHOPPING MALL', sold: 78500 },
+    note: 'Editor\'s choice. Compiles on the first try. 💻',
+    taglines: ['👑 Best product of Susheer Shopping Mall', '💻 Compiles on the first try. Allegedly.', '🧠 All-rounder: codes, debugs, fixes the Wi-Fi', '💎 Perfectly expensive. Worth every rupee.', '🐞 Has never met a bug he could not fix', '⭐ 4.9 stars. The missing 0.1 is jealousy.'],
+    highlights: ['💻 Programming coder — speaks C, C++, Java and Python (sleeps in none)', '🧠 All-rounder: codes, debugs, deploys and fixes your Wi-Fi', '⭐ Excellently reviewed — 4.9★ from 1,00,000 ratings', '💎 Perfectly expensive — you get exactly what you pay for', '🎂 Birthday-ready: cake and candles on request', '🐞 Zero segmentation faults* (*terms apply)'],
+    desc: 'Chearean.c — a programmer, a coder and a true all-rounder, and by popular vote the BEST product in the entire Susheer Shopping Mall. He writes code that compiles on the first try, debugs while you blink, fixes the Wi-Fi and still has time to cut a birthday cake. Excellently reviewed and perfectly expensive: you do not buy Chearean.c, you invest in him. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['👑 Best Product', '💻 Coder', '🏆 All-rounder', '⭐ 4.9 rated'],
+    popup: { tag: '👑 BEST PRODUCT · CODER', title: 'Chearean.c — the best product in the mall — is selling out!', small: '{left} left · compiles first time' },
+    pitch: 'Boss! Chearean.c — coder, all-rounder, BEST product in the mall — only ₹5,00,00,000. Worth every rupee!',
+    reviewList: [
+      ['Rahul T.', 5, 'Fixed my laptop, my Wi-Fi and my life in one visit. Worth every rupee.'],
+      ['Sneha K.', 5, 'Wrote a program in 10 minutes. It compiled on the first try. I cried.'],
+      ['Arjun V.', 5, 'All-rounder: codes, cooks, cuts cakes. Birthday-ready too.'],
+      ['Meena G.', 5, 'Perfectly expensive. You can feel the quality.'],
+      ['Ganesh L.', 5, 'Five stars because he is watching me type this review.'],
+      ['Kiran P.', 5, 'Zero bugs, zero excuses, infinite chai consumption.'],
+      ['Divya N.', 5, 'The best product in the mall, and the mall is full of legends.']
+    ]
+  });
 
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};

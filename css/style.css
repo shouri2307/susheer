@@ -249,7 +249,7 @@ img{max-width:100%;display:block}
   .grid{grid-template-columns:repeat(2,1fr);gap:10px}.vis .emo{font-size:56px}
   .btns{grid-template-columns:1fr}.line{grid-template-columns:70px 1fr}.line .vis{width:70px}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
 
 /* ===== v2: real photos, hot tag, jaggu popup, thank-you zoom ===== */
 .vis.hasimg{background:#fff}

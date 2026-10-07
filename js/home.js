@@ -16,7 +16,7 @@
   flip(); setInterval(flip, 5000);
 
   // all-time leaderboard (funny rankings)
-  const board = D.BOARD.map(id => { const p = P[id]; return { p, n: p.rank.n, medal: ['🥇', '🥈', '🥉'][p.rank.n - 1] || '🏅', sold: p.rank.sold, note: p.note }; });
+  const board = D.BOARD.map(id => { const p = P[id]; return { p, n: p.rank.n, medal: p.medal || ['🥇', '🥈', '🥉'][p.rank.n - 1] || '🏅', sold: p.rank.sold, note: p.note }; });
   $('#board').innerHTML = board.map(b => `<article class="rank r${b.n > 3 ? 'x' : b.n}">
       <div class="medal">${b.medal}<small>#${b.n}</small></div>
       <a href="product.html?id=${b.p.id}">${SM.visual(b.p)}<h3>${b.p.name}</h3></a>
@@ -27,6 +27,17 @@
       ${b.note ? `<small class="note">${b.note}</small>` : ''}
       <a class="btn ${b.p.flash ? 'buy' : 'pri'} block" href="product.html?id=${b.p.id}">Buy now</a>
     </article>`).join('');
+
+  // best product of the mall
+  const bp = P.find(x => x.best);
+  $('#best').innerHTML = `<div class="bestcard"><a href="product.html?id=${bp.id}" class="bc-img"><img src="${bp.img}" alt="${bp.name}"></a>
+    <div class="bc-body"><span class="bc-crown">👑 BEST PRODUCT OF SUSHEER SHOPPING MALL</span>
+      <h2>${bp.name}</h2>
+      <div class="rate"><span class="star">${bp.rating} ★</span><span class="rv">${bp.reviews.toLocaleString('en-IN')} ratings · excellently reviewed</span></div>
+      <p class="bc-line">💻 Programmer · coder · all-rounder. <b>Perfectly expensive.</b></p>
+      <ul>${bp.highlights.slice(0, 3).map(h => `<li>${h}</li>`).join('')}</ul>
+      <div class="price"><b style="font-size:26px">${SM.inr(bp.price)}</b><s>${SM.inr(bp.mrp)}</s></div>
+      <a class="btn pri" href="product.html?id=${bp.id}">See why he is the best →</a></div></div>`;
 
   // deals rail
   const shuffled = P.filter(p => !p.flash).sort(() => Math.random() - .5).slice(0, 14);

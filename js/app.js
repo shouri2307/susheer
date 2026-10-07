@@ -113,7 +113,7 @@
   // flash bar rotates through every flash-sale item
   const FB = [
     ['<b>SUSHEER FOR SALE</b> — FLASH SALE FOR <b>₹50K ONLY</b> — <b>BUY 1, GET 1 FREE!</b> 🥉 #3 BESTSELLER', 0],
-    ['🥈 <b>MR. DIAPER DILIP (MR. DD)</b> — #2 MOST SOLD — FLASH SALE <b>₹75K</b> — <b>FULLY ABSORBENT, SELLING OUT FAST!</b>', D.LOCAL_JAG],
+    ['🥈 <b>MR. DIAPER DILIP (MR. DD)</b> — #2 MOST SOLD — FLASH SALE <b>₹7.5 LAKH</b> — <b>FULLY ABSORBENT, SELLING OUT FAST!</b>', D.LOCAL_JAG],
     ['🏆 <b>JAGADEESH</b> — #1 MOST SOLD EVER — FLASH SALE <b>₹1 CRORE</b> — <b>ONLY 1 LEFT!</b>', 1]
   ];
   let fbi = 0;
