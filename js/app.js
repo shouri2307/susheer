@@ -31,7 +31,7 @@
 
   /* ---------- product card ---------- */
   SM.visual = (p, cls = '') => {
-    if (p.img) return `<div class="vis photo ${cls}"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`;
+    if (p.img) return `<div class="vis photo ${p.fit ? 'fit' : ''} ${cls}"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>`;
     const im = p.photo ? `<img class="stock" src="${p.photo}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">` : '';
     return `<div class="vis ${p.photo ? 'hasimg' : ''} ${cls}" style="--c:${p.color}"><span class="emo">${p.emoji}</span>${im}</div>`;
   };
@@ -47,6 +47,7 @@
         <h3>${p.name}</h3>
         <div class="rate"><span class="star">${p.rating} ★</span><span class="rv">(${p.reviews.toLocaleString('en-IN')})</span></div>
         <div class="price"><b>${inr(p.price)}</b><s>${inr(p.mrp)}</s><span class="off">${off}% off</span></div>
+        ${p.taglines ? `<span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>` : ''}
         ${p.hot || p.flash ? `<div class="sold">🔥 ${SM.sold(p.hot ? 1200 : 3000, p.hot ? 4800 : 9000)} sold in last hour · selling fast!</div>` : ''}
       </a>
       <button class="add" data-add="${p.id}">Add to cart</button>
@@ -89,7 +90,7 @@
     </footer>
     <aside class="salesman" id="salesman" aria-live="polite">
       <button class="x" aria-label="Dismiss Mr. KK" id="salesX">×</button>
-      <div class="kk-wrap" id="kkWrap"><div id="kkAvatar"></div><span class="kk-name">MR. KK</span></div>
+      <div class="kk-wrap" id="kkWrap"><img class="kk-photo" src="assets/salesman-full.jpg" alt="Mr. KK"><div class="kkfx" id="kkFx"></div><span class="kk-name">MR. KK</span></div>
       <div class="bub"><span class="who">Mr. KK says:</span><p id="salesTxt"></p>
         <div class="srow"><a id="salesGo" href="#" class="sgo">View offer</a><button id="salesAdd" class="sadd">Add 🛒</button></div></div>
     </aside>
@@ -99,7 +100,7 @@
     </div>
     <aside class="jagpop" id="jagpop">
       <button class="x" aria-label="Close" id="jagX">×</button>
-      <a href="index.html?cat=jaggu"><img src="assets/jagadeesh-flash.jpg" alt="Local Jagadeesh flash sale">
+      <a href="product.html?id=${D.LOCAL_JAG}"><img src="assets/jagadeesh-flash.jpg" alt="Local Jagadeesh flash sale">
         <div class="jp-t"><span class="jp-tag">⚡ LOCAL FLASH SALE</span><b>Local Jagadeesh's selling out EXTREMELY fast!</b>
         <small><span id="jagLeft">7</span> left · DM <u>Langadeesh</u> for contact details</small></div></a>
     </aside>
@@ -130,19 +131,15 @@
     p => `Buy ${p.short} and I'll personally say "thanks bhai". That's a ${Math.round((1 - p.price / p.mrp) * 100)}% off deal!`
   ];
   const sales = $('#salesman'); let salesTimer, curP = null;
-  // Mr. KK shows up either as his real photo or as the Ghibli-style drawing (random each time)
-  let kkMode = 'art', moodT;
+  // Mr. KK reacts around his real photo with floating emoji
+  const FX = { kiss: ['😘', '❤️', '💖', '💗'], wink: ['😉', '✨', '⭐'], wow: ['😱', '💦', '❗'], happy: ['😄', '🎉', '✨'] };
   SM.kkMood = (m, ms = 0) => {
-    const svg = $('#kkAvatar .kk'); if (!svg) return;
-    svg.dataset.mood = m; clearTimeout(moodT);
-    if (ms) moodT = setTimeout(() => (svg.dataset.mood = 'idle'), ms);
-  };
-  const setAvatar = () => {
-    kkMode = Math.random() < 0.45 ? 'photo' : 'art';
-    $('#kkAvatar').innerHTML = kkMode === 'photo'
-      ? '<img class="kk-photo" src="assets/salesman-full.jpg" alt="Mr. KK">'
-      : window.KK_SVG('talk');
-    sales.dataset.avatar = kkMode;
+    const w = $('#kkWrap'), fx = $('#kkFx'); if (!w || !FX[m]) return;
+    w.dataset.mood = m; setTimeout(() => { if (w.dataset.mood === m) w.dataset.mood = ''; }, ms || 1600);
+    for (let i = 0; i < 6; i++) setTimeout(() => {
+      const e = document.createElement('span'); e.textContent = pick(FX[m]);
+      e.style.cssText = `left:${15 + Math.random() * 70}%;font-size:${16 + Math.random() * 14}px`; fx.appendChild(e); setTimeout(() => e.remove(), 1800);
+    }, i * 220);
   };
   const showSales = () => {
     if (document.hidden || sales.matches(':hover')) return schedule();
@@ -152,21 +149,19 @@
       ? 'SUSHEER himself is on FLASH SALE — ₹50,000 only and BUY 1 GET 1 FREE! Run!!'
       : pick(pitches)(curP);
     $('#salesGo').href = 'product.html?id=' + curP.id;
-    setAvatar(); SM.kkMood('talk', 3200);
     sales.classList.add('show');
     salesTimer = setTimeout(hideSales, 8500);
   };
   const hideSales = () => { sales.classList.remove('show'); schedule(); };
   const schedule = () => { clearTimeout(salesTimer); salesTimer = setTimeout(showSales, 6000 + Math.random() * 9000); };
-  $('#salesX').onclick = () => { SM.kkMood('wow'); sales.classList.remove('show'); clearTimeout(salesTimer); schedule(); };
+  $('#salesX').onclick = () => { SM.kkMood('wow', 900); sales.classList.remove('show'); clearTimeout(salesTimer); schedule(); };
   $('#salesAdd').onclick = () => { if (curP) { SM.cart.add(curP.id); SM.kkMood('kiss', 2600); SM.toast('Mr. KK added ' + curP.short + ' to your cart 😎'); } };
-  $('#kkWrap').addEventListener('mouseenter', () => { if (kkMode === 'art') SM.kkMood('wink', 1600); });
+  $('#kkWrap').addEventListener('mouseenter', () => SM.kkMood('wink', 1600));
   sales.addEventListener('mouseleave', () => { clearTimeout(salesTimer); salesTimer = setTimeout(hideSales, 4000); });
-  setAvatar();
   salesTimer = setTimeout(showSales, 3500);
 
   /* ---------- random mall photos ---------- */
-  const malls = ['assets/mall-main.jpg', 'assets/mall.jpg', 'assets/mall-street.jpg', 'assets/mall-top.jpg', 'assets/mall-entrance.jpg', 'assets/mall-atrium.jpg', 'assets/mall-heli.jpg'];
+  const malls = ['assets/mall-main.jpg', 'assets/mall.jpg', 'assets/mall-street.jpg', 'assets/mall-top.jpg', 'assets/mall-entrance.jpg', 'assets/mall-atrium.jpg', 'assets/mall-heli.jpg'].concat(Array.from({ length: 12 }, (_, i) => `assets/mall-in-${i + 1}.jpg`));
   const lines = ['for world rate experience', 'where helicopters are for sale 🚁', 'shop like never before 🛍️', 'the mall everyone is talking about', 'Susheer-approved shopping ✨', 'luxury aircraft & lovely apples'];
   const mp = $('#mallpop'); let mpTimer;
   const showMall = () => {

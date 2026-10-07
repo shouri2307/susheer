@@ -17,7 +17,7 @@
 
   // deals rail
   const shuffled = P.filter(p => !p.flash).sort(() => Math.random() - .5).slice(0, 14);
-  $('#deals').innerHTML = [P[0], P[1], ...shuffled].map(SM.card).join('');
+  $('#deals').innerHTML = [P[0], P[1], P[D.LOCAL_JAG], ...shuffled].map(SM.card).join('');
 
   // category chips + sidebar
   const counts = {}; P.forEach(p => counts[p.cat] = (counts[p.cat] || 0) + 1);

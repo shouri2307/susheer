@@ -1,5 +1,6 @@
 /* Susheer Shopping Mall — catalog (parody). Every product is prefixed "Susheer". */
 (function () {
+  let SM_LOCAL_JAG;
   // category: [id, label, icon, accent, items "emoji|name|price"]
   const CATS = [
     ['mobiles', 'Mobiles', '📱', '#6c5ce7', [
@@ -129,7 +130,9 @@
   // Product 1 — the only item in the Jaggu department
   products.push({
     id: 1, name: 'Langadeesh Garu', short: 'Langadeesh Garu', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
-    price: 10000000, mrp: 25000000, rating: 5.0, reviews: 99999, img: 'assets/langadeesh.jpg', hot: true,
+    price: 10000000, mrp: 25000000, rating: 5.0, reviews: 99999, img: 'assets/langadeesh.jpg', hot: true, fit: true,
+    gallery: [['assets/langadeesh.jpg', 'Langadeesh Garu'], ['assets/jagadeesh-flash.jpg', 'Fan favourite: Local Jagadeesh 👀']],
+    taglines: ['🔥 FRESH & HOT — just landed at Bowenpally Mall!', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '🏆 Voted Most Wanted by 99,999 shoppers', '📦 Ships with free swagger', '⚠️ May cause sudden crushes'],
     desc: 'The one and only Langadeesh Garu — the rarest item in the entire Susheer Shopping Mall. Only ONE piece exists, so every sale is a miracle. Price: ₹1 Crore, non-negotiable. (Parody item — no humans are actually for sale.)',
     tags: ['🔥 HOT', 'Only 1 in the mall', 'Selling out fast']
   });
@@ -152,6 +155,17 @@
     });
   });
 
+  // Local Jagadeesh — the flash-sale item behind the side popup (added last so existing product ids stay put)
+  products.push({
+    id: products.length, name: 'Local Jagadeesh (Flash Sale)', short: 'Local Jagadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
+    price: 75000, mrp: 500000, rating: 4.9, reviews: 88888, img: 'assets/jagadeesh-flash.jpg', hot: true, fit: true, flash: true,
+    gallery: [['assets/jagadeesh-flash.jpg', 'Local Jagadeesh — surrounded by fans'], ['assets/langadeesh.jpg', 'Also trending: Langadeesh Garu 🔥']],
+    taglines: ['💘 Selling out EXTREMELY fast!', '💍 "Marry Me" requests: 10 and counting', '🏃 Selling faster than Bowenpally biryani', '📩 DM Langadeesh for contact details', '⚠️ Warning: may cause sudden proposals', '🔥 Local legend. Limited stock. Unlimited rizz.'],
+    desc: 'Local Jagadeesh is the most in-demand item at the Susheer Shopping Mall right now. Surrounded by admirers and selling out extremely fast. DM Langadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['⚡ Flash Sale', '🔥 HOT', 'Selling out fast']
+  });
+  SM_LOCAL_JAG = products.length - 1;
+
   // attach real photos (pre-fetched from Wikimedia Commons, see js/images.js) where we have one
   const IMG = window.SM_IMG || {};
   products.forEach(p => { if (!p.img && IMG[p.id]) p.photo = IMG[p.id]; });
@@ -159,6 +173,21 @@
   window.SM_DATA = {
     CATS: [{ id: 'jaggu', label: 'Jaggu', icon: '🔥', color: '#ff3d00' }].concat(CATS.map(c => ({ id: c[0], label: c[1], icon: c[2], color: c[3] }))),
     products,
-    FLASH_PRICE: 50000
+    FLASH_PRICE: 50000,
+    LOCAL_JAG: SM_LOCAL_JAG,
+    REVIEWS: [
+      ['Ramesh K.', 5, 'Bought one. A helicopter landed on my terrace to deliver it. 10/10 would be surprised again.'],
+      ['Priya S.', 5, 'My mother-in-law now shops only at Susheer. Please send help.'],
+      ['Venkat R.', 4, 'Great product. Lost one star because Mr. KK kept winking at me.'],
+      ['Anjali M.', 5, 'Came for apples, left with a luxury aircraft. No regrets (bank has some).'],
+      ['Sai T.', 5, 'The salesman popped up while I was in the bathroom. Still bought it.'],
+      ['Lakshmi D.', 3, 'Good but my neighbour also bought one. Now we are competitors.'],
+      ['Fatima B.', 5, 'Delivered in 30 minutes. I had not even finished ordering.'],
+      ['Kiran P.', 5, 'Plz visit Bowenpally Mall for world rate experience. I did. I live there now.'],
+      ['Divya N.', 4, 'The packaging was so fancy I hugged the box. Product also good.'],
+      ['Arjun V.', 5, 'Fell in love at the flash sale. Wallet has not recovered.'],
+      ['Meena G.', 5, 'Asked for a refund, got a thank-you kiss from Mr. KK instead. Fair.'],
+      ['Ganesh L.', 2, 'My wife says I bought too many. I say there is no such thing.']
+    ]
   };
 })();

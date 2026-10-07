@@ -8,7 +8,9 @@
 
   $('#crumb').innerHTML = `<a href="index.html">Home</a> › <a href="index.html?cat=${p.cat}">${p.catLabel}</a> › ${p.name}`;
 
-  const media = p.bogo
+  const media = p.gallery
+    ? `<div class="gal">${p.gallery.map(g => `<figure><img src="${g[0]}" alt="${g[1]}"><figcaption>${g[1]}</figcaption></figure>`).join('')}</div>`
+    : p.bogo
     ? `<div class="gal">
          <figure><img src="${p.img}" alt="Susheer"><figcaption>Susheer #1</figcaption></figure>
          <figure><img src="${p.img}" alt="Susheer — free copy"><span class="free">🎁 FREE</span><figcaption>Susheer #2 (on the house)</figcaption></figure>
@@ -19,10 +21,11 @@
     <div class="pdp-media">${media}</div>
     <div>
       <h1>${p.name}</h1>
+      ${p.taglines ? `<span class="hotline">🔥 FRESH &amp; HOT</span><span class="tagline" data-p="${p.id}">${p.taglines[0]}</span>` : ''}
       <div class="rate" style="margin-top:10px;font-size:14px"><span class="star">${p.rating} ★</span><span class="rv">${p.reviews.toLocaleString('en-IN')} ratings</span></div>
       <div class="big-price">${inr(p.price)} <s>${inr(p.mrp)}</s> <span class="off">${off}% off</span></div>
       ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>Only 1 left in the mall!</b></div>` : ''}
-      ${p.flash ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · <b>BUY NOW, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
+      ${p.bogo ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · <b>BUY NOW, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="offers">
         <div><b>Bank offer:</b> 10% instant discount on Susheer Pay cards</div>
@@ -38,6 +41,8 @@
       <p class="desc">${p.desc}</p>
     </div>`;
 
+  const rv = [...D.REVIEWS].sort(() => Math.random() - .5).slice(0, 6);
+  $('#pdp').insertAdjacentHTML('afterend', `<section class="reviews"><div class="sec-h"><h2>⭐ Customer reviews <span style="font-size:14px">(100% real*)</span></h2><span>*as real as this mall</span></div><div class="rev-grid">${rv.map(r => `<div class="rev"><div class="rh"><span>${r[0]}</span><span class="st">${'★'.repeat(r[1])}${'☆'.repeat(5 - r[1])}</span></div>${r[2]}<br><small>✔ Verified Susheer buyer</small></div>`).join('')}</div></section>`);
   setInterval(() => { const v = $('.js-view'); if (v) v.textContent = 30 + Math.floor(Math.random() * 60); }, 1500);
   $('#qm').onclick = () => { qty = Math.max(1, qty - 1); $('#q').textContent = qty; };
   $('#qp').onclick = () => { qty = Math.min(10, qty + 1); $('#q').textContent = qty; };

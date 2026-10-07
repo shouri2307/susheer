@@ -3,6 +3,32 @@
   const { SM, SM_DATA: D } = window, P = D.products, $ = SM.$, pick = SM.pick, inr = SM.inr;
   const safe = (fn, d) => { try { return fn(); } catch (e) { return d; } };
 
+  /* ---------- rotating taglines (Jaggu items) ---------- */
+  setInterval(() => document.querySelectorAll('.tagline[data-p]').forEach(el => {
+    const t = P[+el.dataset.p].taglines, i = ((+el.dataset.i || 0) + 1) % t.length;
+    el.dataset.i = i; el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; el.textContent = t[i];
+  }), 2800);
+
+  /* ---------- mall PA announcements (funny) ---------- */
+  const PA = [
+    'Attention shoppers: a helicopter is parked in Aisle 4. Please do not honk.',
+    'Will the owner of a very confident hoodie please come to the Flash Sale counter.',
+    'Lost & Found: one (1) wallet, three (3) selfies, and the confidence of Jagadeesh.',
+    'Flash sale alert: Susheer is ₹50K only. Mr. KK is already smiling.',
+    'The food court biryani has been sold out 4 times today. Please do not cry.',
+    'Reminder: Langadeesh Garu is non-refundable, non-returnable and non-negotiable.',
+    'Customer in Aisle 7: your cart has 14 aircraft. We are proud of you.',
+    'Security to Gate 2: someone asked for a discount on the escalator.',
+    'Local Jagadeesh is selling out fast. Admirers, please form a single line.',
+    'Plz visit Bowenpally Mall for world rate experience. This message repeats every 40 seconds.'
+  ];
+  document.body.insertAdjacentHTML('beforeend', '<div class="pa" id="pa" role="status"><span class="sp">📢</span><span><b>MALL ANNOUNCEMENT:</b> <span id="paTxt"></span></span></div>');
+  const showPA = () => {
+    if (!document.hidden) { $('#paTxt').textContent = pick(PA); const el = $('#pa'); el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 6500); }
+    setTimeout(showPA, 30000 + Math.random() * 25000);
+  };
+  setTimeout(showPA, 15000);
+
   /* ---------- fun facts (also used by home.js) ---------- */
   SM.facts = [
     ['🚁', 'The Susheer Shopping Mall rooftop has more helicopters than the nearest three bus stops combined.'],
@@ -67,9 +93,9 @@
 
   /* ---------- support chat + feedback ---------- */
   document.body.insertAdjacentHTML('beforeend', `
-    <button class="fab" id="fab" aria-label="Open customer support"><span class="kkmini">${window.KK_SVG('happy')}</span><i>Help</i></button>
+    <button class="fab" id="fab" aria-label="Open customer support"><span class="kkmini"><img src="assets/salesman-full.jpg" alt="Mr. KK"></span><i>Help</i></button>
     <section class="chat" id="chat" aria-label="Customer support">
-      <div class="chat-h"><span class="av">${window.KK_SVG('idle')}</span><div><b>Mr. KK · Customer Support</b><small>🟢 Online · replies in 2 seconds</small></div><button id="chatX" aria-label="Close">×</button></div>
+      <div class="chat-h"><span class="av"><img src="assets/salesman-full.jpg" alt="Mr. KK"></span><div><b>Mr. KK · Customer Support</b><small>🟢 Online · replies in 2 seconds</small></div><button id="chatX" aria-label="Close">×</button></div>
       <div class="chat-b" id="chatB"></div>
       <div class="qr" id="qr"></div>
       <form class="chat-f" id="chatF"><input id="chatI" placeholder="Ask Mr. KK anything…" autocomplete="off"><button>Send</button></form>
@@ -142,12 +168,14 @@
     });
     cx.beginPath(); cx.arc(0, 0, 46, 0, 7); cx.fillStyle = '#14102b'; cx.fill(); cx.lineWidth = 6; cx.strokeStyle = '#ffd23f'; cx.stroke(); cx.fillStyle = '#ffd23f'; cx.font = '900 28px Inter'; cx.textAlign = 'center'; cx.fillText('KK', 0, 10);
   })();
-  const bg = $('#wheelBg'); let spinning = false, rot = 0;
-  const openWheel = () => { bg.classList.add('open'); const c = safe(() => JSON.parse(localStorage.getItem('susheer_coupon')), null); if (c) $('#wheelRes').innerHTML = `You already hold <b>${c.code}</b> (−${c.pct}%). Spin again to try for more!`; };
+  const bg = $('#wheelBg'); let spinning = false, rot = 0, spinsUsed = 0;
+  const MAXSPIN = 3, hasCoupon = () => !!safe(() => JSON.parse(localStorage.getItem('susheer_coupon')), null);
+  const lockBtn = msg => { const b = $('#spinGo'); b.disabled = true; b.textContent = msg; b.style.opacity = .6; b.style.cursor = 'not-allowed'; };
+  const openWheel = () => { bg.classList.add('open'); const c = safe(() => JSON.parse(localStorage.getItem('susheer_coupon')), null); if (c) { $('#wheelRes').innerHTML = `You already hold <b>${c.code}</b> (−${c.pct}%) — it's waiting in your cart! 🛒`; lockBtn('Coupon claimed ✔'); } };
   $('#wheelX').onclick = () => bg.classList.remove('open');
   bg.addEventListener('click', e => { if (e.target === bg) bg.classList.remove('open'); });
   $('#spinGo').onclick = () => {
-    if (spinning) return; spinning = true; $('#wheelRes').textContent = 'Spinning… 🤞';
+    if (spinning || spinsUsed >= MAXSPIN || hasCoupon()) return; spinning = true; spinsUsed++; $('#wheelRes').textContent = 'Spinning… 🤞';
     let r = Math.random() * WEIGHT.reduce((a, b) => a + b), idx = 0; while ((r -= WEIGHT[idx]) > 0) idx++;
     const a = 360 / SEG.length; rot += 360 * 6 + (360 - idx * a) - (rot % 360);
     cv.style.transform = `rotate(${rot}deg)`;
@@ -156,10 +184,11 @@
       if (s.p) { const code = 'KK' + s.p; safe(() => localStorage.setItem('susheer_coupon', JSON.stringify({ code, pct: s.p }))); $('#wheelRes').innerHTML = `🎉 You won <b>${s.p}% OFF</b>! Code <b>${code}</b> is applied in your cart.`; SM.confetti(); if (SM.kkMood) SM.kkMood('kiss', 2000); }
       else if (s.joke) $('#wheelRes').textContent = '🚁 FREE helicopter* — *terms: you must pay for the helicopter. Try again!';
       else $('#wheelRes').textContent = 'So close! Spin again, boss 😅';
+      if (s.p) lockBtn('Coupon claimed ✔'); else if (spinsUsed >= MAXSPIN) lockBtn('No spins left — come back later');
     }, 4600);
   };
   // header entry + auto-open once per session
   const nav = document.querySelector('.top nav'); if (nav) nav.insertAdjacentHTML('afterbegin', '<a href="#" id="spinNav" class="spinbtn">🎡 Spin & Win</a>');
   document.addEventListener('click', e => { if (e.target.closest('#spinNav')) { e.preventDefault(); openWheel(); } });
-  if (!safe(() => sessionStorage.getItem('wheel_seen'))) setTimeout(() => { safe(() => sessionStorage.setItem('wheel_seen', 1)); if (!chat.classList.contains('open')) openWheel(); }, 28000);
+  if (!safe(() => localStorage.getItem('wheel_seen')) && !hasCoupon()) setTimeout(() => { safe(() => localStorage.setItem('wheel_seen', 1)); if (!chat.classList.contains('open')) openWheel(); }, 28000);
 })();
