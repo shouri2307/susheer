@@ -88,9 +88,9 @@
       <p class="fine">Susheer Shopping Mall is a parody project made for fun and is not affiliated with any real retailer. No real orders, payments or humans are sold. Product photos are from Wikimedia Commons (free licences). 😄</p>
     </footer>
     <aside class="salesman" id="salesman" aria-live="polite">
-      <button class="x" aria-label="Dismiss salesman" id="salesX">×</button>
-      <img src="assets/salesman-full.jpg" alt="Susheer salesman">
-      <div class="bub"><span class="who">Susheer Salesman says:</span><p id="salesTxt"></p>
+      <button class="x" aria-label="Dismiss Mr. KK" id="salesX">×</button>
+      <div class="kk-wrap" id="kkWrap"><div id="kkAvatar"></div><span class="kk-name">MR. KK</span></div>
+      <div class="bub"><span class="who">Mr. KK says:</span><p id="salesTxt"></p>
         <div class="srow"><a id="salesGo" href="#" class="sgo">View offer</a><button id="salesAdd" class="sadd">Add 🛒</button></div></div>
     </aside>
     <div class="thanks" id="thanks" aria-hidden="true">
@@ -130,6 +130,20 @@
     p => `Buy ${p.short} and I'll personally say "thanks bhai". That's a ${Math.round((1 - p.price / p.mrp) * 100)}% off deal!`
   ];
   const sales = $('#salesman'); let salesTimer, curP = null;
+  // Mr. KK shows up either as his real photo or as the Ghibli-style drawing (random each time)
+  let kkMode = 'art', moodT;
+  SM.kkMood = (m, ms = 0) => {
+    const svg = $('#kkAvatar .kk'); if (!svg) return;
+    svg.dataset.mood = m; clearTimeout(moodT);
+    if (ms) moodT = setTimeout(() => (svg.dataset.mood = 'idle'), ms);
+  };
+  const setAvatar = () => {
+    kkMode = Math.random() < 0.45 ? 'photo' : 'art';
+    $('#kkAvatar').innerHTML = kkMode === 'photo'
+      ? '<img class="kk-photo" src="assets/salesman-full.jpg" alt="Mr. KK">'
+      : window.KK_SVG('talk');
+    sales.dataset.avatar = kkMode;
+  };
   const showSales = () => {
     if (document.hidden || sales.matches(':hover')) return schedule();
     const pool = P.filter(p => !p.flash);
@@ -138,14 +152,17 @@
       ? 'SUSHEER himself is on FLASH SALE — ₹50,000 only and BUY 1 GET 1 FREE! Run!!'
       : pick(pitches)(curP);
     $('#salesGo').href = 'product.html?id=' + curP.id;
+    setAvatar(); SM.kkMood('talk', 3200);
     sales.classList.add('show');
-    salesTimer = setTimeout(hideSales, 8000);
+    salesTimer = setTimeout(hideSales, 8500);
   };
   const hideSales = () => { sales.classList.remove('show'); schedule(); };
   const schedule = () => { clearTimeout(salesTimer); salesTimer = setTimeout(showSales, 6000 + Math.random() * 9000); };
-  $('#salesX').onclick = () => { sales.classList.remove('show'); clearTimeout(salesTimer); schedule(); };
-  $('#salesAdd').onclick = () => { if (curP) { SM.cart.add(curP.id); SM.toast('Salesman added ' + curP.short + ' to your cart 😎'); } };
+  $('#salesX').onclick = () => { SM.kkMood('wow'); sales.classList.remove('show'); clearTimeout(salesTimer); schedule(); };
+  $('#salesAdd').onclick = () => { if (curP) { SM.cart.add(curP.id); SM.kkMood('kiss', 2600); SM.toast('Mr. KK added ' + curP.short + ' to your cart 😎'); } };
+  $('#kkWrap').addEventListener('mouseenter', () => { if (kkMode === 'art') SM.kkMood('wink', 1600); });
   sales.addEventListener('mouseleave', () => { clearTimeout(salesTimer); salesTimer = setTimeout(hideSales, 4000); });
+  setAvatar();
   salesTimer = setTimeout(showSales, 3500);
 
   /* ---------- random mall photos ---------- */

@@ -9,6 +9,7 @@
       return;
     }
     let mrp = 0, total = 0, free = 0;
+    const cp = (() => { try { return JSON.parse(localStorage.getItem('susheer_coupon')); } catch (e) { return null; } })();
     const lines = ids.map(i => {
       const p = P[i], q = c[i]; mrp += p.mrp * q; total += p.price * q; if (p.bogo) free += q;
       return `<div class="line">${SM.visual(p)}
@@ -19,12 +20,14 @@
         <div class="stepper"><button data-q="${i}" data-d="-1">−</button><span>${q}</span><button data-q="${i}" data-d="1">+</button></div>
       </div>`;
     }).join('');
+    const cdisc = cp ? Math.round(total * cp.pct / 100) : 0;
     main.innerHTML = `<div class="cart-wrap"><div><div class="sec-h" style="margin-top:20px"><h2>Your cart (${SM.cart.count()} items${free ? ' + ' + free + ' free' : ''})</h2></div>${lines}</div>
       <aside class="sum"><h3>Price details</h3>
         <div class="r"><span>Price</span><span>${inr(mrp)}</span></div>
         <div class="r"><span>Discount</span><span style="color:var(--green)">− ${inr(mrp - total)}</span></div>
+        ${cp ? `<div class="r"><span>🎡 Coupon ${cp.code} (${cp.pct}%)</span><span style="color:var(--green)">− ${inr(cdisc)}</span></div>` : '<div class="r"><span>🎡 Coupon</span><a href="#" id="spinNav" style="color:var(--gold)">Spin to win one</a></div>'}
         <div class="r"><span>Delivery</span><span style="color:var(--green)">FREE</span></div>
-        <div class="r t"><span>Total</span><span>${inr(total)}</span></div>
+        <div class="r t"><span>Total</span><span>${inr(total - cdisc)}</span></div>
         <button class="btn buy block" id="place" style="margin-top:14px">Place order</button>
         <p style="font-size:11px;color:var(--soft);margin-top:10px">Parody checkout — nothing is actually charged or shipped.</p>
       </aside></div>`;
@@ -35,7 +38,8 @@
     if (rm) { SM.cart.set(rm.dataset.rm, 0); render(); }
     if (q) { SM.cart.set(q.dataset.q, (SM.cart.get()[q.dataset.q] || 0) + +q.dataset.d); render(); }
     if (e.target.id === 'place') {
-      SM.cart.clear();
+      SM.cart.clear(); SM.confetti(260); setTimeout(() => SM.confetti(160), 600);
+      try { localStorage.removeItem('susheer_coupon'); } catch (e) {}
       main.innerHTML = `<div class="done"><div style="font-size:90px">🎉</div><h2>Order placed!</h2><p style="color:var(--soft)">Thank you for shopping at <b>Susheer Shopping Mall</b>.<br>Plz visit Bowenpally Mall for world rate experience.</p><p style="margin-top:22px"><a class="btn pri" href="index.html">Keep shopping</a></p></div>`;
     }
   });

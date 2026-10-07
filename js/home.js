@@ -43,7 +43,7 @@
     const r = list(), cat = D.CATS.find(c => c.id === st.cat);
     $('#title').textContent = st.q ? `Results for "${st.q}"` : cat ? cat.icon + ' Susheer ' + cat.label : 'All Susheer products';
     $('#count').textContent = r.length + ' Susheer products';
-    $('#grid').innerHTML = r.length ? r.slice(0, st.shown).map(SM.card).join('') : '<div class="empty">Nothing found. Even Susheer can\'t find that. Try another search.</div>';
+    $('#grid').innerHTML = r.length ? r.slice(0, st.shown).map((p, i) => (i && i % 12 === 0 ? SM.factCard() : '') + SM.card(p)).join('') : '<div class="empty">Nothing found. Even Susheer can\'t find that. Try another search.</div>';
     $('#more').style.display = r.length > st.shown ? '' : 'none';
     renderNav();
   }
@@ -64,4 +64,25 @@
   $('#more').onclick = () => { st.shown += STEP; render(); };
   render(true);
   if (st.cat || st.q) window.addEventListener('load', () => { document.documentElement.style.scrollBehavior = 'auto'; document.getElementById('shop').scrollIntoView(); document.documentElement.style.scrollBehavior = ''; });
+})();
+
+// typewriter, category band, floating emojis, rotating fact bar
+(function () {
+  const { SM, SM_DATA: D } = window, $ = SM.$;
+  const words = ['Apples 🍎', 'Helicopters 🚁', 'Sofas 🛋️', 'Luxury Aircraft ✈️', 'Smartphones 📱', 'Sports Cars 🏎️', 'Jaggu 🔥', 'Biryani Masala 🍛', 'Yachts 🛥️'];
+  let wi = 0, ci = 0, del = false; const el = $('#typer');
+  (function type() {
+    const w = words[wi]; ci += del ? -1 : 1; el.textContent = w.slice(0, ci);
+    let t = del ? 40 : 90;
+    if (!del && ci === w.length) { del = true; t = 1400; } else if (del && ci === 0) { del = false; wi = (wi + 1) % words.length; t = 300; }
+    setTimeout(type, t);
+  })();
+  const pill = D.CATS.map(c => `<a href="index.html?cat=${c.id}">${c.icon} ${c.label}</a>`).join('');
+  $('#catband').innerHTML = `<div>${pill}${pill}</div>`;
+  const hero = $('#hero'); ['🚁', '🍎', '🚗', '✈️', '🛋️', '📱', '🛍️', '🥭', '🎁'].forEach((e, i) => {
+    const f = document.createElement('span'); f.className = 'float-emo'; f.textContent = e;
+    f.style.cssText = `left:${6 + i * 10.5}%;bottom:-40px;animation-duration:${14 + (i % 4) * 4}s;animation-delay:${-i * 3}s;font-size:${26 + (i % 3) * 10}px`; hero.appendChild(f);
+  });
+  const ft = $('#factTxt'); const nf = () => { const f = SM.facts[Math.floor(Math.random() * SM.facts.length)]; ft.style.animation = 'none'; void ft.offsetWidth; ft.style.animation = ''; ft.textContent = f[0] + ' ' + f[1]; };
+  nf(); setInterval(nf, 7000);
 })();
