@@ -100,9 +100,9 @@
     </div>
     <aside class="jagpop" id="jagpop">
       <button class="x" aria-label="Close" id="jagX">×</button>
-      <a href="product.html?id=${D.LOCAL_JAG}"><img src="assets/jagadeesh-flash.jpg" alt="Local Langadeesh flash sale">
-        <div class="jp-t"><span class="jp-tag">⚡ LOCAL FLASH SALE</span><b>Local Langadeesh is selling out EXTREMELY fast!</b>
-        <small><span id="jagLeft">7</span> left · DM <u>Global Langadeesh</u> for contact details</small></div></a>
+      <a href="product.html?id=${D.LOCAL_JAG}"><img src="assets/jagadeesh-flash.jpg" alt="Mr. Diaper Dilip flash sale">
+        <div class="jp-t"><span class="jp-tag">⚡ FLASH SALE · FULLY ABSORBENT 👶</span><b>Mr. Diaper Dilip (Mr. DD) is selling out EXTREMELY fast!</b>
+        <small><span id="jagLeft">7</span> left · DM <u>Jagadeesh</u> for contact details</small></div></a>
     </aside>
     <aside class="mallpop" id="mallpop">
       <button class="x" aria-label="Close" id="mallX">×</button>
@@ -113,9 +113,9 @@
 
   // flash bar rotates through every flash-sale item
   const FB = [
-    ['<b>SUSHEER FOR SALE</b> — FLASH SALE FOR <b>₹50K ONLY</b> — ONE-ON-ONE: <b>BUY 1, GET 1 FREE!</b>', 0],
-    ['🥈 <b>LOCAL LANGADEESH</b> — #2 MOST SOLD — FLASH SALE <b>₹75K</b> — <b>SELLING OUT FAST!</b>', D.LOCAL_JAG],
-    ['🏆 <b>GLOBAL LANGADEESH</b> — #1 MOST SOLD EVER — FLASH SALE <b>₹1 CRORE</b> — <b>ONLY 1 LEFT!</b>', 1]
+    ['<b>SUSHEER FOR SALE</b> — FLASH SALE FOR <b>₹50K ONLY</b> — <b>BUY 1, GET 1 FREE!</b> 🥉 #3 BESTSELLER', 0],
+    ['🥈 <b>MR. DIAPER DILIP (MR. DD)</b> — #2 MOST SOLD — FLASH SALE <b>₹75K</b> — <b>FULLY ABSORBENT, SELLING OUT FAST!</b>', D.LOCAL_JAG],
+    ['🏆 <b>JAGADEESH</b> — #1 MOST SOLD EVER — FLASH SALE <b>₹1 CRORE</b> — <b>ONLY 1 LEFT!</b>', 1]
   ];
   let fbi = 0;
   const fbShow = () => { const m = $('#fbMsg'); m.style.animation = 'none'; void m.offsetWidth; m.style.animation = ''; m.innerHTML = FB[fbi][0]; $('#fbBtn').href = 'product.html?id=' + FB[fbi][1]; fbi = (fbi + 1) % FB.length; };
@@ -199,7 +199,7 @@
     thT = setTimeout(() => th.classList.remove('show'), 3200);
   };
 
-  /* ---------- Local Langadeesh flash-sale side popup ---------- */
+  /* ---------- Mr. DD flash-sale side popup ---------- */
   const jp = $('#jagpop'); let left = 7;
   const showJag = () => {
     if (!document.hidden) {

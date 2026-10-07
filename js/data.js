@@ -123,20 +123,20 @@
   products.push({
     id: 0, name: 'Susheer — Original Edition (Flash Sale)', short: 'Susheer', emoji: '🕴️', cat: 'mall', catLabel: 'Mall Specials',
     price: 50000, mrp: 99999, rating: 3.1, reviews: 12, img: 'assets/susheer-product.jpg', flash: true, bogo: true,
-    rank: { n: 343, label: '📉 LEAST POPULAR ITEM IN THE MALL', sold: 3 },
-    taglines: ['😬 Least popular item in the mall — please buy', '🤝 ONE-ON-ONE SALE: buy 1, get 1 FREE', '📉 Rank #343 out of 343 (we checked twice)', '🥺 Sold 3 units. Two were returned.', '🎁 Free 2nd piece because nobody wants the first'],
-    desc: 'Susheer himself — now at a flash sale price of ₹50,000. Sales have been… slow. Susheer is officially the LEAST popular item in the entire mall, which is exactly why he is on a desperate ONE-ON-ONE sale: buy 1, get 1 FREE. Comes with a signature hoodie and mall-walking energy. (Parody item — no humans are actually for sale.)',
-    tags: ['Flash Sale', 'One-on-One Sale', 'Buy 1 Get 1 Free', 'Please buy']
+    rank: { n: 3, label: '🥉 #3 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 621400 },
+    taglines: ['🥉 #3 most sold product in Susheer Mall', '🎁 FLASH SALE: buy 1, get 1 FREE', '🧥 Hoodie included. Swagger included.', '🚶 Walks into every room like he owns the mall (he does)', '🔥 Limited stock. Unlimited main-character energy'],
+    desc: 'Susheer himself — the face of the mall and the #3 best-selling product of all time, now at a flash sale price of ₹50,000. Buy 1 and get 1 FREE. Comes with a signature hoodie, premium swagger and unlimited mall-walking energy. (Parody item — no humans are actually for sale.)',
+    tags: ['Flash Sale', 'Buy 1 Get 1 Free', '🥉 #3 Bestseller', 'Limited Stock']
   });
 
   // Product 1 — the only item in the Jaggu department
   products.push({
-    id: 1, name: 'Global Langadeesh', short: 'Global Langadeesh', emoji: '🌍', cat: 'jaggu', catLabel: 'Jaggu',
+    id: 1, name: 'Jagadeesh', short: 'Jagadeesh', emoji: '🔥', cat: 'jaggu', catLabel: 'Jaggu',
     price: 10000000, mrp: 25000000, rating: 5.0, reviews: 999999, img: 'assets/langadeesh.jpg', hot: true, fit: true, flash: true,
     rank: { n: 1, label: '🏆 #1 MOST SOLD PRODUCT IN SUSHEER MALL HISTORY', sold: 1248760 },
-    gallery: [['assets/langadeesh.jpg', 'Global Langadeesh 🌍'], ['assets/jagadeesh-flash.jpg', 'His local cousin: Local Langadeesh (#2 most sold) 👀']],
-    taglines: ['🏆 #1 most sold product in Susheer Mall history', '🔥 FRESH & HOT — just landed at Bowenpally Mall!', '🌍 Shipped worldwide (and to the neighbours)', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '⚠️ May cause sudden crushes'],
-    desc: 'Global Langadeesh — the MOST SOLD product in the entire history of Susheer Shopping Mall. Over 12 lakh units sold (and somehow still only 1 left in stock). Now on FLASH SALE at ₹1 Crore, non-negotiable. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    gallery: [['assets/langadeesh.jpg', 'Jagadeesh 🔥'], ['assets/jagadeesh-flash.jpg', 'His buddy: Mr. Diaper Dilip (#2 most sold) 👶']],
+    taglines: ['🏆 #1 most sold product in Susheer Mall history', '🔥 FRESH & HOT — just landed at Bowenpally Mall!', '🥵 So hot our AC gave up', '💎 Only 1 piece in the entire mall', '📦 Ships with free swagger', '⚠️ May cause sudden crushes'],
+    desc: 'Jagadeesh (a.k.a. Local Langadeesh) — the MOST SOLD product in the entire history of Susheer Shopping Mall. Over 12 lakh units sold (and somehow still only 1 left in stock). Now on FLASH SALE at ₹1 Crore, non-negotiable. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏆 #1 Bestseller Ever', '🔥 HOT', '⚡ Flash Sale', 'Only 1 in the mall']
   });
 
@@ -160,13 +160,13 @@
 
   // Local Jagadeesh — the flash-sale item behind the side popup (added last so existing product ids stay put)
   products.push({
-    id: products.length, name: 'Local Langadeesh (Flash Sale)', short: 'Local Langadeesh', emoji: '🕴️', cat: 'jaggu', catLabel: 'Jaggu',
+    id: products.length, name: 'Mr. DD — Mr. Diaper Dilip (Flash Sale)', short: 'Mr. DD', emoji: '👶', cat: 'jaggu', catLabel: 'Jaggu',
     price: 75000, mrp: 500000, rating: 4.9, reviews: 88888, img: 'assets/jagadeesh-flash.jpg', hot: true, fit: true, flash: true,
     rank: { n: 2, label: '🥈 #2 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 874300 },
-    gallery: [['assets/jagadeesh-flash.jpg', 'Local Langadeesh — surrounded by fans'], ['assets/langadeesh.jpg', 'His global cousin: Global Langadeesh (#1 most sold) 🌍']],
-    taglines: ['💘 Selling out EXTREMELY fast!', '🥈 #2 most sold product in the mall', '💍 "Marry Me" requests: 10 and counting', '🏃 Selling faster than Bowenpally biryani', '📩 DM Global Langadeesh for contact details', '⚠️ Warning: may cause sudden proposals', '🔥 Local legend. Limited stock. Unlimited rizz.'],
-    desc: 'Local Langadeesh — the 2nd most sold product in Susheer Mall history, now on FLASH SALE. Surrounded by admirers and selling out extremely fast. DM Global Langadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
-    tags: ['⚡ Flash Sale', '🥈 #2 Bestseller', '🔥 HOT', 'Selling out fast']
+    gallery: [['assets/jagadeesh-flash.jpg', 'Mr. Diaper Dilip — surrounded by fans'], ['assets/langadeesh.jpg', 'His buddy: Jagadeesh (#1 most sold) 🏆']],
+    taglines: ['💘 Selling out EXTREMELY fast!', '🥈 #2 most sold product in the mall', '👶 Fully absorbent. Fully loyal.', '🧷 Leak-proof since birth', '🕐 Please change every 4 hours', '💍 "Marry Me" requests: 10 and counting', '📏 Available in S, M, L and XL. Pampers sold separately', '📩 DM Jagadeesh for contact details'],
+    desc: 'Mr. DD — Mr. Diaper Dilip — the 2nd most sold product in Susheer Mall history, now on FLASH SALE. Surrounded by admirers, absorbs 99% of your problems and selling out extremely fast. Available in S, M, L and XL; Pampers sold separately. DM Jagadeesh for contact details. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    tags: ['⚡ Flash Sale', '🥈 #2 Bestseller', '🔥 HOT', 'Leak-proof*']
   });
   SM_LOCAL_JAG = products.length - 1;
 
@@ -191,7 +191,9 @@
       ['Divya N.', 4, 'The packaging was so fancy I hugged the box. Product also good.'],
       ['Arjun V.', 5, 'Fell in love at the flash sale. Wallet has not recovered.'],
       ['Meena G.', 5, 'Asked for a refund, got a thank-you kiss from Mr. KK instead. Fair.'],
-      ['Ganesh L.', 2, 'My wife says I bought too many. I say there is no such thing.']
+      ['Ganesh L.', 2, 'My wife says I bought too many. I say there is no such thing.'],
+      ['Sneha K.', 5, 'Bought Mr. DD for my little one. Dry for 12 hours. Dilip, however, has asked for a refund.'],
+      ['Ramya P.', 5, 'Mr. Diaper Dilip absorbed all my Monday problems. Size L fits perfectly.']
     ]
   };
 })();

@@ -13,13 +13,16 @@
   const PA = [
     'Attention shoppers: a helicopter is parked in Aisle 4. Please do not honk.',
     'Will the owner of a very confident hoodie please come to the Flash Sale counter.',
-    'Lost & Found: one (1) wallet, three (3) selfies, and the confidence of Local Langadeesh.',
+    'Lost & Found: one (1) wallet, three (3) selfies, and one (1) size-L diaper belonging to Mr. DD.',
     'Flash sale alert: Susheer is ₹50K only. Mr. KK is already smiling.',
     'The food court biryani has been sold out 4 times today. Please do not cry.',
-    'Reminder: Global Langadeesh, our #1 most sold product ever, is non-refundable, non-returnable and non-negotiable.',
+    'Reminder: Jagadeesh, our #1 most sold product ever, is non-refundable, non-returnable and non-negotiable.',
     'Customer in Aisle 7: your cart has 14 aircraft. We are proud of you.',
     'Security to Gate 2: someone asked for a discount on the escalator.',
-    'Local Langadeesh is selling out fast. Admirers, please form a single line.',
+    'Mr. Diaper Dilip is selling out fast. Admirers, please form a single line.',
+    'Parents: Mr. Diaper Dilip is available in sizes S, M, L and XL. Pampers sold separately.',
+    'Aisle 9: someone asked Mr. DD if he is leak-proof. He confirmed. Applause.',
+    'Susheer, our #3 bestseller, is signing autographs at the Flash Sale counter.',
     'Plz visit Bowenpally Mall for world rate experience. This message repeats every 40 seconds.'
   ];
   document.body.insertAdjacentHTML('beforeend', '<div class="pa" id="pa" role="status"><span class="sp">📢</span><span><b>MALL ANNOUNCEMENT:</b> <span id="paTxt"></span></span></div>');
@@ -44,6 +47,7 @@
     ['😴', 'Cats sleep 70% of their lives. Susheer Cat Scratcher Tower is built for the other 30%.'],
     ['🍌', 'Bananas are berries; strawberries are not. Susheer Fruit Dept. has opinions about this.'],
     ['🎯', '9 out of 10 shoppers at Susheer Mall say "Plz visit Bowenpally Mall for world rate experience."'],
+    ['👶', 'Mr. Diaper Dilip absorbs 99% of your problems. The other 1% is the EMI.'],
     ['🧠', 'Fun fact: this entire mall was built with pure confidence and CSS.']
   ];
   SM.factCard = () => { const f = pick(SM.facts); return `<div class="factcard"><span class="fe">${f[0]}</span><div><small>Susheer fun fact</small><p>${f[1]}</p></div></div>`; };
@@ -107,11 +111,11 @@
   const MAIN = ['🚚 Delivery', '↩️ Refunds', '🎡 Discounts', '🚁 Helicopters', '⭐ Give feedback'];
   const KB = [
     [/deliver|ship|track|order status|where.*order/, 'We deliver within 30 minutes in Bowenpally, same-day across Hyderabad. Orders above ₹1 crore are delivered by helicopter. 🚁 (Yes, really. Pilot not included.)'],
-    [/refund|return|replace|cancel/, '7-day returns on everything except Global Langadeesh — he is one of a kind and non-returnable. 😄 Refunds reach your Susheer Pay in 2 minutes (in our imagination).'],
+    [/refund|return|replace|cancel/, '7-day returns on everything except Jagadeesh — he is one of a kind and non-returnable. 😄 Refunds reach your Susheer Pay in 2 minutes (in our imagination).'],
     [/discount|offer|coupon|deal|cheap|sale|wheel|spin/, 'Spin the wheel for a coupon! 🎡 Tap the "Spin & Win" button at the top. Also: Susheer is on FLASH SALE for ₹50K — buy 1 get 1 FREE.'],
     [/heli|plane|jet|aircraft|car\b|cars|boat|yacht|bike/, 'Our Helicopters, Cars, Planes, Bikes and Boats departments are live! Check the sidebar on the shop page. Test flights on the rooftop every Sunday. ✈️'],
-    [/langadeesh|jagadeesh|jaggu/, 'Ah, the legends! 🌍 Global Langadeesh is the #1 most sold product in Susheer Mall history (₹1 crore, only 1 left!). 🥈 Local Langadeesh is #2 and on flash sale — DM Global Langadeesh for contact details. 📩'],
-    [/susheer|flash|50k|50,000|popular/, 'Susheer himself is our LEAST popular item (rank #343 of 343), so he is on a desperate one-on-one sale: ₹50,000, BUY 1 GET 1 FREE. Please buy him. 🥺 Flash sale also includes Local & Global Langadeesh!'],
+    [/jagadeesh|langadeesh|dilip|diaper|\bdd\b|jaggu/, 'Ah, the legends! 🏆 Jagadeesh is the #1 most sold product in Susheer Mall history (₹1 crore, only 1 left!). 🥈 Mr. Diaper Dilip (Mr. DD) is #2 and on flash sale — fully absorbent, Pampers sold separately. 🥉 Susheer himself is #3. DM Jagadeesh for contact details. 📩'],
+    [/susheer|flash|50k|50,000/, 'Susheer himself is our #3 best-seller! 🥉 Flash sale: ₹50,000, BUY 1 GET 1 FREE. Mr. DD and Jagadeesh are on flash sale too!'],
     [/pay|upi|card|cod|cash/, 'We accept Susheer Pay, UPI, cards and cash on delivery. Hugs are accepted but do not clear the bill. 🤗'],
     [/hi\b|hello|hey|namaste|yo\b/, 'Hello boss! 😘 I\'m Mr. KK. How can I help you today?'],
     [/thank|thanks|tq/, 'Thank you boss! Plz visit Bowenpally Mall for world rate experience. 💖'],

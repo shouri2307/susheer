@@ -26,7 +26,7 @@
       <div class="rate" style="margin-top:10px;font-size:14px"><span class="star">${p.rating} ★</span><span class="rv">${p.reviews.toLocaleString('en-IN')} ratings</span></div>
       <div class="big-price">${inr(p.price)} <s>${inr(p.mrp)}</s> <span class="off">${off}% off</span></div>
       ${p.hot ? `<div class="hot-box">🔥 <b>HOT!</b> <b>${SM.sold(2000, 7000)}</b> sold in the last hour · 👀 <b class="js-view">47</b> people viewing right now · <b>Only 1 left in the mall!</b>${p.flash ? ' · ⚡ <b>FLASH SALE</b> ends in <b class="js-timer">--:--:--</b>' : ''}</div>` : ''}
-      ${p.bogo ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · 😅 Sales are slow, so this is a <b>ONE-ON-ONE SALE: BUY 1, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
+      ${p.bogo ? `<div class="bogo-box">🔥 FLASH SALE ends in <b class="js-timer">--:--:--</b> · <b>BUY 1, GET 1 FREE!</b> Add one and the second is automatically free.</div>` : ''}
       <div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="offers">
         <div><b>Bank offer:</b> 10% instant discount on Susheer Pay cards</div>
