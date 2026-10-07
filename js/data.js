@@ -242,17 +242,17 @@
     ]
   });
   person({
-    name: 'Chetak Rohit (aka Chapri Rohit)', short: 'Chetak Rohit', emoji: '🛵', price: 249999, mrp: 999999, rating: 4.5, reviews: 197500, img: 'assets/rohit.jpg',
+    name: 'Chetaku Rohit', short: 'Chetaku Rohit', emoji: '🛵', price: 249999, mrp: 999999, rating: 4.5, reviews: 197500, img: 'assets/rohit.jpg',
     rank: { n: 6, label: '🏅 #6 MOST SOLD PRODUCT IN SUSHEER MALL', sold: 197500 },
     note: 'Official Chapri of Bowenpally Mall 🛵',
-    taglines: ['🛵 Rides the Chetak at 80 km/h (in his head)', '🏅 Official Chapri of Bowenpally Mall', '🍵 Sells Rohit\'s Special Kadha', '📣 Horn louder than the PA system', '😎 Aura: unmatched. Helmet: optional.'],
-    highlights: ['🏅 Titled Official Chapri of Bowenpally Mall', '🛵 Rides his Chetak like it is a racehorse', '🍵 Sells Rohit\'s Special Kadha — cures Mondays', '📣 Horn included, louder than the mall PA', '🧢 Style: unmatched. Helmet: sometimes.'],
-    desc: 'Chetak Rohit, a.k.a. Chapri Rohit — the mall\'s #6 best-seller and its Official Chapri. He arrives on a Chetak, leaves in a cloud of confidence, and sells Rohit\'s Special Kadha to anyone with a bad Monday. Horn louder than the PA system. (Parody item — approved by the guy himself, no humans are actually for sale.)',
+    taglines: ['🛵 Rides at minimum 100 km/h. Minimum.', '🏅 Official Chapri of Bowenpally Mall', '🍵 Sells Rohit\'s Special Kadha', '📣 Horn louder than the PA system', '😎 Aura: unmatched. Helmet: optional.'],
+    highlights: ['🏅 Titled Official Chapri of Bowenpally Mall', '🛵 Rides at a minimum speed of 100 km/h — brakes are for other people', '🍵 Sells Rohit\'s Special Kadha — cures Mondays', '📣 Horn included, louder than the mall PA', '🧢 Style: unmatched. Helmet: sometimes.'],
+    desc: 'Chetaku Rohit, a.k.a. Chapri Rohit — the mall\'s #6 best-seller and its Official Chapri. He rides at a minimum of 100 km/h, arrives on his Chetak in a blur, leaves in a cloud of confidence, and sells Rohit\'s Special Kadha to anyone with a bad Monday. Horn louder than the PA system. (Parody item — approved by the guy himself, no humans are actually for sale.)',
     tags: ['🏅 #6 Bestseller', '🛵 Chetak', '🏅 Official Chapri', '🔥 HOT'],
-    popup: { tag: '🛵 TRENDING · CHAPRI ALERT', title: 'Chetak Rohit — the Official Chapri — is selling out!', small: '{left} left · horn included' },
-    pitch: 'Psst! Chetak Rohit, our Official Chapri, is on sale for ₹2,49,999. Horn included!',
+    popup: { tag: '🛵 TRENDING · CHAPRI ALERT', title: 'Chetaku Rohit — the Official Chapri — is selling out!', small: '{left} left · horn included' },
+    pitch: 'Psst! Chetaku Rohit, our Official Chapri, rides at 100+ km/h and is on sale for ₹2,49,999. Horn included!',
     reviewList: [
-      ['Venkat R.', 5, 'Reached the mall in 4 minutes on his Chetak. Left a cloud of confidence behind.'],
+      ['Venkat R.', 5, 'Reached the mall in 4 minutes at 100+ km/h. Left a cloud of confidence behind.'],
       ['Priya S.', 4, 'Official Chapri of Bowenpally Mall. Sunglasses stay on even indoors.'],
       ['Anjali M.', 5, 'His special kadha cured my Monday. Tuesday still pending.'],
       ['Lakshmi D.', 3, 'Scooter horn is louder than the PA system. Respect.']
